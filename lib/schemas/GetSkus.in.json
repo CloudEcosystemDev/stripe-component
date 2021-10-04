@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "active": {
+            "required": false,
+            "type": "boolean"
+        },
+        "attributes": {
+            "required": false,
+            "additionalProperties": {
+                "maxLength": 500,
+                "type": "string"
+            },
+            "type": "object"
+        },
+        "ending_before": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "ids": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "in_stock": {
+            "required": false,
+            "type": "boolean"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "product": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "starting_after": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "domain_name": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "starting_after": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

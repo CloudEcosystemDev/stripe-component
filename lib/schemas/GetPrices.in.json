@@ -1,0 +1,110 @@
+{
+    "type": "object",
+    "properties": {
+        "active": {
+            "required": false,
+            "type": "boolean"
+        },
+        "created": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "currency": {
+            "required": false,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "lookup_keys": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "product": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "recurring": {
+            "required": false,
+            "properties": {
+                "interval": {
+                    "enum": [
+                        "day",
+                        "month",
+                        "week",
+                        "year"
+                    ],
+                    "type": "string"
+                },
+                "usage_type": {
+                    "enum": [
+                        "licensed",
+                        "metered"
+                    ],
+                    "type": "string"
+                }
+            },
+            "title": "all_prices_recurring_params",
+            "type": "object"
+        },
+        "starting_after": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "type": {
+            "required": false,
+            "enum": [
+                "one_time",
+                "recurring"
+            ],
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

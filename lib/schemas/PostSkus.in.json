@@ -1,0 +1,121 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "active": {
+                    "description": "Whether the SKU is available for purchase. Default to `true`.",
+                    "type": "boolean"
+                },
+                "attributes": {
+                    "additionalProperties": {
+                        "maxLength": 500,
+                        "type": "string"
+                    },
+                    "description": "A dictionary of attributes and values for the attributes defined by the product. If, for example, a product's attributes are `[\"size\", \"gender\"]`, a valid SKU has the following dictionary of attributes: `{\"size\": \"Medium\", \"gender\": \"Unisex\"}`.",
+                    "type": "object"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The identifier for the SKU. Must be unique. If not provided, an identifier will be randomly generated.",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The URL of an image for this SKU, meant to be displayable to the customer.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "inventory": {
+                    "description": "Description of the SKU's inventory.",
+                    "properties": {
+                        "quantity": {
+                            "type": "integer"
+                        },
+                        "type": {
+                            "enum": [
+                                "bucket",
+                                "finite",
+                                "infinite"
+                            ],
+                            "type": "string"
+                        },
+                        "value": {
+                            "enum": [
+                                "",
+                                "in_stock",
+                                "limited",
+                                "out_of_stock"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "title": "inventory_create_specs",
+                    "type": "object"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`.",
+                    "type": "object"
+                },
+                "package_dimensions": {
+                    "description": "The dimensions of this SKU for shipping purposes.",
+                    "properties": {
+                        "height": {
+                            "type": "number"
+                        },
+                        "length": {
+                            "type": "number"
+                        },
+                        "weight": {
+                            "type": "number"
+                        },
+                        "width": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "height",
+                        "length",
+                        "weight",
+                        "width"
+                    ],
+                    "title": "package_dimensions_specs",
+                    "type": "object"
+                },
+                "price": {
+                    "description": "The cost of the item as a nonnegative integer in the smallest currency unit (that is, 100 cents to charge $1.00, or 100 to charge ¥100, Japanese Yen being a zero-decimal currency).",
+                    "type": "integer"
+                },
+                "product": {
+                    "description": "The ID of the product this SKU is associated with. Must be a product with type `good`.",
+                    "maxLength": 5000,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "currency",
+                "inventory",
+                "price",
+                "product"
+            ],
+            "type": "object"
+        }
+    }
+}

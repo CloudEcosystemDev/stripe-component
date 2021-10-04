@@ -1,0 +1,237 @@
+{
+    "type": "object",
+    "properties": {
+        "intent": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "client_secret": {
+                    "description": "The client secret of the SetupIntent.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "mandate_data": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "customer_acceptance": {
+                                    "properties": {
+                                        "accepted_at": {
+                                            "format": "unix-time",
+                                            "type": "integer"
+                                        },
+                                        "offline": {
+                                            "properties": {},
+                                            "title": "offline_param",
+                                            "type": "object"
+                                        },
+                                        "online": {
+                                            "properties": {
+                                                "ip_address": {
+                                                    "type": "string"
+                                                },
+                                                "user_agent": {
+                                                    "maxLength": 5000,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "ip_address",
+                                                "user_agent"
+                                            ],
+                                            "title": "online_param",
+                                            "type": "object"
+                                        },
+                                        "type": {
+                                            "enum": [
+                                                "offline",
+                                                "online"
+                                            ],
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "type"
+                                    ],
+                                    "title": "customer_acceptance_param",
+                                    "type": "object"
+                                }
+                            },
+                            "required": [
+                                "customer_acceptance"
+                            ],
+                            "title": "secret_key_param",
+                            "type": "object"
+                        },
+                        {
+                            "properties": {
+                                "customer_acceptance": {
+                                    "properties": {
+                                        "online": {
+                                            "properties": {
+                                                "ip_address": {
+                                                    "type": "string"
+                                                },
+                                                "user_agent": {
+                                                    "maxLength": 5000,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "online_param",
+                                            "type": "object"
+                                        },
+                                        "type": {
+                                            "enum": [
+                                                "online"
+                                            ],
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "online",
+                                        "type"
+                                    ],
+                                    "title": "customer_acceptance_param",
+                                    "type": "object"
+                                }
+                            },
+                            "required": [
+                                "customer_acceptance"
+                            ],
+                            "title": "client_key_param",
+                            "type": "object"
+                        }
+                    ],
+                    "description": "This hash contains details about the Mandate to create"
+                },
+                "payment_method": {
+                    "description": "ID of the payment method (a PaymentMethod, Card, or saved Source object) to attach to this SetupIntent.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "payment_method_options": {
+                    "description": "Payment-method-specific configuration for this SetupIntent.",
+                    "properties": {
+                        "acss_debit": {
+                            "properties": {
+                                "currency": {
+                                    "enum": [
+                                        "cad",
+                                        "usd"
+                                    ],
+                                    "type": "string"
+                                },
+                                "mandate_options": {
+                                    "properties": {
+                                        "custom_mandate_url": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "enum": [
+                                                        ""
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "default_for": {
+                                            "items": {
+                                                "enum": [
+                                                    "invoice",
+                                                    "subscription"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "interval_description": {
+                                            "maxLength": 500,
+                                            "type": "string"
+                                        },
+                                        "payment_schedule": {
+                                            "enum": [
+                                                "combined",
+                                                "interval",
+                                                "sporadic"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "transaction_type": {
+                                            "enum": [
+                                                "business",
+                                                "personal"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "setup_intent_payment_method_options_mandate_options_param",
+                                    "type": "object"
+                                },
+                                "verification_method": {
+                                    "enum": [
+                                        "automatic",
+                                        "instant",
+                                        "microdeposits"
+                                    ],
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
+                                }
+                            },
+                            "title": "setup_intent_payment_method_options_param",
+                            "type": "object"
+                        },
+                        "card": {
+                            "properties": {
+                                "request_three_d_secure": {
+                                    "enum": [
+                                        "any",
+                                        "automatic"
+                                    ],
+                                    "maxLength": 5000,
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
+                                }
+                            },
+                            "title": "setup_intent_param",
+                            "type": "object"
+                        },
+                        "sepa_debit": {
+                            "properties": {
+                                "mandate_options": {
+                                    "properties": {},
+                                    "title": "payment_method_options_mandate_options_param",
+                                    "type": "object"
+                                }
+                            },
+                            "title": "setup_intent_payment_method_options_param",
+                            "type": "object"
+                        }
+                    },
+                    "title": "payment_method_options_param",
+                    "type": "object"
+                },
+                "return_url": {
+                    "description": "The URL to redirect your customer back to after they authenticate on the payment method's app or site.\nIf you'd prefer to redirect to a mobile application, you can alternatively supply an application URI scheme.\nThis parameter is only used for cards and other redirect-based payment methods.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

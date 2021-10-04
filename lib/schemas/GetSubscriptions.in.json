@@ -1,0 +1,143 @@
+{
+    "type": "object",
+    "properties": {
+        "collection_method": {
+            "required": false,
+            "enum": [
+                "charge_automatically",
+                "send_invoice"
+            ],
+            "type": "string"
+        },
+        "created": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "current_period_end": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "current_period_start": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "customer": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "price": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "starting_after": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "enum": [
+                "active",
+                "all",
+                "canceled",
+                "ended",
+                "incomplete",
+                "incomplete_expired",
+                "past_due",
+                "trialing",
+                "unpaid"
+            ],
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

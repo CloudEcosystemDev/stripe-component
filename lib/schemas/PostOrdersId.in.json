@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "coupon": {
+                    "description": "A coupon code that represents a discount to be applied to this order. Must be one-time duration and in same currency as the order. An order can have multiple coupons.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "anyOf": [
+                        {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`."
+                },
+                "selected_shipping_method": {
+                    "description": "The shipping method to select for fulfilling this order. If specified, must be one of the `id`s of a shipping method in the `shipping_methods` array. If specified, will overwrite the existing selected shipping method, updating `items` as necessary.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "shipping": {
+                    "description": "Tracking information once the order has been fulfilled.",
+                    "properties": {
+                        "carrier": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "tracking_number": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "carrier",
+                        "tracking_number"
+                    ],
+                    "title": "shipping_tracking_params",
+                    "type": "object"
+                },
+                "status": {
+                    "description": "Current order status. One of `created`, `paid`, `canceled`, `fulfilled`, or `returned`. More detail in the [Orders Guide](https://stripe.com/docs/orders/guide#understanding-order-statuses).",
+                    "enum": [
+                        "canceled",
+                        "created",
+                        "fulfilled",
+                        "paid",
+                        "returned"
+                    ],
+                    "maxLength": 5000,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

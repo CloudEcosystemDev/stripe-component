@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "coupon": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

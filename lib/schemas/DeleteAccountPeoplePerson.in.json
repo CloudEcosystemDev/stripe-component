@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "person": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

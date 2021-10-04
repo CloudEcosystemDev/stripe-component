@@ -1,0 +1,145 @@
+{
+    "type": "object",
+    "properties": {
+        "canceled_at": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "completed_at": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "created": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "customer": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "released_at": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "scheduled": {
+            "required": false,
+            "type": "boolean"
+        },
+        "starting_after": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

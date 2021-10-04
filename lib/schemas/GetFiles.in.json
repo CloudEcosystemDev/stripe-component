@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "created": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "ending_before": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "purpose": {
+            "required": false,
+            "enum": [
+                "account_requirement",
+                "additional_verification",
+                "business_icon",
+                "business_logo",
+                "customer_signature",
+                "dispute_evidence",
+                "document_provider_identity_document",
+                "finance_report_run",
+                "identity_document",
+                "identity_document_downloadable",
+                "pci_document",
+                "selfie",
+                "sigma_scheduled_query",
+                "tax_document_user_upload"
+            ],
+            "maxLength": 5000,
+            "type": "string",
+            "x-stripeBypassValidation": true
+        },
+        "starting_after": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

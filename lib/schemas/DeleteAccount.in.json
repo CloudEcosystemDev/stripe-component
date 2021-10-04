@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "account": {
+                    "maxLength": 5000,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

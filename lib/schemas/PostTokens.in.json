@@ -1,0 +1,945 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "account": {
+                    "description": "Information for the account this token will represent.",
+                    "properties": {
+                        "business_type": {
+                            "enum": [
+                                "company",
+                                "government_entity",
+                                "individual",
+                                "non_profit"
+                            ],
+                            "type": "string",
+                            "x-stripeBypassValidation": true
+                        },
+                        "company": {
+                            "properties": {
+                                "address": {
+                                    "properties": {
+                                        "city": {
+                                            "maxLength": 100,
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "maxLength": 200,
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "maxLength": 200,
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "address_specs",
+                                    "type": "object"
+                                },
+                                "address_kana": {
+                                    "properties": {
+                                        "city": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "japan_address_kana_specs",
+                                    "type": "object"
+                                },
+                                "address_kanji": {
+                                    "properties": {
+                                        "city": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "japan_address_kanji_specs",
+                                    "type": "object"
+                                },
+                                "directors_provided": {
+                                    "type": "boolean"
+                                },
+                                "executives_provided": {
+                                    "type": "boolean"
+                                },
+                                "name": {
+                                    "maxLength": 100,
+                                    "type": "string"
+                                },
+                                "name_kana": {
+                                    "maxLength": 100,
+                                    "type": "string"
+                                },
+                                "name_kanji": {
+                                    "maxLength": 100,
+                                    "type": "string"
+                                },
+                                "owners_provided": {
+                                    "type": "boolean"
+                                },
+                                "phone": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "registration_number": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "structure": {
+                                    "enum": [
+                                        "",
+                                        "free_zone_establishment",
+                                        "free_zone_llc",
+                                        "government_instrumentality",
+                                        "governmental_unit",
+                                        "incorporated_non_profit",
+                                        "limited_liability_partnership",
+                                        "llc",
+                                        "multi_member_llc",
+                                        "private_company",
+                                        "private_corporation",
+                                        "private_partnership",
+                                        "public_company",
+                                        "public_corporation",
+                                        "public_partnership",
+                                        "single_member_llc",
+                                        "sole_establishment",
+                                        "sole_proprietorship",
+                                        "tax_exempt_government_instrumentality",
+                                        "unincorporated_association",
+                                        "unincorporated_non_profit"
+                                    ],
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
+                                },
+                                "tax_id": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "tax_id_registrar": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "vat_id": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "verification": {
+                                    "properties": {
+                                        "document": {
+                                            "properties": {
+                                                "back": {
+                                                    "maxLength": 500,
+                                                    "type": "string"
+                                                },
+                                                "front": {
+                                                    "maxLength": 500,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "verification_document_specs",
+                                            "type": "object"
+                                        }
+                                    },
+                                    "title": "verification_specs",
+                                    "type": "object"
+                                }
+                            },
+                            "title": "company_specs",
+                            "type": "object"
+                        },
+                        "individual": {
+                            "properties": {
+                                "address": {
+                                    "properties": {
+                                        "city": {
+                                            "maxLength": 100,
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "maxLength": 200,
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "maxLength": 200,
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "address_specs",
+                                    "type": "object"
+                                },
+                                "address_kana": {
+                                    "properties": {
+                                        "city": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "japan_address_kana_specs",
+                                    "type": "object"
+                                },
+                                "address_kanji": {
+                                    "properties": {
+                                        "city": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "japan_address_kanji_specs",
+                                    "type": "object"
+                                },
+                                "dob": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "day": {
+                                                    "type": "integer"
+                                                },
+                                                "month": {
+                                                    "type": "integer"
+                                                },
+                                                "year": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "required": [
+                                                "day",
+                                                "month",
+                                                "year"
+                                            ],
+                                            "title": "date_of_birth_specs",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "first_name": {
+                                    "maxLength": 100,
+                                    "type": "string"
+                                },
+                                "first_name_kana": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "first_name_kanji": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "full_name_aliases": {
+                                    "items": {
+                                        "maxLength": 300,
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                },
+                                "id_number": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "last_name": {
+                                    "maxLength": 100,
+                                    "type": "string"
+                                },
+                                "last_name_kana": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "last_name_kanji": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "maiden_name": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "metadata": {
+                                    "anyOf": [
+                                        {
+                                            "additionalProperties": {
+                                                "type": "string"
+                                            },
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "political_exposure": {
+                                    "enum": [
+                                        "existing",
+                                        "none"
+                                    ],
+                                    "type": "string"
+                                },
+                                "ssn_last_4": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "verification": {
+                                    "properties": {
+                                        "additional_document": {
+                                            "properties": {
+                                                "back": {
+                                                    "maxLength": 500,
+                                                    "type": "string"
+                                                },
+                                                "front": {
+                                                    "maxLength": 500,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "person_verification_document_specs",
+                                            "type": "object"
+                                        },
+                                        "document": {
+                                            "properties": {
+                                                "back": {
+                                                    "maxLength": 500,
+                                                    "type": "string"
+                                                },
+                                                "front": {
+                                                    "maxLength": 500,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "person_verification_document_specs",
+                                            "type": "object"
+                                        }
+                                    },
+                                    "title": "person_verification_specs",
+                                    "type": "object"
+                                }
+                            },
+                            "title": "individual_specs",
+                            "type": "object"
+                        },
+                        "tos_shown_and_accepted": {
+                            "type": "boolean"
+                        }
+                    },
+                    "title": "connect_js_account_token_specs",
+                    "type": "object"
+                },
+                "bank_account": {
+                    "description": "The bank account this token will represent.",
+                    "properties": {
+                        "account_holder_name": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "account_holder_type": {
+                            "enum": [
+                                "company",
+                                "individual"
+                            ],
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "account_number": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "account_type": {
+                            "enum": [
+                                "checking",
+                                "futsu",
+                                "savings",
+                                "toza"
+                            ],
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "country": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "currency": {
+                            "type": "string"
+                        },
+                        "routing_number": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "account_number",
+                        "country"
+                    ],
+                    "title": "token_create_bank_account",
+                    "type": "object",
+                    "x-stripeBypassValidation": true
+                },
+                "card": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "address_city": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "address_country": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "address_line1": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "address_line2": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "address_state": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "address_zip": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "currency": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "cvc": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "exp_month": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "exp_year": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "number": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "exp_month",
+                                "exp_year",
+                                "number"
+                            ],
+                            "title": "credit_card_specs",
+                            "type": "object"
+                        },
+                        {
+                            "maxLength": 5000,
+                            "type": "string"
+                        }
+                    ],
+                    "x-stripeBypassValidation": true
+                },
+                "customer": {
+                    "description": "The customer (owned by the application's account) for which to create a token. This can be used only with an [OAuth access token](https://stripe.com/docs/connect/standard-accounts) or [Stripe-Account header](https://stripe.com/docs/connect/authentication). For more details, see [Cloning Saved Payment Methods](https://stripe.com/docs/connect/cloning-saved-payment-methods).",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "cvc_update": {
+                    "description": "The updated CVC value this token will represent.",
+                    "properties": {
+                        "cvc": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "cvc"
+                    ],
+                    "title": "cvc_params",
+                    "type": "object"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "person": {
+                    "description": "Information for the person this token will represent.",
+                    "properties": {
+                        "address": {
+                            "properties": {
+                                "city": {
+                                    "maxLength": 100,
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "maxLength": 200,
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "maxLength": 200,
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "title": "address_specs",
+                            "type": "object"
+                        },
+                        "address_kana": {
+                            "properties": {
+                                "city": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "town": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "title": "japan_address_kana_specs",
+                            "type": "object"
+                        },
+                        "address_kanji": {
+                            "properties": {
+                                "city": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "town": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "title": "japan_address_kanji_specs",
+                            "type": "object"
+                        },
+                        "dob": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "day": {
+                                            "type": "integer"
+                                        },
+                                        "month": {
+                                            "type": "integer"
+                                        },
+                                        "year": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "day",
+                                        "month",
+                                        "year"
+                                    ],
+                                    "title": "date_of_birth_specs",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "documents": {
+                            "properties": {
+                                "company_authorization": {
+                                    "properties": {
+                                        "files": {
+                                            "items": {
+                                                "maxLength": 500,
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "title": "documents_param",
+                                    "type": "object"
+                                },
+                                "passport": {
+                                    "properties": {
+                                        "files": {
+                                            "items": {
+                                                "maxLength": 500,
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "title": "documents_param",
+                                    "type": "object"
+                                },
+                                "visa": {
+                                    "properties": {
+                                        "files": {
+                                            "items": {
+                                                "maxLength": 500,
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "title": "documents_param",
+                                    "type": "object"
+                                }
+                            },
+                            "title": "person_documents_specs",
+                            "type": "object"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "first_name": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "first_name_kana": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "first_name_kanji": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "full_name_aliases": {
+                            "items": {
+                                "maxLength": 5000,
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "gender": {
+                            "type": "string"
+                        },
+                        "id_number": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "last_name": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "last_name_kana": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "last_name_kanji": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "maiden_name": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "metadata": {
+                            "anyOf": [
+                                {
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "nationality": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "political_exposure": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "relationship": {
+                            "properties": {
+                                "director": {
+                                    "type": "boolean"
+                                },
+                                "executive": {
+                                    "type": "boolean"
+                                },
+                                "owner": {
+                                    "type": "boolean"
+                                },
+                                "percent_ownership": {
+                                    "anyOf": [
+                                        {
+                                            "type": "number"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "representative": {
+                                    "type": "boolean"
+                                },
+                                "title": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "title": "relationship_specs",
+                            "type": "object"
+                        },
+                        "ssn_last_4": {
+                            "type": "string"
+                        },
+                        "verification": {
+                            "properties": {
+                                "additional_document": {
+                                    "properties": {
+                                        "back": {
+                                            "maxLength": 500,
+                                            "type": "string"
+                                        },
+                                        "front": {
+                                            "maxLength": 500,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "person_verification_document_specs",
+                                    "type": "object"
+                                },
+                                "document": {
+                                    "properties": {
+                                        "back": {
+                                            "maxLength": 500,
+                                            "type": "string"
+                                        },
+                                        "front": {
+                                            "maxLength": 500,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "person_verification_document_specs",
+                                    "type": "object"
+                                }
+                            },
+                            "title": "person_verification_specs",
+                            "type": "object"
+                        }
+                    },
+                    "title": "person_token_specs",
+                    "type": "object"
+                },
+                "pii": {
+                    "description": "The PII this token will represent.",
+                    "properties": {
+                        "id_number": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        }
+                    },
+                    "title": "pii_token_specs",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

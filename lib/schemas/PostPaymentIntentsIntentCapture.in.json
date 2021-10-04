@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "intent": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "amount_to_capture": {
+                    "description": "The amount to capture from the PaymentIntent, which must be less than or equal to the original amount. Any additional amount will be automatically refunded. Defaults to the full `amount_capturable` if not provided.",
+                    "type": "integer"
+                },
+                "application_fee_amount": {
+                    "description": "The amount of the application fee (if any) that will be requested to be applied to the payment and transferred to the application owner's Stripe account. The amount of the application fee collected will be capped at the total payment amount. For more information, see the PaymentIntents [use case for connected accounts](https://stripe.com/docs/payments/connected-accounts).",
+                    "type": "integer"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "statement_descriptor": {
+                    "description": "For non-card charges, you can use this value as the complete description that appears on your customers’ statements. Must contain at least one letter, maximum 22 characters.",
+                    "maxLength": 22,
+                    "type": "string"
+                },
+                "statement_descriptor_suffix": {
+                    "description": "Provides information about a card payment that customers see on their statements. Concatenated with the prefix (shortened descriptor) or statement descriptor that’s set on the account to form the complete statement descriptor. Maximum 22 characters for the concatenated descriptor.",
+                    "maxLength": 22,
+                    "type": "string"
+                },
+                "transfer_data": {
+                    "description": "The parameters used to automatically create a Transfer when the payment\nis captured. For more information, see the PaymentIntents [use case for connected accounts](https://stripe.com/docs/payments/connected-accounts).",
+                    "properties": {
+                        "amount": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "transfer_data_update_params",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
