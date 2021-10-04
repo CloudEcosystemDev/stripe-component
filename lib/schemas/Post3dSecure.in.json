@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "description": "Amount of the charge that you will create when authentication completes.",
+                    "type": "integer"
+                },
+                "card": {
+                    "description": "The ID of a card token, or the ID of a card belonging to the given customer.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "customer": {
+                    "description": "The customer associated with this 3D secure authentication.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "return_url": {
+                    "description": "The URL that the cardholder's browser will be returned to when authentication completes.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "amount",
+                "currency",
+                "return_url"
+            ],
+            "type": "object"
+        }
+    }
+}

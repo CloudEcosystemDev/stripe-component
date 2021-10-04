@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "customer": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "subscription_exposed_id": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}

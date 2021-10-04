@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "invoice": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "auto_advance": {
+                    "description": "Controls whether Stripe will perform [automatic collection](https://stripe.com/docs/billing/invoices/overview#auto-advance) of the invoice. When `false`, the invoice's state will not automatically advance without an explicit action.",
+                    "type": "boolean"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

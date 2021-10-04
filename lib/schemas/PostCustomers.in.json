@@ -1,0 +1,334 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "address": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "city": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "title": "optional_fields_address",
+                            "type": "object"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The customer's address."
+                },
+                "balance": {
+                    "description": "An integer amount in %s that represents the customer's current balance, which affect the customer's future invoices. A negative amount represents a credit that decreases the amount due on an invoice; a positive amount increases the amount due on an invoice.",
+                    "type": "integer"
+                },
+                "coupon": {
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string that you can attach to a customer object. It is displayed alongside the customer in the dashboard.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Customer's email address. It's displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*.",
+                    "maxLength": 512,
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "invoice_prefix": {
+                    "description": "The prefix for the customer used to generate unique invoice numbers. Must be 3–12 uppercase letters or numbers.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "invoice_settings": {
+                    "description": "Default invoice settings for this customer.",
+                    "properties": {
+                        "custom_fields": {
+                            "anyOf": [
+                                {
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "maxLength": 30,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "value"
+                                        ],
+                                        "title": "custom_field_params",
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "default_payment_method": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "footer": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        }
+                    },
+                    "title": "customer_param",
+                    "type": "object"
+                },
+                "metadata": {
+                    "anyOf": [
+                        {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`."
+                },
+                "name": {
+                    "description": "The customer's full name or business name.",
+                    "maxLength": 256,
+                    "type": "string"
+                },
+                "next_invoice_sequence": {
+                    "description": "The sequence to be used on the customer's next invoice. Defaults to 1.",
+                    "type": "integer"
+                },
+                "payment_method": {
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "The customer's phone number.",
+                    "maxLength": 20,
+                    "type": "string"
+                },
+                "preferred_locales": {
+                    "description": "Customer's preferred languages, ordered by preference.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "promotion_code": {
+                    "description": "The API ID of a promotion code to apply to the customer. The customer will have a discount applied on all recurring payments. Charges you create through the API will not have the discount.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "shipping": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "address": {
+                                    "properties": {
+                                        "city": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "optional_fields_address",
+                                    "type": "object"
+                                },
+                                "name": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "address",
+                                "name"
+                            ],
+                            "title": "customer_shipping",
+                            "type": "object"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The customer's shipping information. Appears on invoices emailed to this customer."
+                },
+                "source": {
+                    "maxLength": 5000,
+                    "type": "string",
+                    "x-stripeBypassValidation": true
+                },
+                "tax": {
+                    "description": "Tax details about the customer.",
+                    "properties": {
+                        "ip_address": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    "title": "tax_param",
+                    "type": "object"
+                },
+                "tax_exempt": {
+                    "description": "The customer's tax exemption. One of `none`, `exempt`, or `reverse`.",
+                    "enum": [
+                        "",
+                        "exempt",
+                        "none",
+                        "reverse"
+                    ],
+                    "type": "string"
+                },
+                "tax_id_data": {
+                    "description": "The customer's tax IDs.",
+                    "items": {
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "ae_trn",
+                                    "au_abn",
+                                    "au_arn",
+                                    "br_cnpj",
+                                    "br_cpf",
+                                    "ca_bn",
+                                    "ca_gst_hst",
+                                    "ca_pst_bc",
+                                    "ca_pst_mb",
+                                    "ca_pst_sk",
+                                    "ca_qst",
+                                    "ch_vat",
+                                    "cl_tin",
+                                    "es_cif",
+                                    "eu_vat",
+                                    "gb_vat",
+                                    "hk_br",
+                                    "id_npwp",
+                                    "il_vat",
+                                    "in_gst",
+                                    "jp_cn",
+                                    "jp_rn",
+                                    "kr_brn",
+                                    "li_uid",
+                                    "mx_rfc",
+                                    "my_frp",
+                                    "my_itn",
+                                    "my_sst",
+                                    "no_vat",
+                                    "nz_gst",
+                                    "ru_inn",
+                                    "ru_kpp",
+                                    "sa_vat",
+                                    "sg_gst",
+                                    "sg_uen",
+                                    "th_vat",
+                                    "tw_vat",
+                                    "us_ein",
+                                    "za_vat"
+                                ],
+                                "maxLength": 5000,
+                                "type": "string",
+                                "x-stripeBypassValidation": true
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "value"
+                        ],
+                        "title": "data_params",
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

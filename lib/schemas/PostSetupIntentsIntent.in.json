@@ -1,0 +1,167 @@
+{
+    "type": "object",
+    "properties": {
+        "intent": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "customer": {
+                    "description": "ID of the Customer this SetupIntent belongs to, if one exists.\n\nIf present, the SetupIntent's payment method will be attached to the Customer on successful setup. Payment methods attached to other Customers cannot be used with this SetupIntent.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string attached to the object. Often useful for displaying to users.",
+                    "maxLength": 1000,
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "anyOf": [
+                        {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`."
+                },
+                "payment_method": {
+                    "description": "ID of the payment method (a PaymentMethod, Card, or saved Source object) to attach to this SetupIntent.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "payment_method_options": {
+                    "description": "Payment-method-specific configuration for this SetupIntent.",
+                    "properties": {
+                        "acss_debit": {
+                            "properties": {
+                                "currency": {
+                                    "enum": [
+                                        "cad",
+                                        "usd"
+                                    ],
+                                    "type": "string"
+                                },
+                                "mandate_options": {
+                                    "properties": {
+                                        "custom_mandate_url": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "enum": [
+                                                        ""
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "default_for": {
+                                            "items": {
+                                                "enum": [
+                                                    "invoice",
+                                                    "subscription"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "interval_description": {
+                                            "maxLength": 500,
+                                            "type": "string"
+                                        },
+                                        "payment_schedule": {
+                                            "enum": [
+                                                "combined",
+                                                "interval",
+                                                "sporadic"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "transaction_type": {
+                                            "enum": [
+                                                "business",
+                                                "personal"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "setup_intent_payment_method_options_mandate_options_param",
+                                    "type": "object"
+                                },
+                                "verification_method": {
+                                    "enum": [
+                                        "automatic",
+                                        "instant",
+                                        "microdeposits"
+                                    ],
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
+                                }
+                            },
+                            "title": "setup_intent_payment_method_options_param",
+                            "type": "object"
+                        },
+                        "card": {
+                            "properties": {
+                                "request_three_d_secure": {
+                                    "enum": [
+                                        "any",
+                                        "automatic"
+                                    ],
+                                    "maxLength": 5000,
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
+                                }
+                            },
+                            "title": "setup_intent_param",
+                            "type": "object"
+                        },
+                        "sepa_debit": {
+                            "properties": {
+                                "mandate_options": {
+                                    "properties": {},
+                                    "title": "payment_method_options_mandate_options_param",
+                                    "type": "object"
+                                }
+                            },
+                            "title": "setup_intent_payment_method_options_param",
+                            "type": "object"
+                        }
+                    },
+                    "title": "payment_method_options_param",
+                    "type": "object"
+                },
+                "payment_method_types": {
+                    "description": "The list of payment method types (e.g. card) that this SetupIntent is allowed to set up. If this is not provided, defaults to [\"card\"].",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "type": "integer"
+                },
+                "directive": {
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

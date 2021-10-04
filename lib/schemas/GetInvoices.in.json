@@ -1,0 +1,114 @@
+{
+    "type": "object",
+    "properties": {
+        "collection_method": {
+            "required": false,
+            "enum": [
+                "charge_automatically",
+                "send_invoice"
+            ],
+            "type": "string"
+        },
+        "created": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "customer": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "due_date": {
+            "required": false,
+            "anyOf": [
+                {
+                    "properties": {
+                        "gt": {
+                            "type": "integer"
+                        },
+                        "gte": {
+                            "type": "integer"
+                        },
+                        "lt": {
+                            "type": "integer"
+                        },
+                        "lte": {
+                            "type": "integer"
+                        }
+                    },
+                    "title": "range_query_specs",
+                    "type": "object"
+                },
+                {
+                    "type": "integer"
+                }
+            ]
+        },
+        "ending_before": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "expand": {
+            "required": false,
+            "items": {
+                "maxLength": 5000,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "starting_after": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "enum": [
+                "draft",
+                "open",
+                "paid",
+                "uncollectible",
+                "void"
+            ],
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "subscription": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        }
+    }
+}
