@@ -22,12 +22,13 @@
             "type": "string"
         },
         "item_type": {
-            "description": "The type of items in the value list. One of `card_fingerprint`, `card_bin`, `email`, `ip_address`, `country`, `string`, or `case_sensitive_string`.",
+            "description": "The type of items in the value list. One of `card_fingerprint`, `card_bin`, `email`, `ip_address`, `country`, `string`, `case_sensitive_string`, or `customer_id`.",
             "enum": [
                 "card_bin",
                 "card_fingerprint",
                 "case_sensitive_string",
                 "country",
+                "customer_id",
                 "email",
                 "ip_address",
                 "string"

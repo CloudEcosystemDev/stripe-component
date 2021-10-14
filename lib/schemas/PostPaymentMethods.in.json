@@ -330,6 +330,33 @@
                     "title": "param",
                     "type": "object"
                 },
+                "klarna": {
+                    "description": "If this is a `klarna` PaymentMethod, this hash contains details about the Klarna payment method.",
+                    "properties": {
+                        "dob": {
+                            "properties": {
+                                "day": {
+                                    "type": "integer"
+                                },
+                                "month": {
+                                    "type": "integer"
+                                },
+                                "year": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "day",
+                                "month",
+                                "year"
+                            ],
+                            "title": "date_of_birth",
+                            "type": "object"
+                        }
+                    },
+                    "title": "param",
+                    "type": "object"
+                },
                 "metadata": {
                     "additionalProperties": {
                         "type": "string"
@@ -437,6 +464,7 @@
                         "giropay",
                         "grabpay",
                         "ideal",
+                        "klarna",
                         "oxxo",
                         "p24",
                         "sepa_debit",

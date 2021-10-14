@@ -329,6 +329,32 @@
                             "title": "param",
                             "type": "object"
                         },
+                        "klarna": {
+                            "properties": {
+                                "dob": {
+                                    "properties": {
+                                        "day": {
+                                            "type": "integer"
+                                        },
+                                        "month": {
+                                            "type": "integer"
+                                        },
+                                        "year": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "day",
+                                        "month",
+                                        "year"
+                                    ],
+                                    "title": "date_of_birth",
+                                    "type": "object"
+                                }
+                            },
+                            "title": "param",
+                            "type": "object"
+                        },
                         "metadata": {
                             "additionalProperties": {
                                 "type": "string"
@@ -424,6 +450,7 @@
                                 "giropay",
                                 "grabpay",
                                 "ideal",
+                                "klarna",
                                 "oxxo",
                                 "p24",
                                 "sepa_debit",
@@ -700,6 +727,49 @@
                             "anyOf": [
                                 {
                                     "properties": {},
+                                    "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "klarna": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "preferred_locale": {
+                                            "enum": [
+                                                "da-DK",
+                                                "de-AT",
+                                                "de-DE",
+                                                "en-AT",
+                                                "en-DE",
+                                                "en-DK",
+                                                "en-FI",
+                                                "en-GB",
+                                                "en-NL",
+                                                "en-NO",
+                                                "en-SE",
+                                                "en-US",
+                                                "es-ES",
+                                                "fi-FI",
+                                                "fr-BE",
+                                                "it-IT",
+                                                "nb-NO",
+                                                "nl-BE",
+                                                "nl-NL",
+                                                "sv-FI",
+                                                "sv-SE"
+                                            ],
+                                            "type": "string",
+                                            "x-stripeBypassValidation": true
+                                        }
+                                    },
                                     "title": "payment_method_options_param",
                                     "type": "object"
                                 },

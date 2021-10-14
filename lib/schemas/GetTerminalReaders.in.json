@@ -5,6 +5,7 @@
             "required": false,
             "enum": [
                 "bbpos_chipper2x",
+                "bbpos_wisepos_e",
                 "verifone_P400"
             ],
             "type": "string",

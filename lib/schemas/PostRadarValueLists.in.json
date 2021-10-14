@@ -18,12 +18,13 @@
                     "type": "array"
                 },
                 "item_type": {
-                    "description": "Type of the items in the value list. One of `card_fingerprint`, `card_bin`, `email`, `ip_address`, `country`, `string`, or `case_sensitive_string`. Use `string` if the item type is unknown or mixed.",
+                    "description": "Type of the items in the value list. One of `card_fingerprint`, `card_bin`, `email`, `ip_address`, `country`, `string`, `case_sensitive_string`, or `customer_id`. Use `string` if the item type is unknown or mixed.",
                     "enum": [
                         "card_bin",
                         "card_fingerprint",
                         "case_sensitive_string",
                         "country",
+                        "customer_id",
                         "email",
                         "ip_address",
                         "string"

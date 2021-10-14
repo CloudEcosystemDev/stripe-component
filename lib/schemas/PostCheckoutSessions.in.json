@@ -634,6 +634,19 @@
                     },
                     "type": "array"
                 },
+                "phone_number_collection": {
+                    "description": "Controls phone number collection settings for the session.\n\nWe recommend that you review your privacy policy and check with your legal contacts\nbefore using this feature. Learn more about [collecting phone numbers with Checkout](https://stripe.com/docs/payments/checkout/phone-numbers).",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "enabled"
+                    ],
+                    "title": "phone_number_collection_params",
+                    "type": "object"
+                },
                 "setup_intent_data": {
                     "description": "A subset of parameters to be passed to SetupIntent creation for Checkout Sessions in `setup` mode.",
                     "properties": {
