@@ -820,7 +820,7 @@
         "GetInvoicesInvoiceLines": {
             "main": "./lib/triggers/GetInvoicesInvoiceLines.js",
             "title": "GetInvoicesInvoiceLines",
-            "description": "When retrieving an invoice, you'll get a lines property containing the total\ncount of line items and the first handful of those items. There is also a URL\nwhere you can retrieve the full (paginated) list of line items.",
+            "description": "When retrieving an invoice, you'll get a lines property containing the total\ncount of line items and the first handful of those items.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1752,7 +1752,7 @@
         "DeleteAccountPeoplePerson": {
             "main": "./lib/actions/DeleteAccountPeoplePerson.js",
             "title": "DeleteAccountPeoplePerson",
-            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener.",
+            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1872,7 +1872,7 @@
         "PostAccounts": {
             "main": "./lib/actions/PostAccounts.js",
             "title": "PostAccounts",
-            "description": "With Connect [/docs/connect], you can create Stripe accounts for your users. To\ndo this, you'll first need to register your platform\n[https://dashboard.stripe.com/account/applications/settings].",
+            "description": "With Connect [/docs/connect], you can create Stripe accounts for your users. To\ndo this, you'll first need to register your platform",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1977,7 +1977,7 @@
         "PostAccountsAccountBankAccountsId": {
             "main": "./lib/actions/PostAccountsAccountBankAccountsId.js",
             "title": "PostAccountsAccountBankAccountsId",
-            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts], and optionally\nsets it as the default for its currency.",
+            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts]",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3252,7 +3252,7 @@
         "PostDisputesDisputeClose": {
             "main": "./lib/actions/PostDisputesDisputeClose.js",
             "title": "PostDisputesDisputeClose",
-            "description": "Closing the dispute for a charge indicates that you do not have any evidence to\nsubmit and are essentially dismissing the dispute, acknowledging it as lost.\n\nThe status of the dispute will change from needs_response to lost. Closing a\ndispute is irreversible.",
+            "description": "Closing the dispute for a charge indicates that you do not have any evidence to\nsubmit and are essentially dismissing the dispute, acknowledging it as lost.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3567,7 +3567,7 @@
         "DeleteInvoicesInvoice": {
             "main": "./lib/actions/DeleteInvoicesInvoice.js",
             "title": "DeleteInvoicesInvoice",
-            "description": "Permanently deletes a one-off invoice draft. This cannot be undone. Attempts to\ndelete invoices that are no longer in a draft state will fail; once an invoice\nhas been finalized or if an invoice is for a subscription, it must be voided.",
+            "description": "Permanently deletes a one-off invoice draft. This cannot be undone. Attempts to\ndelete invoices that are no longer in a draft state will fail;",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3642,7 +3642,7 @@
         "PostInvoicesInvoicePay": {
             "main": "./lib/actions/PostInvoicesInvoicePay.js",
             "title": "PostInvoicesInvoicePay",
-            "description": "Stripe automatically creates and then attempts to collect payment on invoices\nfor customers on subscriptions according to your subscriptions settings\n[https://dashboard.stripe.com/account/billing/automatic]. However, if you'd like\nto attempt payment on an invoice out of the normal collection schedule or for\nsome other reason, you can do so.",
+            "description": "Stripe automatically creates and then attempts to collect payment on invoices\nfor customers on subscriptions according to your subscriptions settings\n[https://dashboard.stripe.com/account/billing/automatic].",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5742,7 +5742,7 @@
         "PostTransfersTransferReversalsId": {
             "main": "./lib/actions/PostTransfersTransferReversalsId.js",
             "title": "PostTransfersTransferReversalsId",
-            "description": "Updates the specified reversal by setting the values of the parameters passed.\nAny parameters not provided will be left unchanged.\n\nThis request only accepts metadata and description as arguments.",
+            "description": "Updates the specified reversal by setting the values of the parameters passed.\nAny parameters not provided will be left unchanged.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
