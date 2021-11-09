@@ -250,7 +250,7 @@
         "GetBalanceHistory": {
             "main": "./lib/triggers/GetBalanceHistory.js",
             "title": "GetBalanceHistory",
-            "description": "Returns a list of transactions that have contributed to the Stripe account\nbalance (e.g., charges, transfers, and so forth). The transactions are returned\nin sorted order, with the most recent transactions appearing first.\n\nNote that this endpoint was previously called \"Balance history\" and used the\npath /v1/balance/history.",
+            "description": "Returns a list of transactions that have contributed to the Stripe account\nbalance (e.g., charges, transfers, and so forth). ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -265,7 +265,7 @@
         "GetBalanceTransactions": {
             "main": "./lib/triggers/GetBalanceTransactions.js",
             "title": "GetBalanceTransactions",
-            "description": "Returns a list of transactions that have contributed to the Stripe account\nbalance (e.g., charges, transfers, and so forth). The transactions are returned\nin sorted order, with the most recent transactions appearing first.\n\nNote that this endpoint was previously called \"Balance history\" and used the\npath /v1/balance/history.",
+            "description": "Returns a list of transactions that have contributed to the Stripe account\nbalance (e.g., charges, transfers, and so forth).",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -370,7 +370,7 @@
         "GetChargesChargeRefunds": {
             "main": "./lib/triggers/GetChargesChargeRefunds.js",
             "title": "GetChargesChargeRefunds",
-            "description": "You can see a list of the refunds belonging to a specific charge. Note that the\n10 most recent refunds are always available by default on the charge object. If\nyou need more than those 10, you can use this API method and the limit and \nstarting_after parameters to page through additional refunds.",
+            "description": "You can see a list of the refunds belonging to a specific charge. Note that the\n10 most recent refunds are always available by default on the charge object.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -400,7 +400,7 @@
         "GetCheckoutSessionsSessionLineItems": {
             "main": "./lib/triggers/GetCheckoutSessionsSessionLineItems.js",
             "title": "GetCheckoutSessionsSessionLineItems",
-            "description": "When retrieving a Checkout Session, there is an includable line_items property\ncontaining the first handful of those items. There is also a URL where you can\nretrieve the full (paginated) list of line items.",
+            "description": "When retrieving a Checkout Session, there is an includable line_items property\ncontaining the first handful of those items.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -475,7 +475,7 @@
         "GetCreditNotesPreviewLines": {
             "main": "./lib/triggers/GetCreditNotesPreviewLines.js",
             "title": "GetCreditNotesPreviewLines",
-            "description": "When retrieving a credit note preview, you'll get a lines property containing\nthe first handful of those items. This URL you can retrieve the full (paginated)\nlist of line items.",
+            "description": "When retrieving a credit note preview, you'll get a lines property containing\nthe first handful of those items. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -490,7 +490,7 @@
         "GetCreditNotesCreditNoteLines": {
             "main": "./lib/triggers/GetCreditNotesCreditNoteLines.js",
             "title": "GetCreditNotesCreditNoteLines",
-            "description": "When retrieving a credit note, you'll get a lines property containing the the\nfirst handful of those items. There is also a URL where you can retrieve the\nfull (paginated) list of line items.",
+            "description": "When retrieving a credit note, you'll get a lines property containing the the\nfirst handful of those items. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -535,7 +535,7 @@
         "GetCustomersCustomerBankAccounts": {
             "main": "./lib/triggers/GetCustomersCustomerBankAccounts.js",
             "title": "GetCustomersCustomerBankAccounts",
-            "description": "You can see a list of the bank accounts belonging to a Customer. Note that the\n10 most recent sources are always available by default on the Customer. If you\nneed more than those 10, you can use this API method and the limit and \nstarting_after parameters to page through additional bank accounts.",
+            "description": "You can see a list of the bank accounts belonging to a Customer. Note that the\n10 most recent sources are always available by default on the Customer. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -550,7 +550,7 @@
         "GetCustomersCustomerCards": {
             "main": "./lib/triggers/GetCustomersCustomerCards.js",
             "title": "GetCustomersCustomerCards",
-            "description": "You can see a list of the cards belonging to a customer. Note that the 10 most\nrecent sources are always available on the Customer object. If you need more\nthan those 10, you can use this API method and the limit and starting_after \nparameters to page through additional cards.",
+            "description": "You can see a list of the cards belonging to a customer. Note that the 10 most\nrecent sources are always available on the Customer object. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -577,6 +577,21 @@
                 "out": "./lib/schemas/GetCustomersCustomerDiscount.out.json"
             }
         },
+        "GetCustomersCustomerPaymentMethods": {
+            "main": "./lib/triggers/GetCustomersCustomerPaymentMethods.js",
+            "title": "GetCustomersCustomerPaymentMethods",
+            "description": "Returns a list of PaymentMethods for a given Customer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCustomersCustomerPaymentMethods.in.json",
+                "out": "./lib/schemas/GetCustomersCustomerPaymentMethods.out.json"
+            }
+        },
         "GetCustomersCustomerSources": {
             "main": "./lib/triggers/GetCustomersCustomerSources.js",
             "title": "GetCustomersCustomerSources",
@@ -595,7 +610,7 @@
         "GetCustomersCustomerSubscriptions": {
             "main": "./lib/triggers/GetCustomersCustomerSubscriptions.js",
             "title": "GetCustomersCustomerSubscriptions",
-            "description": "You can see a list of the customer's active subscriptions. Note that the 10 most\nrecent active subscriptions are always available by default on the customer\nobject. If you need more than those 10, you can use the limit and starting_after\nparameters to page through additional subscriptions.",
+            "description": "You can see a list of the customer's active subscriptions. Note that the 10 most\nrecent active subscriptions are always available by default on the customer\nobject.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -655,7 +670,7 @@
         "GetEvents": {
             "main": "./lib/triggers/GetEvents.js",
             "title": "GetEvents",
-            "description": "List events, going back up to 30 days. Each event data is rendered according to\nStripe API version at its creation time, specified in event object\n[/docs/api/events/object] api_version attribute (not according to your current\nStripe API version or Stripe-Version header).",
+            "description": "List events, going back up to 30 days. Each event data is rendered according to\nStripe API version at its creation time.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -775,7 +790,7 @@
         "GetInvoicesUpcoming": {
             "main": "./lib/triggers/GetInvoicesUpcoming.js",
             "title": "GetInvoicesUpcoming",
-            "description": "At any time, you can preview the upcoming invoice for a customer. This will show\nyou all the charges that are pending, including subscription renewal charges,\ninvoice item charges, etc. It will also show you any discounts that are\napplicable to the invoice.\n\nNote that when you are viewing an upcoming invoice, you are simply viewing a\npreview - the invoice has not yet been created. As such, the upcoming invoice\nwill not show up in invoice listing calls, and you cannot use the API to pay or\nedit the invoice. If you want to change the amount that your customer will be\nbilled, you can add, remove, or update pending invoice items, or update the\ncustomer's discount.\n\nYou can preview the effects of updating a subscription, including a preview of\nwhat proration will take place. To ensure that the actual proration is\ncalculated exactly the same as the previewed proration, you should pass a \nproration_date parameter when doing the actual subscription update. The value\npassed in should be the same as the subscription_proration_date returned on the\nupcoming invoice resource. The recommended way to get only the prorations being\npreviewed is to consider only proration line items where period[start] is equal\nto the subscription_proration_date on the upcoming invoice resource.",
+            "description": "At any time, you can preview the upcoming invoice for a customer. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -790,7 +805,7 @@
         "GetInvoicesUpcomingLines": {
             "main": "./lib/triggers/GetInvoicesUpcomingLines.js",
             "title": "GetInvoicesUpcomingLines",
-            "description": "When retrieving an upcoming invoice, you'll get a lines property containing the\ntotal count of line items and the first handful of those items. There is also a\nURL where you can retrieve the full (paginated) list of line items.",
+            "description": "When retrieving an upcoming invoice, you'll get a lines property containing the\ntotal count of line items and the first handful of those items.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1075,7 +1090,7 @@
         "GetQuotesQuoteComputedUpfrontLineItems": {
             "main": "./lib/triggers/GetQuotesQuoteComputedUpfrontLineItems.js",
             "title": "GetQuotesQuoteComputedUpfrontLineItems",
-            "description": "When retrieving a quote, there is an includable computed.upfront.line_items\n[https://stripe.com/docs/api/quotes/object#quote_object-computed-upfront-line_items] \nproperty containing the first handful of those items. There is also a URL where\nyou can retrieve the full (paginated) list of upfront line items.",
+            "description": "When retrieving a quote, there is an includable computed.upfront.line_items",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1090,7 +1105,7 @@
         "GetQuotesQuoteLineItems": {
             "main": "./lib/triggers/GetQuotesQuoteLineItems.js",
             "title": "GetQuotesQuoteLineItems",
-            "description": "When retrieving a quote, there is an includable line_items property containing\nthe first handful of those items. There is also a URL where you can retrieve the\nfull (paginated) list of line items.",
+            "description": "When retrieving a quote, there is an includable line_items property containing\nthe first handful of those items. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1180,7 +1195,7 @@
         "GetRefunds": {
             "main": "./lib/triggers/GetRefunds.js",
             "title": "GetRefunds",
-            "description": "Returns a list of all refunds you've previously created. The refunds are\nreturned in sorted order, with the most recent refunds appearing first. For\nconvenience, the 10 most recent refunds are always available by default on the\ncharge object.",
+            "description": "Returns a list of all refunds you've previously created. The refunds are\nreturned in sorted order, with the most recent refunds appearing first. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1330,7 +1345,7 @@
         "GetSubscriptionItemsSubscriptionItemUsageRecordSummaries": {
             "main": "./lib/triggers/GetSubscriptionItemsSubscriptionItemUsageRecordSummaries.js",
             "title": "GetSubscriptionItemsSubscriptionItemUsageRecordSummaries",
-            "description": "For the specified subscription item, returns a list of summary objects. Each\nobject in the list provides usage information that's been summarized from\nmultiple usage records and over a subscription billing period (e.g., 15 usage\nrecords in the month of September).\n\nThe list is sorted in reverse-chronological order (newest first). The first list\nitem represents the most current usage period that hasn't ended yet. Since new\nusage records can still be added, the returned summary information for the\nsubscription item's ID should be seen as unstable until the subscription billing\nperiod ends.",
+            "description": "For the specified subscription item, returns a list of summary objects. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1465,7 +1480,7 @@
         "GetTransfersIdReversals": {
             "main": "./lib/triggers/GetTransfersIdReversals.js",
             "title": "GetTransfersIdReversals",
-            "description": "You can see a list of the reversals belonging to a specific transfer. Note that\nthe 10 most recent reversals are always available by default on the transfer\nobject. If you need more than those 10, you can use this API method and the \nlimit and starting_after parameters to page through additional reversals.",
+            "description": "You can see a list of the reversals belonging to a specific transfer. Note that\nthe 10 most recent reversals are always available by default on the transfer\nobject. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1527,7 +1542,7 @@
         "DeleteAccount": {
             "main": "./lib/actions/DeleteAccount.js",
             "title": "DeleteAccount",
-            "description": "With Connect [/docs/connect], you can delete accounts you manage.\n\nAccounts created using test-mode keys can be deleted at any time. Custom or\nExpress accounts created using live-mode keys can only be deleted once all\nbalances are zero.\n\nIf you want to delete your own account, use the account information tab in your\naccount settings [https://dashboard.stripe.com/account] instead.",
+            "description": "With Connect [/docs/connect], you can delete accounts you manage.\n\nAccounts created using test-mode keys can be deleted at any time. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1542,7 +1557,7 @@
         "PostAccount": {
             "main": "./lib/actions/PostAccount.js",
             "title": "PostAccount",
-            "description": "Updates a connected account [/docs/connect/accounts] by setting the values of\nthe parameters passed. Any parameters not provided are left unchanged. Most\nparameters can be changed only for Custom accounts. (These are marked Custom\nOnly below.) Parameters marked Custom and Express are not supported for Standard\naccounts.\n\nTo update your own account, use the Dashboard\n[https://dashboard.stripe.com/account]. Refer to our Connect\n[/docs/connect/updating-accounts] documentation to learn more about updating\naccounts.",
+            "description": "Updates a connected account [/docs/connect/accounts] by setting the values of\nthe parameters passed. Any parameters not provided are left unchanged. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1602,7 +1617,7 @@
         "PostAccountBankAccountsId": {
             "main": "./lib/actions/PostAccountBankAccountsId.js",
             "title": "PostAccountBankAccountsId",
-            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts], and optionally\nsets it as the default for its currency. Other bank account details are not\neditable by design.\n\nYou can re-enable a disabled bank account by performing an update call without\nproviding any arguments or changes.",
+            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1692,7 +1707,7 @@
         "PostAccountExternalAccountsId": {
             "main": "./lib/actions/PostAccountExternalAccountsId.js",
             "title": "PostAccountExternalAccountsId",
-            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts], and optionally\nsets it as the default for its currency. Other bank account details are not\neditable by design.\n\nYou can re-enable a disabled bank account by performing an update call without\nproviding any arguments or changes.",
+            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts],",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1707,7 +1722,7 @@
         "PostAccountLoginLinks": {
             "main": "./lib/actions/PostAccountLoginLinks.js",
             "title": "PostAccountLoginLinks",
-            "description": "Creates a single-use login link for an Express account to access their Stripe\ndashboard.\n\nYou may only create login links for Express accounts\n[/docs/connect/express-accounts] connected to your platform.",
+            "description": "Creates a single-use login link for an Express account to access their Stripe\ndashboard.\n\n",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1737,7 +1752,7 @@
         "DeleteAccountPeoplePerson": {
             "main": "./lib/actions/DeleteAccountPeoplePerson.js",
             "title": "DeleteAccountPeoplePerson",
-            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener. If your integration is using the executive \nparameter, you cannot delete the only verified executive on file.",
+            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1797,7 +1812,7 @@
         "DeleteAccountPersonsPerson": {
             "main": "./lib/actions/DeleteAccountPersonsPerson.js",
             "title": "DeleteAccountPersonsPerson",
-            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener. If your integration is using the executive \nparameter, you cannot delete the only verified executive on file.",
+            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1872,7 +1887,7 @@
         "DeleteAccountsAccount": {
             "main": "./lib/actions/DeleteAccountsAccount.js",
             "title": "DeleteAccountsAccount",
-            "description": "With Connect [/docs/connect], you can delete accounts you manage.\n\nAccounts created using test-mode keys can be deleted at any time. Custom or\nExpress accounts created using live-mode keys can only be deleted once all\nbalances are zero.\n\nIf you want to delete your own account, use the account information tab in your\naccount settings [https://dashboard.stripe.com/account] instead.",
+            "description": "With Connect [/docs/connect], you can delete accounts you manage.\n\nAccounts created using test-mode keys can be deleted at any time. Custom or\nExpress accounts created using live-mode keys can only be deleted once all\nbalances are zero.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1902,7 +1917,7 @@
         "PostAccountsAccount": {
             "main": "./lib/actions/PostAccountsAccount.js",
             "title": "PostAccountsAccount",
-            "description": "Updates a connected account [/docs/connect/accounts] by setting the values of\nthe parameters passed. Any parameters not provided are left unchanged. Most\nparameters can be changed only for Custom accounts. (These are marked Custom\nOnly below.) Parameters marked Custom and Express are not supported for Standard\naccounts.\n\nTo update your own account, use the Dashboard\n[https://dashboard.stripe.com/account]. Refer to our Connect\n[/docs/connect/updating-accounts] documentation to learn more about updating\naccounts.",
+            "description": "Updates a connected account [/docs/connect/accounts] by setting the values of\nthe parameters passed.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1962,7 +1977,7 @@
         "PostAccountsAccountBankAccountsId": {
             "main": "./lib/actions/PostAccountsAccountBankAccountsId.js",
             "title": "PostAccountsAccountBankAccountsId",
-            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts], and optionally\nsets it as the default for its currency. Other bank account details are not\neditable by design.\n\nYou can re-enable a disabled bank account by performing an update call without\nproviding any arguments or changes.",
+            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts], and optionally\nsets it as the default for its currency.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2052,7 +2067,7 @@
         "PostAccountsAccountExternalAccountsId": {
             "main": "./lib/actions/PostAccountsAccountExternalAccountsId.js",
             "title": "PostAccountsAccountExternalAccountsId",
-            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts], and optionally\nsets it as the default for its currency. Other bank account details are not\neditable by design.\n\nYou can re-enable a disabled bank account by performing an update call without\nproviding any arguments or changes.",
+            "description": "Updates the metadata, account holder name, account holder type of a bank account\nbelonging to a Custom account [/docs/connect/custom-accounts].",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2097,7 +2112,7 @@
         "DeleteAccountsAccountPeoplePerson": {
             "main": "./lib/actions/DeleteAccountsAccountPeoplePerson.js",
             "title": "DeleteAccountsAccountPeoplePerson",
-            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener. If your integration is using the executive \nparameter, you cannot delete the only verified executive on file.",
+            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2157,7 +2172,7 @@
         "DeleteAccountsAccountPersonsPerson": {
             "main": "./lib/actions/DeleteAccountsAccountPersonsPerson.js",
             "title": "DeleteAccountsAccountPersonsPerson",
-            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener. If your integration is using the executive \nparameter, you cannot delete the only verified executive on file.",
+            "description": "Deletes an existing person's relationship to the account's legal entity. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2202,7 +2217,7 @@
         "PostAccountsAccountReject": {
             "main": "./lib/actions/PostAccountsAccountReject.js",
             "title": "PostAccountsAccountReject",
-            "description": "With Connect [/docs/connect], you may flag accounts as suspicious.\n\nTest-mode Custom and Express accounts can be rejected at any time. Accounts\ncreated using live-mode keys may only be rejected once all balances are zero.",
+            "description": "With Connect [/docs/connect], you may flag accounts as suspicious.\n\nTest-mode Custom and Express accounts can be rejected at any time.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2277,7 +2292,7 @@
         "PostApplicationFeesFeeRefundsId": {
             "main": "./lib/actions/PostApplicationFeesFeeRefundsId.js",
             "title": "PostApplicationFeesFeeRefundsId",
-            "description": "Updates the specified application fee refund by setting the values of the\nparameters passed. Any parameters not provided will be left unchanged.\n\nThis request only accepts metadata as an argument.",
+            "description": "Updates the specified application fee refund by setting the values of the\nparameters passed. Any parameters not provided will be left unchanged.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2322,7 +2337,7 @@
         "PostApplicationFeesIdRefunds": {
             "main": "./lib/actions/PostApplicationFeesIdRefunds.js",
             "title": "PostApplicationFeesIdRefunds",
-            "description": "Refunds an application fee that has previously been collected but not yet\nrefunded. Funds will be refunded to the Stripe account from which the fee was\noriginally collected.\n\nYou can optionally refund only part of an application fee. You can do so\nmultiple times, until the entire fee has been refunded.\n\nOnce entirely refunded, an application fee can't be refunded again. This method\nwill raise an error when called on an already-refunded application fee, or when\ntrying to refund more money than is left on an application fee.",
+            "description": "Refunds an application fee that has previously been collected but not yet\nrefunded. Funds will be refunded to the Stripe account from which the fee was\noriginally collected.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2442,7 +2457,7 @@
         "PostCharges": {
             "main": "./lib/actions/PostCharges.js",
             "title": "PostCharges",
-            "description": "To charge a credit card or other payment source, you create a Charge object. If\nyour API key is in test mode, the supplied payment source (e.g., card) won't\nactually be charged, although everything else will occur as if in live mode.\n(Stripe assumes that the charge would have completed successfully).",
+            "description": "To charge a credit card or other payment source, you create a Charge object. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2457,7 +2472,7 @@
         "GetChargesCharge": {
             "main": "./lib/actions/GetChargesCharge.js",
             "title": "GetChargesCharge",
-            "description": "Retrieves the details of a charge that has previously been created. Supply the\nunique charge ID that was returned from your previous request, and Stripe will\nreturn the corresponding charge information. The same information is returned\nwhen creating or refunding the charge.",
+            "description": "Retrieves the details of a charge that has previously been created. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2487,7 +2502,7 @@
         "PostChargesChargeCapture": {
             "main": "./lib/actions/PostChargesChargeCapture.js",
             "title": "PostChargesChargeCapture",
-            "description": "Capture the payment of an existing, uncaptured, charge. This is the second half\nof the two-step payment flow, where first you created a charge with the capture\noption set to false.\n\nUncaptured payments expire exactly seven days after they are created. If they\nare not captured by that point in time, they will be marked as refunded and will\nno longer be capturable.",
+            "description": "Capture the payment of an existing, uncaptured, charge.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2532,7 +2547,7 @@
         "PostChargesChargeRefund": {
             "main": "./lib/actions/PostChargesChargeRefund.js",
             "title": "PostChargesChargeRefund",
-            "description": "When you create a new refund, you must specify a Charge or a PaymentIntent\nobject on which to create it.\n\nCreating a new refund will refund a charge that has previously been created but\nnot yet refunded. Funds will be refunded to the credit or debit card that was\noriginally charged.\n\nYou can optionally refund only part of a charge. You can do so multiple times,\nuntil the entire charge has been refunded.\n\nOnce entirely refunded, a charge can't be refunded again. This method will raise\nan error when called on an already-refunded charge, or when trying to refund\nmore money than is left on a charge.",
+            "description": "When you create a new refund, you must specify a Charge or a PaymentIntent\nobject on which to create it.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2637,7 +2652,7 @@
         "PostCoupons": {
             "main": "./lib/actions/PostCoupons.js",
             "title": "PostCoupons",
-            "description": "You can create coupons easily via the coupon management\n[https://dashboard.stripe.com/coupons] page of the Stripe dashboard. Coupon\ncreation is also accessible via the API if you need to create coupons on the\nfly.\n\nA coupon has either a percent_off or an amount_off and currency. If you set an \namount_off, that amount will be subtracted from any invoice's subtotal. For\nexample, an invoice with a subtotal of 100 will have a final total of 0 if a\ncoupon with an amount_off of 200 is applied to it and an invoice with a subtotal\nof 300 will have a final total of 100 if a coupon with an amount_off of 200 is\napplied to it.",
+            "description": "You can create coupons easily via the coupon management\n[https://dashboard.stripe.com/coupons] page of the Stripe dashboard. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2652,7 +2667,7 @@
         "DeleteCouponsCoupon": {
             "main": "./lib/actions/DeleteCouponsCoupon.js",
             "title": "DeleteCouponsCoupon",
-            "description": "You can delete coupons via the coupon management\n[https://dashboard.stripe.com/coupons] page of the Stripe dashboard. However,\ndeleting a coupon does not affect any customers who have already applied the\ncoupon; it means that new customers can't redeem the coupon. You can also delete\ncoupons via the API.",
+            "description": "You can delete coupons via the coupon management\n[https://dashboard.stripe.com/coupons] page of the Stripe dashboard.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2697,7 +2712,7 @@
         "PostCreditNotes": {
             "main": "./lib/actions/PostCreditNotes.js",
             "title": "PostCreditNotes",
-            "description": "Issue a credit note to adjust the amount of a finalized invoice. For a \nstatus=open invoice, a credit note reduces its amount_due. For a status=paid \ninvoice, a credit note does not affect its amount_due. Instead, it can result in\nany combination of the following:\n\n * Refund: create a new refund (using refund_amount) or link an existing refund\n   (using refund).\n * Customer balance credit: credit the customer's balance (using credit_amount)\n   which will be automatically applied to their next invoice when it's\n   finalized.\n * Outside of Stripe credit: record the amount that is or will be credited\n   outside of Stripe (using out_of_band_amount).\n\nFor post-payment credit notes the sum of the refund, credit and outside of\nStripe amounts must equal the credit note total.\n\nYou may issue multiple credit notes for an invoice. Each credit note will\nincrement the invoice's pre_payment_credit_notes_amountor \npost_payment_credit_notes_amount depending on its status at the time of credit\nnote creation.",
+            "description": "Issue a credit note to adjust the amount of a finalized invoice. For a \nstatus=open invoice, a credit note reduces its amount_due. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2802,7 +2817,7 @@
         "PostCustomersCustomer": {
             "main": "./lib/actions/PostCustomersCustomer.js",
             "title": "PostCustomersCustomer",
-            "description": "Updates the specified customer by setting the values of the parameters passed.\nAny parameters not provided will be left unchanged. For example, if you pass the \nsource parameter, that becomes the customer's active source (e.g., a card) to be\nused for all charges in the future. When you update a customer to a new valid\ncard source by passing the source parameter: for each of the customer's current\nsubscriptions, if the subscription bills automatically and is in the past_due \nstate, then the latest open invoice for the subscription with automatic\ncollection enabled will be retried. This retry will not count as an automatic\nretry, and will not affect the next regularly scheduled payment for the invoice.\nChanging the default_source for a customer will not trigger this behavior.\n\nThis request accepts mostly the same arguments as the customer creation call.",
+            "description": "Updates the specified customer by setting the values of the parameters passed.\nAny parameters not provided will be left unchanged. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2862,7 +2877,7 @@
         "PostCustomersCustomerBankAccounts": {
             "main": "./lib/actions/PostCustomersCustomerBankAccounts.js",
             "title": "PostCustomersCustomerBankAccounts",
-            "description": "When you create a new credit card, you must specify a customer or recipient on\nwhich to create it.\n\nIf the card's owner has no default card, then the new card will become the\ndefault. However, if the owner already has a default, then it will not change.\nTo change the default, you should update the customer\n[/docs/api#update_customer] to have a new default_source.",
+            "description": "When you create a new credit card, you must specify a customer or recipient on\nwhich to create it.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2892,7 +2907,7 @@
         "GetCustomersCustomerBankAccountsId": {
             "main": "./lib/actions/GetCustomersCustomerBankAccountsId.js",
             "title": "GetCustomersCustomerBankAccountsId",
-            "description": "By default, you can see the 10 most recent sources stored on a Customer directly\non the object, but you can also retrieve details about a specific bank account\nstored on the Stripe account.",
+            "description": "By default, you can see the 10 most recent sources stored on a Customer directly\non the object.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2937,7 +2952,7 @@
         "PostCustomersCustomerCards": {
             "main": "./lib/actions/PostCustomersCustomerCards.js",
             "title": "PostCustomersCustomerCards",
-            "description": "When you create a new credit card, you must specify a customer or recipient on\nwhich to create it.\n\nIf the card's owner has no default card, then the new card will become the\ndefault. However, if the owner already has a default, then it will not change.\nTo change the default, you should update the customer\n[/docs/api#update_customer] to have a new default_source.",
+            "description": "When you create a new credit card, you must specify a customer or recipient on\nwhich to create it.\n\nIf the card's owner has no default card, then the new card will become the\ndefault.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3012,7 +3027,7 @@
         "PostCustomersCustomerSources": {
             "main": "./lib/actions/PostCustomersCustomerSources.js",
             "title": "PostCustomersCustomerSources",
-            "description": "When you create a new credit card, you must specify a customer or recipient on\nwhich to create it.\n\nIf the card's owner has no default card, then the new card will become the\ndefault. However, if the owner already has a default, then it will not change.\nTo change the default, you should update the customer\n[/docs/api#update_customer] to have a new default_source.",
+            "description": "When you create a new credit card, you must specify a customer or recipient on\nwhich to create it.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3102,7 +3117,7 @@
         "DeleteCustomersCustomerSubscriptionsSubscriptionExposedId": {
             "main": "./lib/actions/DeleteCustomersCustomerSubscriptionsSubscriptionExposedId.js",
             "title": "DeleteCustomersCustomerSubscriptionsSubscriptionExposedId",
-            "description": "Cancels a customer's subscription. If you set the at_period_end parameter to \ntrue, the subscription will remain active until the end of the period, at which\npoint it will be canceled and not renewed. Otherwise, with the default false \nvalue, the subscription is terminated immediately. In either case, the customer\nwill not be charged again for the subscription.\n\nNote, however, that any pending invoice items that you've created will still be\ncharged for at the end of the period, unless manually deleted. If you've set the\nsubscription to cancel at the end of the period, any pending prorations will\nalso be left in place and collected at the end of the period. But if the\nsubscription is set to cancel immediately, pending prorations will be removed.\n\nBy default, upon subscription cancellation, Stripe will stop automatic\ncollection of all finalized invoices for the customer. This is intended to\nprevent unexpected payment attempts after the customer has canceled a\nsubscription. However, you can resume automatic collection of the invoices\nmanually after subscription cancellation to have us proceed. Or, you could check\nfor unpaid invoices before allowing the customer to cancel the subscription at\nall.",
+            "description": "Cancels a customer's subscription. If you set the at_period_end parameter to \ntrue.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3132,7 +3147,7 @@
         "PostCustomersCustomerSubscriptionsSubscriptionExposedId": {
             "main": "./lib/actions/PostCustomersCustomerSubscriptionsSubscriptionExposedId.js",
             "title": "PostCustomersCustomerSubscriptionsSubscriptionExposedId",
-            "description": "Updates an existing subscription on a customer to match the specified\nparameters. When changing plans or quantities, we will optionally prorate the\nprice we charge next month to make up for any price changes. To preview how the\nproration will be calculated, use the upcoming invoice endpoint.",
+            "description": "Updates an existing subscription on a customer to match the specified\nparameters.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3222,7 +3237,7 @@
         "PostDisputesDispute": {
             "main": "./lib/actions/PostDisputesDispute.js",
             "title": "PostDisputesDispute",
-            "description": "When you get a dispute, contacting your customer is always the best first step.\nIf that doesn't work, you can submit evidence to help us resolve the dispute in\nyour favor. You can do this in your dashboard\n[https://dashboard.stripe.com/disputes], but if you prefer, you can use the API\nto submit evidence programmatically.\n\nDepending on your dispute type, different evidence fields will give you a better\nchance of winning your dispute. To figure out which evidence fields to provide,\nsee our guide to dispute types [/docs/disputes/categories].",
+            "description": "When you get a dispute, contacting your customer is always the best first step.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3357,7 +3372,7 @@
         "PostFiles": {
             "main": "./lib/actions/PostFiles.js",
             "title": "PostFiles",
-            "description": "To upload a file to Stripe, you'll need to send a request of type \nmultipart/form-data. The request should contain the file you would like to\nupload, as well as the parameters for creating a file.\n\nAll of Stripe's officially supported Client libraries should have support for\nsending multipart/form-data.",
+            "description": "To upload a file to Stripe, you'll need to send a request of type \nmultipart/form-data. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3372,7 +3387,7 @@
         "GetFilesFile": {
             "main": "./lib/actions/GetFilesFile.js",
             "title": "GetFilesFile",
-            "description": "Retrieves the details of an existing file object. Supply the unique file ID from\na file, and Stripe will return the corresponding file object. To access file\ncontents, see the File Upload Guide [/docs/file-upload#download-file-contents].",
+            "description": "Retrieves the details of an existing file object. Supply the unique file ID from\na file.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3402,7 +3417,7 @@
         "PostIdentityVerificationSessions": {
             "main": "./lib/actions/PostIdentityVerificationSessions.js",
             "title": "PostIdentityVerificationSessions",
-            "description": "Creates a VerificationSession object.\n\nAfter the VerificationSession is created, display a verification modal using the\nsession client_secret or send your users to the session's url.\n\nIf your API key is in test mode, verification checks won't actually process,\nthough everything else will occur as if in live mode.\n\nRelated guide: Verify your users' identity documents\n[/docs/identity/verify-identity-documents].",
+            "description": "Creates a VerificationSession object.\n\nAfter the VerificationSession is created.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3417,7 +3432,7 @@
         "GetIdentityVerificationSessionsSession": {
             "main": "./lib/actions/GetIdentityVerificationSessionsSession.js",
             "title": "GetIdentityVerificationSessionsSession",
-            "description": "Retrieves the details of a VerificationSession that was previously created.\n\nWhen the session status is requires_input, you can use this method to retrieve a\nvalidclient_secret or url to allow re-submission.",
+            "description": "Retrieves the details of a VerificationSession that was previously created.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3447,7 +3462,7 @@
         "PostIdentityVerificationSessionsSessionCancel": {
             "main": "./lib/actions/PostIdentityVerificationSessionsSessionCancel.js",
             "title": "PostIdentityVerificationSessionsSessionCancel",
-            "description": "A VerificationSession object can be canceled when it is in requires_input status\n[/docs/identity/how-sessions-work].\n\nOnce canceled, future submission attempts are disabled. This cannot be undone. \nLearn more [/docs/identity/verification-sessions#cancel].",
+            "description": "A VerificationSession object can be canceled when it is in requires_input status\n[/docs/identity/how-sessions-work].",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3462,7 +3477,7 @@
         "PostIdentityVerificationSessionsSessionRedact": {
             "main": "./lib/actions/PostIdentityVerificationSessionsSessionRedact.js",
             "title": "PostIdentityVerificationSessionsSessionRedact",
-            "description": "Redact a VerificationSession to remove all collected information from Stripe.\nThis will redact the VerificationSession and all objects related to it,\nincluding VerificationReports, Events, request logs, etc.\n\nA VerificationSession object can be redacted when it is in requires_input or \nverifiedstatus [/docs/identity/how-sessions-work]. Redacting a\nVerificationSession in requires_actionstate will automatically cancel it.\n\nThe redaction process may take up to four days. When the redaction process is in\nprogress, the VerificationSession's redaction.status field will be set to \nprocessing; when the process is finished, it will change to redacted and an \nidentity.verification_session.redacted event will be emitted.\n\nRedaction is irreversible. Redacted objects are still accessible in the Stripe\nAPI, but all the fields that contain personal data will be replaced by the\nstring [redacted] or a similar placeholder. The metadata field will also be\nerased. Redacted objects cannot be updated or used for any purpose.\n\nLearn more [/docs/identity/verification-sessions#redact].",
+            "description": "Redact a VerificationSession to remove all collected information from Stripe.\nThis will redact the VerificationSession and all objects related to it.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3537,7 +3552,7 @@
         "PostInvoices": {
             "main": "./lib/actions/PostInvoices.js",
             "title": "PostInvoices",
-            "description": "This endpoint creates a draft invoice for a given customer. The draft invoice\ncreated pulls in all pending invoice items on that customer, including\nprorations. The invoice remains a draft until you finalize the invoice, which\nallows you to pay or send the invoice to your customers.",
+            "description": "This endpoint creates a draft invoice for a given customer. The draft invoice\ncreated pulls in all pending invoice items on that customer, including\nprorations.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3582,7 +3597,7 @@
         "PostInvoicesInvoice": {
             "main": "./lib/actions/PostInvoicesInvoice.js",
             "title": "PostInvoicesInvoice",
-            "description": "Draft invoices are fully editable. Once an invoice is finalized\n[/docs/billing/invoices/workflow#finalized], monetary values, as well as \ncollection_method, become uneditable.\n\nIf you would like to stop the Stripe Billing engine from automatically\nfinalizing, reattempting payments on, sending reminders for, or automatically\nreconciling [/docs/billing/invoices/reconciliation] invoices, pass\nauto_advance=false.",
+            "description": "Draft invoices are fully editable. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3597,7 +3612,7 @@
         "PostInvoicesInvoiceFinalize": {
             "main": "./lib/actions/PostInvoicesInvoiceFinalize.js",
             "title": "PostInvoicesInvoiceFinalize",
-            "description": "Stripe automatically finalizes drafts before sending and attempting payment on\ninvoices. However, if you'd like to finalize a draft invoice manually, you can\ndo so using this method.",
+            "description": "Stripe automatically finalizes drafts before sending and attempting payment on\ninvoices.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3642,7 +3657,7 @@
         "PostInvoicesInvoiceSend": {
             "main": "./lib/actions/PostInvoicesInvoiceSend.js",
             "title": "PostInvoicesInvoiceSend",
-            "description": "Stripe will automatically send invoices to customers according to your \nsubscriptions settings [https://dashboard.stripe.com/account/billing/automatic].\nHowever, if you'd like to manually send an invoice to your customer out of the\nnormal schedule, you can do so. When sending invoices that have already been\npaid, there will be no reference to the payment in the email.\n\nRequests made in test-mode result in no emails being sent, despite sending an \ninvoice.sent event.",
+            "description": "Stripe will automatically send invoices to customers according to your \nsubscriptions settings [https://dashboard.stripe.com/account/billing/automatic].",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3657,7 +3672,7 @@
         "PostInvoicesInvoiceVoid": {
             "main": "./lib/actions/PostInvoicesInvoiceVoid.js",
             "title": "PostInvoicesInvoiceVoid",
-            "description": "Mark a finalized invoice as void. This cannot be undone. Voiding an invoice is\nsimilar to deletion, however it only applies to finalized invoices and maintains\na papertrail where the invoice can still be found.",
+            "description": "Mark a finalized invoice as void. This cannot be undone. Voiding an invoice is\nsimilar to deletion.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3717,7 +3732,7 @@
         "PostIssuingAuthorizationsAuthorizationApprove": {
             "main": "./lib/actions/PostIssuingAuthorizationsAuthorizationApprove.js",
             "title": "PostIssuingAuthorizationsAuthorizationApprove",
-            "description": "Approves a pending Issuing Authorization object. This request should be made\nwithin the timeout window of the real-time authorization\n[/docs/issuing/controls/real-time-authorizations] flow.",
+            "description": "Approves a pending Issuing Authorization object. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3732,7 +3747,7 @@
         "PostIssuingAuthorizationsAuthorizationDecline": {
             "main": "./lib/actions/PostIssuingAuthorizationsAuthorizationDecline.js",
             "title": "PostIssuingAuthorizationsAuthorizationDecline",
-            "description": "Declines a pending Issuing Authorization object. This request should be made\nwithin the timeout window of the real time authorization\n[/docs/issuing/controls/real-time-authorizations] flow.",
+            "description": "Declines a pending Issuing Authorization object. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3777,7 +3792,7 @@
         "PostIssuingCardholdersCardholder": {
             "main": "./lib/actions/PostIssuingCardholdersCardholder.js",
             "title": "PostIssuingCardholdersCardholder",
-            "description": "Updates the specified Issuing Cardholder object by setting the values of the\nparameters passed. Any parameters not provided will be left unchanged.",
+            "description": "Updates the specified Issuing Cardholder object by setting the values of the\nparameters passed.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3837,7 +3852,7 @@
         "PostIssuingDisputes": {
             "main": "./lib/actions/PostIssuingDisputes.js",
             "title": "PostIssuingDisputes",
-            "description": "Creates an Issuing Dispute object. Individual pieces of evidence within the \nevidence object are optional at this point. Stripe only validates that required\nevidence is present during submission. Refer to Dispute reasons and evidence\n[/docs/issuing/purchases/disputes#dispute-reasons-and-evidence] for more details\nabout evidence requirements.",
+            "description": "Creates an Issuing Dispute object. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3867,7 +3882,7 @@
         "PostIssuingDisputesDispute": {
             "main": "./lib/actions/PostIssuingDisputesDispute.js",
             "title": "PostIssuingDisputesDispute",
-            "description": "Updates the specified Issuing Dispute object by setting the values of the\nparameters passed. Any parameters not provided will be left unchanged.\nProperties on the evidence object can be unset by passing in an empty string.",
+            "description": "Updates the specified Issuing Dispute object by setting the values of the\nparameters passed.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3882,7 +3897,7 @@
         "PostIssuingDisputesDisputeSubmit": {
             "main": "./lib/actions/PostIssuingDisputesDisputeSubmit.js",
             "title": "PostIssuingDisputesDisputeSubmit",
-            "description": "Submits an Issuing Dispute to the card network. Stripe validates that all\nevidence fields required for the dispute's reason are present. For more details,\nsee Dispute reasons and evidence\n[/docs/issuing/purchases/disputes#dispute-reasons-and-evidence].",
+            "description": "Submits an Issuing Dispute to the card network. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3972,7 +3987,7 @@
         "GetOrderReturnsId": {
             "main": "./lib/actions/GetOrderReturnsId.js",
             "title": "GetOrderReturnsId",
-            "description": "Retrieves the details of an existing order return. Supply the unique order ID\nfrom either an order return creation request or the order return list, and\nStripe will return the corresponding order information.",
+            "description": "Retrieves the details of an existing order return. Supply the unique order ID\nfrom either an order return creation request or the order return list.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4002,7 +4017,7 @@
         "GetOrdersId": {
             "main": "./lib/actions/GetOrdersId.js",
             "title": "GetOrdersId",
-            "description": "Retrieves the details of an existing order. Supply the unique order ID from\neither an order creation request or the order list, and Stripe will return the\ncorresponding order information.",
+            "description": "Retrieves the details of an existing order. Supply the unique order ID from\neither an order creation request or the order list.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4047,7 +4062,7 @@
         "PostOrdersIdReturns": {
             "main": "./lib/actions/PostOrdersIdReturns.js",
             "title": "PostOrdersIdReturns",
-            "description": "Return all or part of an order. The order must have a status of paid or \nfulfilled before it can be returned. Once all items have been returned, the\norder will become canceled or returned depending on which status the order\nstarted in.",
+            "description": "Return all or part of an order. The order must have a status of paid or \nfulfilled before it can be returned.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4062,7 +4077,7 @@
         "PostPaymentIntents": {
             "main": "./lib/actions/PostPaymentIntents.js",
             "title": "PostPaymentIntents",
-            "description": "Creates a PaymentIntent object.\n\nAfter the PaymentIntent is created, attach a payment method and confirm\n[/docs/api/payment_intents/confirm]to continue the payment. You can read more\nabout the different payment flows available via the Payment Intents API here\n[/docs/payments/payment-intents].\n\nWhen confirm=true is used during creation, it is equivalent to creating and\nconfirming the PaymentIntent in the same call. You may use any parameters\navailable in the confirm API [/docs/api/payment_intents/confirm] when \nconfirm=trueis supplied.",
+            "description": "Creates a PaymentIntent object.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4077,7 +4092,7 @@
         "GetPaymentIntentsIntent": {
             "main": "./lib/actions/GetPaymentIntentsIntent.js",
             "title": "GetPaymentIntentsIntent",
-            "description": "Retrieves the details of a PaymentIntent that has previously been created. \n\nClient-side retrieval using a publishable key is allowed when the client_secret \nis provided in the query string. \n\nWhen retrieved with a publishable key, only a subset of properties will be\nreturned. Please refer to the payment intent object reference for more details.",
+            "description": "Retrieves the details of a PaymentIntent that has previously been created.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4092,7 +4107,7 @@
         "PostPaymentIntentsIntent": {
             "main": "./lib/actions/PostPaymentIntentsIntent.js",
             "title": "PostPaymentIntentsIntent",
-            "description": "Updates properties on a PaymentIntent object without confirming.\n\nDepending on which properties you update, you may need to confirm the\nPaymentIntent again. For example, updating the payment_method will always\nrequire you to confirm the PaymentIntent again. If you prefer to update and\nconfirm at the same time, we recommend updating properties via the confirm API\n[/docs/api/payment_intents/confirm] instead.",
+            "description": "Updates properties on a PaymentIntent object without confirming.\n\nDepending on which properties you update.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4107,7 +4122,7 @@
         "PostPaymentIntentsIntentCancel": {
             "main": "./lib/actions/PostPaymentIntentsIntentCancel.js",
             "title": "PostPaymentIntentsIntentCancel",
-            "description": "A PaymentIntent object can be canceled when it is in one of these statuses: \nrequires_payment_method, requires_capture, requires_confirmation, or \nrequires_action. \n\nOnce canceled, no additional charges will be made by the PaymentIntent and any\noperations on the PaymentIntent will fail with an error. For PaymentIntents with \nstatus='requires_capture', the remaining amount_capturable will automatically be\nrefunded.",
+            "description": "A PaymentIntent object can be canceled when it is in one of these statuses:",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4122,7 +4137,7 @@
         "PostPaymentIntentsIntentCapture": {
             "main": "./lib/actions/PostPaymentIntentsIntentCapture.js",
             "title": "PostPaymentIntentsIntentCapture",
-            "description": "Capture the funds of an existing uncaptured PaymentIntent when its status is \nrequires_capture.\n\nUncaptured PaymentIntents will be canceled exactly seven days after they are\ncreated.\n\nLearn more about separate authorization and capture\n[/docs/payments/capture-later].",
+            "description": "Capture the funds of an existing uncaptured PaymentIntent when its status is \nrequires_capture.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4137,7 +4152,7 @@
         "PostPaymentIntentsIntentConfirm": {
             "main": "./lib/actions/PostPaymentIntentsIntentConfirm.js",
             "title": "PostPaymentIntentsIntentConfirm",
-            "description": "Confirm that your customer intends to pay with current or provided payment\nmethod. Upon confirmation, the PaymentIntent will attempt to initiate a payment.\n\nIf the selected payment method requires additional authentication steps, the\nPaymentIntent will transition to the requires_action status and suggest\nadditional actions via next_action. If payment fails, the PaymentIntent will\ntransition to the requires_payment_method status. If payment succeeds, the\nPaymentIntent will transition to the succeededstatus (or requires_capture, if \ncapture_method is set to manual).\n\nIf the confirmation_method is automatic, payment may be attempted using our \nclient SDKs [/docs/stripe-js/reference#stripe-handle-card-payment]and the\nPaymentIntent's client_secret. After next_actions are handled by the client, no\nadditional confirmation is required to complete the payment.\n\nIf the confirmation_method is manual, all payment attempts must be initiated\nusing a secret key. If any actions are required for the payment, the\nPaymentIntent will return to the requires_confirmation state after those actions\nare completed. Your server needs to then explicitly re-confirm the PaymentIntent\nto initiate the next payment attempt. Read the expanded documentation\n[/docs/payments/payment-intents/web-manual]to learn more about manual\nconfirmation.",
+            "description": "Confirm that your customer intends to pay with current or provided payment\nmethod. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4152,7 +4167,7 @@
         "PostPaymentMethods": {
             "main": "./lib/actions/PostPaymentMethods.js",
             "title": "PostPaymentMethods",
-            "description": "Creates a PaymentMethod object. Read the Stripe.js reference\n[/docs/stripe-js/reference#stripe-create-payment-method] to learn how to create\nPaymentMethods via Stripe.js.\n\nInstead of creating a PaymentMethod directly, we recommend using the \nPaymentIntents [/docs/payments/accept-a-payment] API to accept a payment\nimmediately or the SetupIntent [/docs/payments/save-and-reuse] API to collect\npayment method details ahead of a future payment.",
+            "description": "Creates a PaymentMethod object. Read the Stripe.js reference\n[/docs/stripe-js/reference#stripe-create-payment-method] to learn how to create\nPaymentMethods via Stripe.js.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4197,7 +4212,7 @@
         "PostPaymentMethodsPaymentMethodAttach": {
             "main": "./lib/actions/PostPaymentMethodsPaymentMethodAttach.js",
             "title": "PostPaymentMethodsPaymentMethodAttach",
-            "description": "Attaches a PaymentMethod object to a Customer.\n\nTo attach a new PaymentMethod to a customer for future payments, we recommend\nyou use a SetupIntent [/docs/api/setup_intents]or a PaymentIntent with \nsetup_future_usage\n[/docs/api/payment_intents/create#create_payment_intent-setup_future_usage].\nThese approaches will perform any necessary steps to ensure that the\nPaymentMethod can be used in a future payment. Using the\n/v1/payment_methods/:id/attach endpoint does not ensure that future payments can\nbe made with the attached PaymentMethod. See Optimizing cards for future\npayments [/docs/payments/payment-intents#future-usage] for more information\nabout setting up future payments.\n\nTo use this PaymentMethod as the default for invoice or subscription payments,\nset invoice_settings.default_payment_method\n[/docs/api/customers/update#update_customer-invoice_settings-default_payment_method]\n, on the Customer to the PaymentMethod's ID.",
+            "description": "Attaches a PaymentMethod object to a Customer.\n\nTo attach a new PaymentMethod to a customer for future payments.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4227,7 +4242,7 @@
         "PostPayouts": {
             "main": "./lib/actions/PostPayouts.js",
             "title": "PostPayouts",
-            "description": "To send funds to your own bank account, you create a new payout object. Your \nStripe balance must be able to cover the payout amount, or you'll receive an\n\"Insufficient Funds\" error.\n\nIf your API key is in test mode, money won't actually be sent, though everything\nelse will occur as if in live mode.\n\nIf you are creating a manual payout on a Stripe account that uses multiple\npayment source types, you'll need to specify the source type balance that the\npayout should draw from. The balance object details available and pending\namounts by source type.",
+            "description": "To send funds to your own bank account, you create a new payout object.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4287,7 +4302,7 @@
         "PostPayoutsPayoutReverse": {
             "main": "./lib/actions/PostPayoutsPayoutReverse.js",
             "title": "PostPayoutsPayoutReverse",
-            "description": "Reverses a payout by debiting the destination bank account. Only payouts for\nconnected accounts to US bank accounts may be reversed at this time. If the\npayout is in the pending status, /v1/payouts/:id/cancel should be used instead.\n\nBy requesting a reversal via /v1/payouts/:id/reverse, you confirm that the\nauthorized signatory of the selected bank account has authorized the debit on\nthe bank account and that no other authorization is required.",
+            "description": "Reverses a payout by debiting the destination bank account. Only payouts for\nconnected accounts to US bank accounts may be reversed at this time.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4512,7 +4527,7 @@
         "PostQuotes": {
             "main": "./lib/actions/PostQuotes.js",
             "title": "PostQuotes",
-            "description": "A quote models prices and services for a customer. Default options for header, \ndescription, footer, and expires_at can be set in the dashboard via the quote\ntemplate [https://dashboard.stripe.com/settings/billing/quote].",
+            "description": "A quote models prices and services for a customer. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4767,7 +4782,7 @@
         "PostRecipientsId": {
             "main": "./lib/actions/PostRecipientsId.js",
             "title": "PostRecipientsId",
-            "description": "Updates the specified recipient by setting the values of the parameters passed.\nAny parameters not provided will be left unchanged.\n\nIf you update the name or tax ID, the identity verification will automatically\nbe rerun. If you update the bank account, the bank account validation will\nautomatically be rerun.",
+            "description": "Updates the specified recipient by setting the values of the parameters passed.\nAny parameters not provided will be left unchanged.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4902,7 +4917,7 @@
         "PostSetupIntents": {
             "main": "./lib/actions/PostSetupIntents.js",
             "title": "PostSetupIntents",
-            "description": "Creates a SetupIntent object.\n\nAfter the SetupIntent is created, attach a payment method and confirm\n[/docs/api/setup_intents/confirm]to collect any required permissions to charge\nthe payment method later.",
+            "description": "Creates a SetupIntent object.\n\nAfter the SetupIntent is created, attach a payment method and confirm\n[/docs/api/setup_intents/confirm]",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4917,7 +4932,7 @@
         "GetSetupIntentsIntent": {
             "main": "./lib/actions/GetSetupIntentsIntent.js",
             "title": "GetSetupIntentsIntent",
-            "description": "Retrieves the details of a SetupIntent that has previously been created. \n\nClient-side retrieval using a publishable key is allowed when the client_secret \nis provided in the query string. \n\nWhen retrieved with a publishable key, only a subset of properties will be\nreturned. Please refer to the SetupIntent object reference for more details.",
+            "description": "Retrieves the details of a SetupIntent that has previously been created. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4947,7 +4962,7 @@
         "PostSetupIntentsIntentCancel": {
             "main": "./lib/actions/PostSetupIntentsIntentCancel.js",
             "title": "PostSetupIntentsIntentCancel",
-            "description": "A SetupIntent object can be canceled when it is in one of these statuses: \nrequires_payment_method, requires_confirmation, or requires_action. \n\nOnce canceled, setup is abandoned and any operations on the SetupIntent will\nfail with an error.",
+            "description": "A SetupIntent object can be canceled when it is in one of these statuses: \nrequires_payment_method, requires_confirmation, or requires_action. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4962,7 +4977,7 @@
         "PostSetupIntentsIntentConfirm": {
             "main": "./lib/actions/PostSetupIntentsIntentConfirm.js",
             "title": "PostSetupIntentsIntentConfirm",
-            "description": "Confirm that your customer intends to set up the current or provided payment\nmethod. For example, you would confirm a SetupIntent when a customer hits the\n\"Save\" button on a payment method management page on your website.\n\nIf the selected payment method does not require any additional steps from the\ncustomer, the SetupIntent will transition to thesucceeded status.\n\nOtherwise, it will transition to the requires_action status and suggest\nadditional actions via next_action. If setup fails, the SetupIntent will\ntransition to therequires_payment_method status.",
+            "description": "Confirm that your customer intends to set up the current or provided payment\nmethod.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5037,7 +5052,7 @@
         "PostSkusId": {
             "main": "./lib/actions/PostSkusId.js",
             "title": "PostSkusId",
-            "description": "Updates the specific SKU by setting the values of the parameters passed. Any\nparameters not provided will be left unchanged.\n\nNote that a SKU's attributes are not editable. Instead, you would need to\ndeactivate the existing SKU and create a new one with the new attribute values.",
+            "description": "Updates the specific SKU by setting the values of the parameters passed.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5082,7 +5097,7 @@
         "PostSourcesSource": {
             "main": "./lib/actions/PostSourcesSource.js",
             "title": "PostSourcesSource",
-            "description": "Updates the specified source by setting the values of the parameters passed. Any\nparameters not provided will be left unchanged.\n\nThis request accepts the metadata and owner as arguments. It is also possible to\nupdate type specific information for selected payment methods. Please refer to\nour payment method guides [/docs/sources] for more detail.",
+            "description": "Updates the specified source by setting the values of the parameters passed.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5112,7 +5127,7 @@
         "GetSourcesSourceSourceTransactionsSourceTransaction": {
             "main": "./lib/actions/GetSourcesSourceSourceTransactionsSourceTransaction.js",
             "title": "GetSourcesSourceSourceTransactionsSourceTransaction",
-            "description": "Retrieve an existing source transaction object. Supply the unique source ID from\na source creation request and the source transaction ID and Stripe will return\nthe corresponding up-to-date source object information.",
+            "description": "Retrieve an existing source transaction object.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5202,7 +5217,7 @@
         "PostSubscriptionItemsSubscriptionItemUsageRecords": {
             "main": "./lib/actions/PostSubscriptionItemsSubscriptionItemUsageRecords.js",
             "title": "PostSubscriptionItemsSubscriptionItemUsageRecords",
-            "description": "Creates a usage record for a specified subscription item and date, and fills it\nwith a quantity.\n\nUsage records provide quantity information that Stripe uses to track how much a\ncustomer is using your service. With usage information and the pricing model set\nup by the metered billing\n[https://stripe.com/docs/billing/subscriptions/metered-billing] plan, Stripe\nhelps you send accurate invoices to your customers.\n\nThe default calculation for usage is to add up all the quantity values of the\nusage records within a billing period. You can change this default behavior with\nthe billing plan's aggregate_usage parameter\n[/docs/api/plans/create#create_plan-aggregate_usage]. When there is more than\none usage record with the same timestamp, Stripe adds the quantity values\ntogether. In most cases, this is the desired resolution, however, you can change\nthis behavior with the action parameter.\n\nThe default pricing model for metered billing is per-unit pricing\n[/docs/api/plans/object#plan_object-billing_scheme]. For finer granularity, you\ncan configure metered billing to have a tiered pricing\n[https://stripe.com/docs/billing/subscriptions/tiers] model.",
+            "description": "Creates a usage record for a specified subscription item and date, and fills it\nwith a quantity.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5262,7 +5277,7 @@
         "PostSubscriptionSchedulesScheduleCancel": {
             "main": "./lib/actions/PostSubscriptionSchedulesScheduleCancel.js",
             "title": "PostSubscriptionSchedulesScheduleCancel",
-            "description": "Cancels a subscription schedule and its associated subscription immediately (if\nthe subscription schedule has an active subscription). A subscription schedule\ncan only be canceled if its status is not_started or active.",
+            "description": "Cancels a subscription schedule and its associated subscription immediately (if\nthe subscription schedule has an active subscription).",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5277,7 +5292,7 @@
         "PostSubscriptionSchedulesScheduleRelease": {
             "main": "./lib/actions/PostSubscriptionSchedulesScheduleRelease.js",
             "title": "PostSubscriptionSchedulesScheduleRelease",
-            "description": "Releases the subscription schedule immediately, which will stop scheduling of\nits phases, but leave any existing subscription in place. A schedule can only be\nreleased if its status is not_started or active. If the subscription schedule is\ncurrently associated with a subscription, releasing it will remove its \nsubscription property and set the subscription's ID to the released_subscription \nproperty.",
+            "description": "Releases the subscription schedule immediately, which will stop scheduling of\nits phases, but leave any existing subscription in place.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5307,7 +5322,7 @@
         "DeleteSubscriptionsSubscriptionExposedId": {
             "main": "./lib/actions/DeleteSubscriptionsSubscriptionExposedId.js",
             "title": "DeleteSubscriptionsSubscriptionExposedId",
-            "description": "Cancels a customer's subscription immediately. The customer will not be charged\nagain for the subscription.\n\nNote, however, that any pending invoice items that you've created will still be\ncharged for at the end of the period, unless manually deleted. If you've set the\nsubscription to cancel at the end of the period, any pending prorations will\nalso be left in place and collected at the end of the period. But if the\nsubscription is set to cancel immediately, pending prorations will be removed.\n\nBy default, upon subscription cancellation, Stripe will stop automatic\ncollection of all finalized invoices for the customer. This is intended to\nprevent unexpected payment attempts after the customer has canceled a\nsubscription. However, you can resume automatic collection of the invoices\nmanually after subscription cancellation to have us proceed. Or, you could check\nfor unpaid invoices before allowing the customer to cancel the subscription at\nall.",
+            "description": "Cancels a customer's subscription immediately. The customer will not be charged\nagain for the subscription.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5337,7 +5352,7 @@
         "PostSubscriptionsSubscriptionExposedId": {
             "main": "./lib/actions/PostSubscriptionsSubscriptionExposedId.js",
             "title": "PostSubscriptionsSubscriptionExposedId",
-            "description": "Updates an existing subscription on a customer to match the specified\nparameters. When changing plans or quantities, we will optionally prorate the\nprice we charge next month to make up for any price changes. To preview how the\nproration will be calculated, use the upcoming invoice endpoint.",
+            "description": "Updates an existing subscription on a customer to match the specified\nparameters.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5427,7 +5442,7 @@
         "PostTerminalConnectionTokens": {
             "main": "./lib/actions/PostTerminalConnectionTokens.js",
             "title": "PostTerminalConnectionTokens",
-            "description": "To connect to a reader the Stripe Terminal SDK needs to retrieve a short-lived\nconnection token from Stripe, proxied through your server. On your backend, add\nan endpoint that creates and returns a connection token.",
+            "description": "To connect to a reader the Stripe Terminal SDK needs to retrieve a short-lived\nconnection token from Stripe, proxied through your server. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5562,7 +5577,7 @@
         "PostTokens": {
             "main": "./lib/actions/PostTokens.js",
             "title": "PostTokens",
-            "description": "Creates a single-use token that represents a bank account's details. This token\ncan be used with any API method in place of a bank account dictionary. This\ntoken can be used only once, by attaching it to a Custom account.",
+            "description": "Creates a single-use token that represents a bank account's details.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5652,7 +5667,7 @@
         "PostTransfers": {
             "main": "./lib/actions/PostTransfers.js",
             "title": "PostTransfers",
-            "description": "To send funds from your Stripe account to a connected account, you create a new\ntransfer object. Your Stripe balance must be able to cover the transfer amount,\nor you'll receive an \"Insufficient Funds\" error.",
+            "description": "To send funds from your Stripe account to a connected account, you create a new\ntransfer object.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5667,7 +5682,7 @@
         "PostTransfersIdReversals": {
             "main": "./lib/actions/PostTransfersIdReversals.js",
             "title": "PostTransfersIdReversals",
-            "description": "When you create a new reversal, you must specify a transfer to create it on.\n\nWhen reversing transfers, you can optionally reverse part of the transfer. You\ncan do so as many times as you wish until the entire transfer has been reversed.\n\nOnce entirely reversed, a transfer can't be reversed again. This method will\nreturn an error when called on an already-reversed transfer, or when trying to\nreverse more money than is left on a transfer.",
+            "description": "When you create a new reversal, you must specify a transfer to create it on.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5682,7 +5697,7 @@
         "GetTransfersTransfer": {
             "main": "./lib/actions/GetTransfersTransfer.js",
             "title": "GetTransfersTransfer",
-            "description": "Retrieves the details of an existing transfer. Supply the unique transfer ID\nfrom either a transfer creation request or the transfer list, and Stripe will\nreturn the corresponding transfer information.",
+            "description": "Retrieves the details of an existing transfer. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5697,7 +5712,7 @@
         "PostTransfersTransfer": {
             "main": "./lib/actions/PostTransfersTransfer.js",
             "title": "PostTransfersTransfer",
-            "description": "Updates the specified transfer by setting the values of the parameters passed.\nAny parameters not provided will be left unchanged.\n\nThis request accepts only metadata as an argument.",
+            "description": "Updates the specified transfer by setting the values of the parameters passed.\nAny parameters not provided will be left unchanged.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -5742,7 +5757,7 @@
         "PostWebhookEndpoints": {
             "main": "./lib/actions/PostWebhookEndpoints.js",
             "title": "PostWebhookEndpoints",
-            "description": "A webhook endpoint must have a url and a list of enabled_events. You may\noptionally specify the Boolean connect parameter. If set to true, then a Connect\nwebhook endpoint that notifies the specified url about events from all connected\naccounts is created; otherwise an account webhook endpoint that notifies the\nspecified url only about events from your account is created. You can also\ncreate webhook endpoints in the webhooks settings\n[https://dashboard.stripe.com/account/webhooks] section of the Dashboard.",
+            "description": "A webhook endpoint must have a url and a list of enabled_events. You may\noptionally specify the Boolean connect parameter. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
