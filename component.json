@@ -220,7 +220,7 @@
         "GetApplicationFeesIdRefunds": {
             "main": "./lib/triggers/GetApplicationFeesIdRefunds.js",
             "title": "GetApplicationFeesIdRefunds",
-            "description": "You can see a list of the refunds belonging to a specific application fee. Note\nthat the 10 most recent refunds are always available by default on the\napplication fee object. If you need more than those 10, you can use this API\nmethod and the limit and starting_after parameters to page through additional\nrefunds.",
+            "description": "You can see a list of the refunds belonging to a specific application fee. Note\nthat the 10 most recent refunds are always available by default on the\napplication fee object. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -235,7 +235,7 @@
         "GetBalance": {
             "main": "./lib/triggers/GetBalance.js",
             "title": "GetBalance",
-            "description": "Retrieves the current account balance, based on the authentication that was used\nto make the request. For a sample request, see Accounting for negative balances\n[/docs/connect/account-balances#accounting-for-negative-balances].",
+            "description": "Retrieves the current account balance, based on the authentication that was used\nto make the request. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1000,7 +1000,7 @@
         "GetPayouts": {
             "main": "./lib/triggers/GetPayouts.js",
             "title": "GetPayouts",
-            "description": "Returns a list of existing payouts sent to third-party bank accounts or that\nStripe has sent you. The payouts are returned in sorted order, with the most\nrecently created payouts appearing first.",
+            "description": "Returns a list of existing payouts sent to third-party bank accounts or that\nStripe has sent you. The payouts are returned in sorted order.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1812,7 +1812,7 @@
         "DeleteAccountPersonsPerson": {
             "main": "./lib/actions/DeleteAccountPersonsPerson.js",
             "title": "DeleteAccountPersonsPerson",
-            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener. ",
+            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1887,7 +1887,7 @@
         "DeleteAccountsAccount": {
             "main": "./lib/actions/DeleteAccountsAccount.js",
             "title": "DeleteAccountsAccount",
-            "description": "With Connect [/docs/connect], you can delete accounts you manage.\n\nAccounts created using test-mode keys can be deleted at any time. Custom or\nExpress accounts created using live-mode keys can only be deleted once all\nbalances are zero.",
+            "description": "With Connect [/docs/connect], you can delete accounts you manage.\n\nAccounts created using test-mode keys can be deleted at any time. ",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2082,7 +2082,7 @@
         "PostAccountsAccountLoginLinks": {
             "main": "./lib/actions/PostAccountsAccountLoginLinks.js",
             "title": "PostAccountsAccountLoginLinks",
-            "description": "Creates a single-use login link for an Express account to access their Stripe\ndashboard.\n\nYou may only create login links for Express accounts\n[/docs/connect/express-accounts] connected to your platform.",
+            "description": "Creates a single-use login link for an Express account to access their Stripe\ndashboard.\n\nYou may only create login links for Express accounts",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2112,7 +2112,7 @@
         "DeleteAccountsAccountPeoplePerson": {
             "main": "./lib/actions/DeleteAccountsAccountPeoplePerson.js",
             "title": "DeleteAccountsAccountPeoplePerson",
-            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API, except\nif the person is the account_opener.",
+            "description": "Deletes an existing person's relationship to the account's legal entity. Any\nperson with a relationship for an account can be deleted through the API",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2277,7 +2277,7 @@
         "GetApplicationFeesFeeRefundsId": {
             "main": "./lib/actions/GetApplicationFeesFeeRefundsId.js",
             "title": "GetApplicationFeesFeeRefundsId",
-            "description": "By default, you can see the 10 most recent refunds stored directly on the\napplication fee object, but you can also retrieve details about a specific\nrefund stored on the application fee.",
+            "description": "By default, you can see the 10 most recent refunds stored directly on the\napplication fee object, but you can also retrieve details about a specific",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -2952,7 +2952,7 @@
         "PostCustomersCustomerCards": {
             "main": "./lib/actions/PostCustomersCustomerCards.js",
             "title": "PostCustomersCustomerCards",
-            "description": "When you create a new credit card, you must specify a customer or recipient on\nwhich to create it.\n\nIf the card's owner has no default card, then the new card will become the\ndefault.",
+            "description": "When you create a new credit card, you must specify a customer or recipient on\nwhich to create it.\n\nIf the card's owner has no default card",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -3642,7 +3642,7 @@
         "PostInvoicesInvoicePay": {
             "main": "./lib/actions/PostInvoicesInvoicePay.js",
             "title": "PostInvoicesInvoicePay",
-            "description": "Stripe automatically creates and then attempts to collect payment on invoices\nfor customers on subscriptions according to your subscriptions settings\n[https://dashboard.stripe.com/account/billing/automatic].",
+            "description": "Stripe automatically creates and then attempts to collect payment on invoices\nfor customers on subscriptions according to your subscriptions.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4257,7 +4257,7 @@
         "GetPayoutsPayout": {
             "main": "./lib/actions/GetPayoutsPayout.js",
             "title": "GetPayoutsPayout",
-            "description": "Retrieves the details of an existing payout. Supply the unique payout ID from\neither a payout creation request or the payout list, and Stripe will return the\ncorresponding payout information.",
+            "description": "Retrieves the details of an existing payout. Supply the unique payout ID from\neither a payout creation request or the payout list.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4272,7 +4272,7 @@
         "PostPayoutsPayout": {
             "main": "./lib/actions/PostPayoutsPayout.js",
             "title": "PostPayoutsPayout",
-            "description": "Updates the specified payout by setting the values of the parameters passed. Any\nparameters not provided will be left unchanged. This request accepts only the\nmetadata as arguments.",
+            "description": "Updates the specified payout by setting the values of the parameters passed. Any\nparameters not provided will be left unchanged.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4362,7 +4362,7 @@
         "PostPlansPlan": {
             "main": "./lib/actions/PostPlansPlan.js",
             "title": "PostPlansPlan",
-            "description": "Updates the specified plan by setting the values of the parameters passed. Any\nparameters not provided are left unchanged. By design, you cannot change a\nplan's ID, amount, currency, or billing cycle.",
+            "description": "Updates the specified plan by setting the values of the parameters passed. Any\nparameters not provided are left unchanged.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4437,7 +4437,7 @@
         "DeleteProductsId": {
             "main": "./lib/actions/DeleteProductsId.js",
             "title": "DeleteProductsId",
-            "description": "Delete a product. Deleting a product is only possible if it has no prices\nassociated with it. Additionally, deleting a product with type=good is only\npossible if it has no SKUs associated with it.",
+            "description": "Delete a product. Deleting a product is only possible if it has no prices\nassociated with it.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -4452,7 +4452,7 @@
         "GetProductsId": {
             "main": "./lib/actions/GetProductsId.js",
             "title": "GetProductsId",
-            "description": "Retrieves the details of an existing product. Supply the unique product ID from\neither a product creation request or the product list, and Stripe will return\nthe corresponding product information.",
+            "description": "Retrieves the details of an existing product. Supply the unique product ID from\neither a product creation request or the product list.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
