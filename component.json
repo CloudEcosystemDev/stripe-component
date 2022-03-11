@@ -46,12 +46,6 @@
             "main": "./lib/triggers/trigger.js",
             "title": "GetCustomersCustomerSubscriptionsSubscriptionExposedIdDiscount",
             "description": "",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/v1/customers/{customer}/subscriptions/{subscription_exposed_id}/discount",
                 "method": "get",
@@ -66,12 +60,6 @@
             "main": "./lib/triggers/trigger.js",
             "title": "GetCustomersCustomerDiscount",
             "description": "",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/v1/customers/{customer}/discount",
                 "method": "get",
@@ -88,12 +76,6 @@
             "main": "./lib/actions/action.js",
             "title": "PostChargesChargeDispute",
             "description": "",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/v1/charges/{charge}/dispute",
                 "method": "post",
@@ -108,12 +90,6 @@
             "main": "./lib/actions/action.js",
             "title": "PostApplicationFeesIdRefund",
             "description": "",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/v1/application_fees/{id}/refund",
                 "method": "post",
@@ -128,12 +104,6 @@
             "main": "./lib/actions/action.js",
             "title": "PostChargesChargeDisputeClose",
             "description": "",
-            "fields": {
-                "verbose": {
-                    "viewClass": "CheckBoxView",
-                    "label": "Debug this step (log more data)"
-                }
-            },
             "callParams": {
                 "pathName": "/v1/charges/{charge}/dispute/close",
                 "method": "post",
