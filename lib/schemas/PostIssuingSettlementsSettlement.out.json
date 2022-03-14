@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "When a non-stripe BIN is used, any use of an [issued card](https://stripe.com/docs/issuing) must be settled directly with the card network. The net amount owed is represented by an Issuing `Settlement` object.",
     "properties": {
         "bin": {
             "description": "The Bank Identification Number reflecting this settlement record.",
@@ -80,5 +80,27 @@
             "description": "The total transaction amount reflected in this settlement.",
             "type": "integer"
         }
-    }
+    },
+    "required": [
+        "bin",
+        "clearing_date",
+        "created",
+        "currency",
+        "id",
+        "interchange_fees",
+        "livemode",
+        "metadata",
+        "net_total",
+        "network",
+        "network_fees",
+        "network_settlement_identifier",
+        "object",
+        "settlement_service",
+        "transaction_count",
+        "transaction_volume"
+    ],
+    "title": "IssuingSettlement",
+    "type": "object",
+    "x-expandableFields": [],
+    "x-resourceId": "issuing.settlement"
 }

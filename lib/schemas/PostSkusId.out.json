@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "Stores representations of [stock keeping units](http://en.wikipedia.org/wiki/Stock_keeping_unit).\nSKUs describe specific product variations, taking into account any combination of: attributes,\ncurrency, and cost. For example, a product may be a T-shirt, whereas a specific SKU represents\nthe `size: large`, `color: red` version of that shirt.\n\nCan also be used to manage inventory.\n\nRelated guide: [Tax, Shipping, and Inventory](https://stripe.com/docs/orders).",
     "properties": {
         "active": {
             "description": "Whether the SKU is available for purchase.",
@@ -591,5 +591,27 @@
             "format": "unix-time",
             "type": "integer"
         }
-    }
+    },
+    "required": [
+        "active",
+        "attributes",
+        "created",
+        "currency",
+        "id",
+        "inventory",
+        "livemode",
+        "metadata",
+        "object",
+        "price",
+        "product",
+        "updated"
+    ],
+    "title": "Sku",
+    "type": "object",
+    "x-expandableFields": [
+        "inventory",
+        "package_dimensions",
+        "product"
+    ],
+    "x-resourceId": "sku"
 }

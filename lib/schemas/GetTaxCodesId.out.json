@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "[Tax codes](https://stripe.com/docs/tax/tax-codes) classify goods and services for tax purposes.",
     "properties": {
         "description": {
             "description": "A detailed description of which types of products the tax code represents.",
@@ -23,5 +23,15 @@
             ],
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "description",
+        "id",
+        "name",
+        "object"
+    ],
+    "title": "TaxProductResourceTaxCode",
+    "type": "object",
+    "x-expandableFields": [],
+    "x-resourceId": "tax_code"
 }

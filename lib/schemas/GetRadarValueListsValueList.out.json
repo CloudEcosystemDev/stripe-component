@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "Value lists allow you to group values together which can then be referenced in rules.\n\nRelated guide: [Default Stripe Lists](https://stripe.com/docs/radar/lists#managing-list-items).",
     "properties": {
         "alias": {
             "description": "The name of the value list for use in rules.",
@@ -149,5 +149,23 @@
             ],
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "alias",
+        "created",
+        "created_by",
+        "id",
+        "item_type",
+        "list_items",
+        "livemode",
+        "metadata",
+        "name",
+        "object"
+    ],
+    "title": "RadarListList",
+    "type": "object",
+    "x-expandableFields": [
+        "list_items"
+    ],
+    "x-resourceId": "radar.value_list"
 }

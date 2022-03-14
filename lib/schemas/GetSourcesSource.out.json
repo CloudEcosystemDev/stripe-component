@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "`Source` objects allow you to accept a variety of payment methods. They\nrepresent a customer's payment instrument, and can be used with the Stripe API\njust like a `Card` object: once chargeable, they can be charged, or can be\nattached to customers.\n\nRelated guides: [Sources API](https://stripe.com/docs/sources) and [Sources & Customers](https://stripe.com/docs/sources/customers).",
     "properties": {
         "ach_credit_transfer": {
             "properties": {
@@ -1166,5 +1166,25 @@
             },
             "type": "object"
         }
-    }
+    },
+    "required": [
+        "client_secret",
+        "created",
+        "flow",
+        "id",
+        "livemode",
+        "object",
+        "status",
+        "type"
+    ],
+    "title": "Source",
+    "type": "object",
+    "x-expandableFields": [
+        "code_verification",
+        "owner",
+        "receiver",
+        "redirect",
+        "source_order"
+    ],
+    "x-resourceId": "source"
 }

@@ -1,27 +1,72 @@
 {
-    "type": "object",
+    "description": "",
     "properties": {
-        "description": {
-            "description": "A detailed description of which types of products the tax code represents.",
-            "maxLength": 5000,
-            "type": "string"
+        "data": {
+            "items": {
+                "description": "[Tax codes](https://stripe.com/docs/tax/tax-codes) classify goods and services for tax purposes.",
+                "properties": {
+                    "description": {
+                        "description": "A detailed description of which types of products the tax code represents.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Unique identifier for the object.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "A short name for the tax code.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "object": {
+                        "description": "String representing the object's type. Objects of the same type share the same value.",
+                        "enum": [
+                            "tax_code"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "id",
+                    "name",
+                    "object"
+                ],
+                "title": "TaxProductResourceTaxCode",
+                "type": "object",
+                "x-expandableFields": [],
+                "x-resourceId": "tax_code"
+            },
+            "type": "array"
         },
-        "id": {
-            "description": "Unique identifier for the object.",
-            "maxLength": 5000,
-            "type": "string"
-        },
-        "name": {
-            "description": "A short name for the tax code.",
-            "maxLength": 5000,
-            "type": "string"
+        "has_more": {
+            "description": "True if this list has another page of items after this one that can be fetched.",
+            "type": "boolean"
         },
         "object": {
-            "description": "String representing the object's type. Objects of the same type share the same value.",
+            "description": "String representing the object's type. Objects of the same type share the same value. Always has the value `list`.",
             "enum": [
-                "tax_code"
+                "list"
             ],
             "type": "string"
+        },
+        "url": {
+            "description": "The URL where this list can be accessed.",
+            "maxLength": 5000,
+            "type": "string"
         }
-    }
+    },
+    "required": [
+        "data",
+        "has_more",
+        "object",
+        "url"
+    ],
+    "title": "TaxProductResourceTaxCodeList",
+    "type": "object",
+    "x-expandableFields": [
+        "data"
+    ]
 }

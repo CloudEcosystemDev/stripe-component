@@ -1,41 +1,89 @@
 {
-    "type": "object",
+    "description": "",
     "properties": {
-        "created": {
-            "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-            "format": "unix-time",
-            "type": "integer"
+        "data": {
+            "items": {
+                "description": "Value list items allow you to add specific values to a given Radar value list, which can then be used in rules.\n\nRelated guide: [Managing List Items](https://stripe.com/docs/radar/lists#managing-list-items).",
+                "properties": {
+                    "created": {
+                        "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+                        "format": "unix-time",
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "description": "The name or email address of the user who added this item to the value list.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Unique identifier for the object.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "livemode": {
+                        "description": "Has the value `true` if the object exists in live mode or the value `false` if the object exists in test mode.",
+                        "type": "boolean"
+                    },
+                    "object": {
+                        "description": "String representing the object's type. Objects of the same type share the same value.",
+                        "enum": [
+                            "radar.value_list_item"
+                        ],
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "The value of the item.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "value_list": {
+                        "description": "The identifier of the value list this item belongs to.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "created",
+                    "created_by",
+                    "id",
+                    "livemode",
+                    "object",
+                    "value",
+                    "value_list"
+                ],
+                "title": "RadarListListItem",
+                "type": "object",
+                "x-expandableFields": [],
+                "x-resourceId": "radar.value_list_item"
+            },
+            "type": "array"
         },
-        "created_by": {
-            "description": "The name or email address of the user who added this item to the value list.",
-            "maxLength": 5000,
-            "type": "string"
-        },
-        "id": {
-            "description": "Unique identifier for the object.",
-            "maxLength": 5000,
-            "type": "string"
-        },
-        "livemode": {
-            "description": "Has the value `true` if the object exists in live mode or the value `false` if the object exists in test mode.",
+        "has_more": {
+            "description": "True if this list has another page of items after this one that can be fetched.",
             "type": "boolean"
         },
         "object": {
-            "description": "String representing the object's type. Objects of the same type share the same value.",
+            "description": "String representing the object's type. Objects of the same type share the same value. Always has the value `list`.",
             "enum": [
-                "radar.value_list_item"
+                "list"
             ],
             "type": "string"
         },
-        "value": {
-            "description": "The value of the item.",
+        "url": {
+            "description": "The URL where this list can be accessed.",
             "maxLength": 5000,
-            "type": "string"
-        },
-        "value_list": {
-            "description": "The identifier of the value list this item belongs to.",
-            "maxLength": 5000,
+            "pattern": "^/v1/radar/value_list_items",
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "data",
+        "has_more",
+        "object",
+        "url"
+    ],
+    "type": "object",
+    "x-expandableFields": [
+        "data"
+    ]
 }

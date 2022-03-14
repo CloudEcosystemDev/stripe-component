@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "Products describe the specific goods or services you offer to your customers.\nFor example, you might offer a Standard and Premium version of your goods or service; each version would be a separate Product.\nThey can be used in conjunction with [Prices](https://stripe.com/docs/api#prices) to configure pricing in Checkout and Subscriptions.\n\nRelated guides: [Set up a subscription](https://stripe.com/docs/billing/subscriptions/set-up-subscription) or accept [one-time payments with Checkout](https://stripe.com/docs/payments/checkout/client#create-products) and more about [Products and Prices](https://stripe.com/docs/billing/prices-guide)",
     "properties": {
         "active": {
             "description": "Whether the product is currently available for purchase.",
@@ -205,5 +205,23 @@
             "nullable": true,
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "active",
+        "created",
+        "id",
+        "images",
+        "livemode",
+        "metadata",
+        "name",
+        "object",
+        "updated"
+    ],
+    "title": "Product",
+    "type": "object",
+    "x-expandableFields": [
+        "package_dimensions",
+        "tax_code"
+    ],
+    "x-resourceId": "product"
 }

@@ -1,30 +1,82 @@
 {
-    "type": "object",
-    "properties": {
-        "currency": {
-            "description": "Three-letter [ISO code for the currency](https://stripe.com/docs/payouts) paid out to the bank account.",
-            "maxLength": 5000,
-            "nullable": true,
-            "type": "string"
-        },
-        "deleted": {
-            "description": "Always true for a deleted object",
-            "enum": [
-                true
+    "anyOf": [
+        {
+            "description": "",
+            "properties": {
+                "currency": {
+                    "description": "Three-letter [ISO code for the currency](https://stripe.com/docs/payouts) paid out to the bank account.",
+                    "maxLength": 5000,
+                    "nullable": true,
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "Always true for a deleted object",
+                    "enum": [
+                        true
+                    ],
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "Unique identifier for the object.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "object": {
+                    "description": "String representing the object's type. Objects of the same type share the same value.",
+                    "enum": [
+                        "bank_account"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "deleted",
+                "id",
+                "object"
             ],
-            "type": "boolean"
+            "title": "DeletedBankAccount",
+            "type": "object",
+            "x-expandableFields": []
         },
-        "id": {
-            "description": "Unique identifier for the object.",
-            "maxLength": 5000,
-            "type": "string"
-        },
-        "object": {
-            "description": "String representing the object's type. Objects of the same type share the same value.",
-            "enum": [
-                "card"
+        {
+            "description": "",
+            "properties": {
+                "currency": {
+                    "description": "Three-letter [ISO code for the currency](https://stripe.com/docs/payouts) paid out to the bank account.",
+                    "maxLength": 5000,
+                    "nullable": true,
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "Always true for a deleted object",
+                    "enum": [
+                        true
+                    ],
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "Unique identifier for the object.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "object": {
+                    "description": "String representing the object's type. Objects of the same type share the same value.",
+                    "enum": [
+                        "card"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "deleted",
+                "id",
+                "object"
             ],
-            "type": "string"
+            "title": "DeletedCard",
+            "type": "object",
+            "x-expandableFields": []
         }
-    }
+    ],
+    "title": "Polymorphic",
+    "x-resourceId": "deleted_external_account"
 }

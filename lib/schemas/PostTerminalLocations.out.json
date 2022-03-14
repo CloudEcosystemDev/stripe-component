@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "A Location represents a grouping of readers.\n\nRelated guide: [Fleet Management](https://stripe.com/docs/terminal/creating-locations).",
     "properties": {
         "address": {
             "description": "",
@@ -74,5 +74,19 @@
             ],
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "address",
+        "display_name",
+        "id",
+        "livemode",
+        "metadata",
+        "object"
+    ],
+    "title": "TerminalLocationLocation",
+    "type": "object",
+    "x-expandableFields": [
+        "address"
+    ],
+    "x-resourceId": "terminal.location"
 }

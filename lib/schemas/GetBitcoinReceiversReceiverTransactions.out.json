@@ -1,39 +1,88 @@
 {
-    "type": "object",
+    "description": "",
     "properties": {
-        "amount": {
-            "description": "The amount of `currency` that the transaction was converted to in real-time.",
-            "type": "integer"
+        "data": {
+            "description": "Details about each object.",
+            "items": {
+                "description": "",
+                "properties": {
+                    "amount": {
+                        "description": "The amount of `currency` that the transaction was converted to in real-time.",
+                        "type": "integer"
+                    },
+                    "bitcoin_amount": {
+                        "description": "The amount of bitcoin contained in the transaction.",
+                        "type": "integer"
+                    },
+                    "created": {
+                        "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+                        "format": "unix-time",
+                        "type": "integer"
+                    },
+                    "currency": {
+                        "description": "Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) to which this transaction was converted.",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Unique identifier for the object.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "object": {
+                        "description": "String representing the object's type. Objects of the same type share the same value.",
+                        "enum": [
+                            "bitcoin_transaction"
+                        ],
+                        "type": "string"
+                    },
+                    "receiver": {
+                        "description": "The receiver to which this transaction was sent.",
+                        "maxLength": 5000,
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "amount",
+                    "bitcoin_amount",
+                    "created",
+                    "currency",
+                    "id",
+                    "object",
+                    "receiver"
+                ],
+                "title": "BitcoinTransaction",
+                "type": "object",
+                "x-expandableFields": [],
+                "x-resourceId": "bitcoin_transaction"
+            },
+            "type": "array"
         },
-        "bitcoin_amount": {
-            "description": "The amount of bitcoin contained in the transaction.",
-            "type": "integer"
-        },
-        "created": {
-            "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-            "format": "unix-time",
-            "type": "integer"
-        },
-        "currency": {
-            "description": "Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) to which this transaction was converted.",
-            "type": "string"
-        },
-        "id": {
-            "description": "Unique identifier for the object.",
-            "maxLength": 5000,
-            "type": "string"
+        "has_more": {
+            "description": "True if this list has another page of items after this one that can be fetched.",
+            "type": "boolean"
         },
         "object": {
-            "description": "String representing the object's type. Objects of the same type share the same value.",
+            "description": "String representing the object's type. Objects of the same type share the same value. Always has the value `list`.",
             "enum": [
-                "bitcoin_transaction"
+                "list"
             ],
             "type": "string"
         },
-        "receiver": {
-            "description": "The receiver to which this transaction was sent.",
+        "url": {
+            "description": "The URL where this list can be accessed.",
             "maxLength": 5000,
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "data",
+        "has_more",
+        "object",
+        "url"
+    ],
+    "title": "BitcoinTransactionList",
+    "type": "object",
+    "x-expandableFields": [
+        "data"
+    ]
 }

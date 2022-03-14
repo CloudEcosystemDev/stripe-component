@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "Some payment methods have no required amount that a customer must send.\nCustomers can be instructed to send any amount, and it can be made up of\nmultiple transactions. As such, sources can have multiple associated\ntransactions.",
     "properties": {
         "ach_credit_transfer": {
             "description": "",
@@ -207,5 +207,26 @@
             ],
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "amount",
+        "created",
+        "currency",
+        "id",
+        "livemode",
+        "object",
+        "source",
+        "status",
+        "type"
+    ],
+    "title": "SourceTransaction",
+    "type": "object",
+    "x-expandableFields": [
+        "ach_credit_transfer",
+        "chf_credit_transfer",
+        "gbp_credit_transfer",
+        "paper_check",
+        "sepa_credit_transfer"
+    ],
+    "x-resourceId": "source_transaction"
 }

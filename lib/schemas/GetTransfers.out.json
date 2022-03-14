@@ -1,4 +1,38 @@
 {
+    "description": "",
+    "properties": {
+        "data": {
+            "description": "Details about each object.",
+            "items": {},
+            "type": "array"
+        },
+        "has_more": {
+            "description": "True if this list has another page of items after this one that can be fetched.",
+            "type": "boolean"
+        },
+        "object": {
+            "description": "String representing the object's type. Objects of the same type share the same value. Always has the value `list`.",
+            "enum": [
+                "list"
+            ],
+            "type": "string"
+        },
+        "url": {
+            "description": "The URL where this list can be accessed.",
+            "maxLength": 5000,
+            "pattern": "^/v1/transfers",
+            "type": "string"
+        }
+    },
+    "required": [
+        "data",
+        "has_more",
+        "object",
+        "url"
+    ],
+    "title": "TransferList",
     "type": "object",
-    "properties": {}
+    "x-expandableFields": [
+        "data"
+    ]
 }

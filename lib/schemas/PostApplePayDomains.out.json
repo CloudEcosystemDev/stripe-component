@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "",
     "properties": {
         "created": {
             "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
@@ -26,5 +26,16 @@
             ],
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "created",
+        "domain_name",
+        "id",
+        "livemode",
+        "object"
+    ],
+    "title": "ApplePayDomain",
+    "type": "object",
+    "x-expandableFields": [],
+    "x-resourceId": "apple_pay_domain"
 }

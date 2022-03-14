@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "",
     "properties": {
         "created": {
             "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
@@ -32,5 +32,16 @@
             "maxLength": 5000,
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "created",
+        "expires",
+        "id",
+        "livemode",
+        "object"
+    ],
+    "title": "EphemeralKey",
+    "type": "object",
+    "x-expandableFields": [],
+    "x-resourceId": "ephemeral_key"
 }

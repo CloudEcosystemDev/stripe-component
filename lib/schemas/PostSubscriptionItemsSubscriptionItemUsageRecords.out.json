@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "Usage records allow you to report customer usage and metrics to Stripe for\nmetered billing of subscription prices.\n\nRelated guide: [Metered Billing](https://stripe.com/docs/billing/subscriptions/metered-billing).",
     "properties": {
         "id": {
             "description": "Unique identifier for the object.",
@@ -31,5 +31,17 @@
             "format": "unix-time",
             "type": "integer"
         }
-    }
+    },
+    "required": [
+        "id",
+        "livemode",
+        "object",
+        "quantity",
+        "subscription_item",
+        "timestamp"
+    ],
+    "title": "UsageRecord",
+    "type": "object",
+    "x-expandableFields": [],
+    "x-resourceId": "usage_record"
 }

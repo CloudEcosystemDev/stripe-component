@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "Value list items allow you to add specific values to a given Radar value list, which can then be used in rules.\n\nRelated guide: [Managing List Items](https://stripe.com/docs/radar/lists#managing-list-items).",
     "properties": {
         "created": {
             "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
@@ -37,5 +37,18 @@
             "maxLength": 5000,
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "created",
+        "created_by",
+        "id",
+        "livemode",
+        "object",
+        "value",
+        "value_list"
+    ],
+    "title": "RadarListListItem",
+    "type": "object",
+    "x-expandableFields": [],
+    "x-resourceId": "radar.value_list_item"
 }
