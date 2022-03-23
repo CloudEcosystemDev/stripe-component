@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "Subscription items allow you to create customer subscriptions with more than\none plan, making it easy to represent complex billing relationships.",
     "properties": {
         "billing_thresholds": {
             "anyOf": [
@@ -937,5 +937,21 @@
             "nullable": true,
             "type": "array"
         }
-    }
+    },
+    "required": [
+        "created",
+        "id",
+        "metadata",
+        "object",
+        "price",
+        "subscription"
+    ],
+    "title": "SubscriptionItem",
+    "type": "object",
+    "x-expandableFields": [
+        "billing_thresholds",
+        "price",
+        "tax_rates"
+    ],
+    "x-resourceId": "subscription_item"
 }

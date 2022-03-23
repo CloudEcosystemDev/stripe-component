@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "",
     "properties": {
         "active": {
             "description": "True when this bitcoin receiver has received a non-zero amount of bitcoin.",
@@ -196,5 +196,27 @@
             "nullable": true,
             "type": "boolean"
         }
-    }
+    },
+    "required": [
+        "active",
+        "amount",
+        "amount_received",
+        "bitcoin_amount",
+        "bitcoin_amount_received",
+        "bitcoin_uri",
+        "created",
+        "currency",
+        "filled",
+        "id",
+        "inbound_address",
+        "livemode",
+        "object",
+        "uncaptured_funds"
+    ],
+    "title": "BitcoinReceiver",
+    "type": "object",
+    "x-expandableFields": [
+        "transactions"
+    ],
+    "x-resourceId": "bitcoin_receiver"
 }

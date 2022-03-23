@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "A VerificationSession guides you through the process of collecting and verifying the identities\nof your users. It contains details about the type of verification, such as what [verification\ncheck](/docs/identity/verification-checks) to perform. Only create one VerificationSession for\neach verification in your system.\n\nA VerificationSession transitions through [multiple\nstatuses](/docs/identity/how-sessions-work) throughout its lifetime as it progresses through\nthe verification flow. The VerificationSession contains the user’s verified data after\nverification checks are complete.\n\nRelated guide: [The Verification Sessions API](https://stripe.com/docs/identity/verification-sessions)",
     "properties": {
         "client_secret": {
             "description": "The short-lived client secret used by Stripe.js to [show a verification modal](https://stripe.com/docs/js/identity/modal) inside your app. This client secret expires after 24 hours and can only be used once. Don’t store it, log it, embed it in a URL, or expose it to anyone other than the user. Make sure that you have TLS enabled on any page that includes the client secret. Refer to our docs on [passing the client secret to the frontend](https://stripe.com/docs/identity/verification-sessions#client-secret) to learn more.",
@@ -1354,5 +1354,25 @@
             "description": "The user’s verified data.",
             "nullable": true
         }
-    }
+    },
+    "required": [
+        "created",
+        "id",
+        "livemode",
+        "metadata",
+        "object",
+        "options",
+        "status",
+        "type"
+    ],
+    "title": "GelatoVerificationSession",
+    "type": "object",
+    "x-expandableFields": [
+        "last_error",
+        "last_verification_report",
+        "options",
+        "redaction",
+        "verified_outputs"
+    ],
+    "x-resourceId": "identity.verification_session"
 }

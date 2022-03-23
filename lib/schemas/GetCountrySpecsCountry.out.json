@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "Stripe needs to collect certain pieces of information about each account\ncreated. These requirements can differ depending on the account's country. The\nCountry Specs API makes these rules available to your integration.\n\nYou can also view the information from this API call as [an online\nguide](/docs/connect/required-verification-information).",
     "properties": {
         "default_currency": {
             "description": "The default currency for this country. This applies to both payment methods and bank accounts.",
@@ -124,5 +124,21 @@
                 "individual"
             ]
         }
-    }
+    },
+    "required": [
+        "default_currency",
+        "id",
+        "object",
+        "supported_bank_account_currencies",
+        "supported_payment_currencies",
+        "supported_payment_methods",
+        "supported_transfer_countries",
+        "verification_fields"
+    ],
+    "title": "CountrySpec",
+    "type": "object",
+    "x-expandableFields": [
+        "verification_fields"
+    ],
+    "x-resourceId": "country_spec"
 }

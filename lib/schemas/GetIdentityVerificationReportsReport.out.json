@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "A VerificationReport is the result of an attempt to collect and verify data from a user.\nThe collection of verification checks performed is determined from the `type` and `options`\nparameters used. You can find the result of each verification check performed in the\nappropriate sub-resource: `document`, `id_number`, `selfie`.\n\nEach VerificationReport contains a copy of any data collected by the user as well as\nreference IDs which can be used to access collected images through the [FileUpload](https://stripe.com/docs/api/files)\nAPI. To configure and create VerificationReports, use the\n[VerificationSession](https://stripe.com/docs/api/identity/verification_sessions) API.\n\nRelated guides: [Accessing verification results](https://stripe.com/docs/identity/verification-sessions#results).",
     "properties": {
         "created": {
             "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
@@ -498,5 +498,22 @@
             "nullable": true,
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "created",
+        "id",
+        "livemode",
+        "object",
+        "options",
+        "type"
+    ],
+    "title": "GelatoVerificationReport",
+    "type": "object",
+    "x-expandableFields": [
+        "document",
+        "id_number",
+        "options",
+        "selfie"
+    ],
+    "x-resourceId": "identity.verification_report"
 }

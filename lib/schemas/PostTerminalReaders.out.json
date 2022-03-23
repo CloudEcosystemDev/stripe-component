@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "A Reader represents a physical device for accepting payment details.\n\nRelated guide: [Connecting to a Reader](https://stripe.com/docs/terminal/readers/connecting).",
     "properties": {
         "device_sw_version": {
             "description": "The current software version of the reader.",
@@ -260,5 +260,20 @@
             "nullable": true,
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "device_type",
+        "id",
+        "label",
+        "livemode",
+        "metadata",
+        "object",
+        "serial_number"
+    ],
+    "title": "TerminalReaderReader",
+    "type": "object",
+    "x-expandableFields": [
+        "location"
+    ],
+    "x-resourceId": "terminal.reader"
 }

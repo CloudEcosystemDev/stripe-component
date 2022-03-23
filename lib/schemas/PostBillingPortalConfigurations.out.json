@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "A portal configuration describes the functionality and behavior of a portal session.",
     "properties": {
         "active": {
             "description": "Whether the configuration is active and can be used to create portal sessions.",
@@ -313,5 +313,23 @@
             "format": "unix-time",
             "type": "integer"
         }
-    }
+    },
+    "required": [
+        "active",
+        "business_profile",
+        "created",
+        "features",
+        "id",
+        "is_default",
+        "livemode",
+        "object",
+        "updated"
+    ],
+    "title": "PortalConfiguration",
+    "type": "object",
+    "x-expandableFields": [
+        "business_profile",
+        "features"
+    ],
+    "x-resourceId": "billing_portal.configuration"
 }

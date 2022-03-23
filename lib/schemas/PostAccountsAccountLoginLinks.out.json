@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "",
     "properties": {
         "created": {
             "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
@@ -18,5 +18,14 @@
             "maxLength": 5000,
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "created",
+        "object",
+        "url"
+    ],
+    "title": "LoginLink",
+    "type": "object",
+    "x-expandableFields": [],
+    "x-resourceId": "login_link"
 }

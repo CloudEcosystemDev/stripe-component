@@ -1,5 +1,5 @@
 {
-    "type": "object",
+    "description": "You can configure [webhook endpoints](https://stripe.com/docs/webhooks/) via the API to be\nnotified about events that happen in your Stripe account or connected\naccounts.\n\nMost users configure webhooks from [the dashboard](https://dashboard.stripe.com/webhooks), which provides a user interface for registering and testing your webhook endpoints.\n\nRelated guide: [Setting up Webhooks](https://stripe.com/docs/webhooks/configure).",
     "properties": {
         "api_version": {
             "description": "The API version events are rendered as for this webhook endpoint.",
@@ -71,5 +71,19 @@
             "maxLength": 5000,
             "type": "string"
         }
-    }
+    },
+    "required": [
+        "created",
+        "enabled_events",
+        "id",
+        "livemode",
+        "metadata",
+        "object",
+        "status",
+        "url"
+    ],
+    "title": "NotificationWebhookEndpoint",
+    "type": "object",
+    "x-expandableFields": [],
+    "x-resourceId": "webhook_endpoint"
 }
