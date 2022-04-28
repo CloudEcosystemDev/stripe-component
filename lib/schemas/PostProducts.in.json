@@ -41,7 +41,7 @@
                     "type": "object"
                 },
                 "name": {
-                    "description": "The product's name, meant to be displayable to the customer. Whenever this product is sold via a subscription, name will show up on associated invoice line item descriptions.",
+                    "description": "The product's name, meant to be displayable to the customer.",
                     "maxLength": 5000,
                     "type": "string"
                 },
@@ -80,7 +80,7 @@
                     "type": "string"
                 },
                 "tax_code": {
-                    "description": "A [tax code](https://stripe.com/docs/tax/tax-codes) ID.",
+                    "description": "A [tax code](https://stripe.com/docs/tax/tax-categories) ID.",
                     "type": "string"
                 },
                 "unit_label": {

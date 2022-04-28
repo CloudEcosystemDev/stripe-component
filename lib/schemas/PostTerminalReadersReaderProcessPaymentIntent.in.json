@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "reader": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "payment_intent": {
+                    "description": "PaymentIntent ID",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "process_config": {
+                    "description": "Configuration overrides",
+                    "properties": {
+                        "skip_tipping": {
+                            "type": "boolean"
+                        }
+                    },
+                    "title": "process_config",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "payment_intent"
+            ],
+            "type": "object"
+        }
+    }
+}

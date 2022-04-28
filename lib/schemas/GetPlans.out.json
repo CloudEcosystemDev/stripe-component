@@ -4,7 +4,7 @@
         "data": {
             "description": "Details about each object.",
             "items": {
-                "description": "You can now model subscriptions more flexibly using the [Prices API](https://stripe.com/docs/api#prices). It replaces the Plans API and is backwards compatible to simplify your migration.\n\nPlans define the base price, currency, and billing cycle for recurring purchases of products.\n[Products](https://stripe.com/docs/api#products) help you track inventory or provisioning, and plans help you track pricing. Different physical goods or levels of service should be represented by products, and pricing options should be represented by plans. This approach lets you change prices without having to change your provisioning scheme.\n\nFor example, you might have a single \"gold\" product that has plans for $10/month, $100/year, €9/month, and €90/year.\n\nRelated guides: [Set up a subscription](https://stripe.com/docs/billing/subscriptions/set-up-subscription) and more about [products and prices](https://stripe.com/docs/billing/prices-guide).",
+                "description": "You can now model subscriptions more flexibly using the [Prices API](https://stripe.com/docs/api#prices). It replaces the Plans API and is backwards compatible to simplify your migration.\n\nPlans define the base price, currency, and billing cycle for recurring purchases of products.\n[Products](https://stripe.com/docs/api#products) help you track inventory or provisioning, and plans help you track pricing. Different physical goods or levels of service should be represented by products, and pricing options should be represented by plans. This approach lets you change prices without having to change your provisioning scheme.\n\nFor example, you might have a single \"gold\" product that has plans for $10/month, $100/year, €9/month, and €90/year.\n\nRelated guides: [Set up a subscription](https://stripe.com/docs/billing/subscriptions/set-up-subscription) and more about [products and prices](https://stripe.com/docs/products-prices/overview).",
                 "properties": {
                     "active": {
                         "description": "Whether the plan can be used for new purchases.",
@@ -101,7 +101,7 @@
                                 "type": "string"
                             },
                             {
-                                "description": "Products describe the specific goods or services you offer to your customers.\nFor example, you might offer a Standard and Premium version of your goods or service; each version would be a separate Product.\nThey can be used in conjunction with [Prices](https://stripe.com/docs/api#prices) to configure pricing in Checkout and Subscriptions.\n\nRelated guides: [Set up a subscription](https://stripe.com/docs/billing/subscriptions/set-up-subscription) or accept [one-time payments with Checkout](https://stripe.com/docs/payments/checkout/client#create-products) and more about [Products and Prices](https://stripe.com/docs/billing/prices-guide)",
+                                "description": "Products describe the specific goods or services you offer to your customers.\nFor example, you might offer a Standard and Premium version of your goods or service; each version would be a separate Product.\nThey can be used in conjunction with [Prices](https://stripe.com/docs/api#prices) to configure pricing in Payment Links, Checkout, and Subscriptions.\n\nRelated guides: [Set up a subscription](https://stripe.com/docs/billing/subscriptions/set-up-subscription),\n[share a Payment Link](https://stripe.com/docs/payments/payment-links/overview),\n[accept payments with Checkout](https://stripe.com/docs/payments/accept-a-payment#create-product-prices-upfront),\nand more about [Products and Prices](https://stripe.com/docs/products-prices/overview)",
                                 "properties": {
                                     "active": {
                                         "description": "Whether the product is currently available for purchase.",
@@ -144,7 +144,7 @@
                                         "type": "object"
                                     },
                                     "name": {
-                                        "description": "The product's name, meant to be displayable to the customer. Whenever this product is sold via a subscription, name will show up on associated invoice line item descriptions.",
+                                        "description": "The product's name, meant to be displayable to the customer.",
                                         "maxLength": 5000,
                                         "type": "string"
                                     },
@@ -209,7 +209,7 @@
                                                 "type": "string"
                                             },
                                             {
-                                                "description": "[Tax codes](https://stripe.com/docs/tax/tax-codes) classify goods and services for tax purposes.",
+                                                "description": "[Tax codes](https://stripe.com/docs/tax/tax-categories) classify goods and services for tax purposes.",
                                                 "properties": {
                                                     "description": {
                                                         "description": "A detailed description of which types of products the tax code represents.",
@@ -246,12 +246,12 @@
                                                 "x-resourceId": "tax_code"
                                             }
                                         ],
-                                        "description": "A [tax code](https://stripe.com/docs/tax/tax-codes) ID.",
+                                        "description": "A [tax code](https://stripe.com/docs/tax/tax-categories) ID.",
                                         "nullable": true,
                                         "x-expansionResources": {
                                             "oneOf": [
                                                 {
-                                                    "description": "[Tax codes](https://stripe.com/docs/tax/tax-codes) classify goods and services for tax purposes.",
+                                                    "description": "[Tax codes](https://stripe.com/docs/tax/tax-categories) classify goods and services for tax purposes.",
                                                     "properties": {
                                                         "description": {
                                                             "description": "A detailed description of which types of products the tax code represents.",
@@ -366,7 +366,7 @@
                         "x-expansionResources": {
                             "oneOf": [
                                 {
-                                    "description": "Products describe the specific goods or services you offer to your customers.\nFor example, you might offer a Standard and Premium version of your goods or service; each version would be a separate Product.\nThey can be used in conjunction with [Prices](https://stripe.com/docs/api#prices) to configure pricing in Checkout and Subscriptions.\n\nRelated guides: [Set up a subscription](https://stripe.com/docs/billing/subscriptions/set-up-subscription) or accept [one-time payments with Checkout](https://stripe.com/docs/payments/checkout/client#create-products) and more about [Products and Prices](https://stripe.com/docs/billing/prices-guide)",
+                                    "description": "Products describe the specific goods or services you offer to your customers.\nFor example, you might offer a Standard and Premium version of your goods or service; each version would be a separate Product.\nThey can be used in conjunction with [Prices](https://stripe.com/docs/api#prices) to configure pricing in Payment Links, Checkout, and Subscriptions.\n\nRelated guides: [Set up a subscription](https://stripe.com/docs/billing/subscriptions/set-up-subscription),\n[share a Payment Link](https://stripe.com/docs/payments/payment-links/overview),\n[accept payments with Checkout](https://stripe.com/docs/payments/accept-a-payment#create-product-prices-upfront),\nand more about [Products and Prices](https://stripe.com/docs/products-prices/overview)",
                                     "properties": {
                                         "active": {
                                             "description": "Whether the product is currently available for purchase.",
@@ -409,7 +409,7 @@
                                             "type": "object"
                                         },
                                         "name": {
-                                            "description": "The product's name, meant to be displayable to the customer. Whenever this product is sold via a subscription, name will show up on associated invoice line item descriptions.",
+                                            "description": "The product's name, meant to be displayable to the customer.",
                                             "maxLength": 5000,
                                             "type": "string"
                                         },
@@ -474,7 +474,7 @@
                                                     "type": "string"
                                                 },
                                                 {
-                                                    "description": "[Tax codes](https://stripe.com/docs/tax/tax-codes) classify goods and services for tax purposes.",
+                                                    "description": "[Tax codes](https://stripe.com/docs/tax/tax-categories) classify goods and services for tax purposes.",
                                                     "properties": {
                                                         "description": {
                                                             "description": "A detailed description of which types of products the tax code represents.",
@@ -511,12 +511,12 @@
                                                     "x-resourceId": "tax_code"
                                                 }
                                             ],
-                                            "description": "A [tax code](https://stripe.com/docs/tax/tax-codes) ID.",
+                                            "description": "A [tax code](https://stripe.com/docs/tax/tax-categories) ID.",
                                             "nullable": true,
                                             "x-expansionResources": {
                                                 "oneOf": [
                                                     {
-                                                        "description": "[Tax codes](https://stripe.com/docs/tax/tax-codes) classify goods and services for tax purposes.",
+                                                        "description": "[Tax codes](https://stripe.com/docs/tax/tax-categories) classify goods and services for tax purposes.",
                                                         "properties": {
                                                             "description": {
                                                                 "description": "A detailed description of which types of products the tax code represents.",

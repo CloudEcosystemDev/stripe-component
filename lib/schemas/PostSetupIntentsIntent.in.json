@@ -124,6 +124,71 @@
                         },
                         "card": {
                             "properties": {
+                                "mandate_options": {
+                                    "properties": {
+                                        "amount": {
+                                            "type": "integer"
+                                        },
+                                        "amount_type": {
+                                            "enum": [
+                                                "fixed",
+                                                "maximum"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "currency": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "maxLength": 200,
+                                            "type": "string"
+                                        },
+                                        "end_date": {
+                                            "format": "unix-time",
+                                            "type": "integer"
+                                        },
+                                        "interval": {
+                                            "enum": [
+                                                "day",
+                                                "month",
+                                                "sporadic",
+                                                "week",
+                                                "year"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "interval_count": {
+                                            "type": "integer"
+                                        },
+                                        "reference": {
+                                            "maxLength": 80,
+                                            "type": "string"
+                                        },
+                                        "start_date": {
+                                            "format": "unix-time",
+                                            "type": "integer"
+                                        },
+                                        "supported_types": {
+                                            "items": {
+                                                "enum": [
+                                                    "india"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "amount",
+                                        "amount_type",
+                                        "currency",
+                                        "interval",
+                                        "reference",
+                                        "start_date"
+                                    ],
+                                    "title": "setup_intent_mandate_options_param",
+                                    "type": "object"
+                                },
                                 "request_three_d_secure": {
                                     "enum": [
                                         "any",
@@ -143,6 +208,21 @@
                                     "properties": {},
                                     "title": "payment_method_options_mandate_options_param",
                                     "type": "object"
+                                }
+                            },
+                            "title": "setup_intent_payment_method_options_param",
+                            "type": "object"
+                        },
+                        "us_bank_account": {
+                            "properties": {
+                                "verification_method": {
+                                    "enum": [
+                                        "automatic",
+                                        "instant",
+                                        "microdeposits"
+                                    ],
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
                                 }
                             },
                             "title": "setup_intent_payment_method_options_param",

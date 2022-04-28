@@ -78,5 +78,6 @@
         }
     ],
     "title": "Polymorphic",
-    "x-resourceId": "deleted_external_account"
+    "x-resourceId": "deleted_external_account",
+    "x-stripeBypassValidation": true
 }

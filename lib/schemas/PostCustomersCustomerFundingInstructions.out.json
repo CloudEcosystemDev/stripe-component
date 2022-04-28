@@ -1,0 +1,115 @@
+{
+    "description": "Each customer has a [`balance`](https://stripe.com/docs/api/customers/object#customer_object-balance) that is\nautomatically applied to future invoices and payments using the `customer_balance` payment method.\nCustomers can fund this balance by initiating a bank transfer to any account in the\n`financial_addresses` field.\nRelated guide: [Customer Balance - Funding Instructions](https://stripe.com/docs/payments/customer-balance/funding-instructions) to learn more",
+    "properties": {
+        "bank_transfer": {
+            "description": "",
+            "properties": {
+                "country": {
+                    "description": "The country of the bank account to fund",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
+                "financial_addresses": {
+                    "description": "A list of financial addresses that can be used to fund a particular balance",
+                    "items": {
+                        "description": "FinancialAddresses contain identifying information that resolves to a FinancialAccount.",
+                        "properties": {
+                            "supported_networks": {
+                                "description": "The payment networks supported by this FinancialAddress",
+                                "items": {
+                                    "enum": [
+                                        "sepa",
+                                        "zengin"
+                                    ],
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
+                                },
+                                "type": "array"
+                            },
+                            "type": {
+                                "description": "The type of financial address",
+                                "enum": [
+                                    "iban",
+                                    "zengin"
+                                ],
+                                "type": "string",
+                                "x-stripeBypassValidation": true
+                            },
+                            "zengin": {
+                                "description": "Zengin Records contain Japan bank account details per the Zengin format.",
+                                "properties": {},
+                                "title": "FundingInstructionsBankTransferZenginRecord",
+                                "type": "object",
+                                "x-expandableFields": []
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ],
+                        "title": "FundingInstructionsBankTransferFinancialAddress",
+                        "type": "object",
+                        "x-expandableFields": [
+                            "zengin"
+                        ]
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The bank_transfer type",
+                    "enum": [
+                        "eu_bank_transfer",
+                        "jp_bank_transfer"
+                    ],
+                    "type": "string",
+                    "x-stripeBypassValidation": true
+                }
+            },
+            "required": [
+                "country",
+                "financial_addresses",
+                "type"
+            ],
+            "title": "FundingInstructionsBankTransfer",
+            "type": "object",
+            "x-expandableFields": [
+                "financial_addresses"
+            ]
+        },
+        "currency": {
+            "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "funding_type": {
+            "description": "The `funding_type` of the returned instructions",
+            "enum": [
+                "bank_transfer"
+            ],
+            "type": "string"
+        },
+        "livemode": {
+            "description": "Has the value `true` if the object exists in live mode or the value `false` if the object exists in test mode.",
+            "type": "boolean"
+        },
+        "object": {
+            "description": "String representing the object's type. Objects of the same type share the same value.",
+            "enum": [
+                "funding_instructions"
+            ],
+            "type": "string"
+        }
+    },
+    "required": [
+        "bank_transfer",
+        "currency",
+        "funding_type",
+        "livemode",
+        "object"
+    ],
+    "title": "CustomerBalanceFundingInstructionsCustomerBalanceFundingInstructions",
+    "type": "object",
+    "x-expandableFields": [
+        "bank_transfer"
+    ],
+    "x-resourceId": "funding_instructions"
+}

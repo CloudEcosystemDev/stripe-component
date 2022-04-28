@@ -124,7 +124,17 @@
                             ]
                         },
                         "email": {
-                            "type": "string"
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
                         },
                         "name": {
                             "maxLength": 5000,
@@ -201,6 +211,12 @@
                     "maxLength": 5000,
                     "type": "string"
                 },
+                "customer_balance": {
+                    "description": "If this is a `customer_balance` PaymentMethod, this hash contains details about the CustomerBalance payment method.",
+                    "properties": {},
+                    "title": "param",
+                    "type": "object"
+                },
                 "eps": {
                     "description": "If this is an `eps` PaymentMethod, this hash contains details about the EPS payment method.",
                     "properties": {
@@ -255,6 +271,7 @@
                         "bank": {
                             "enum": [
                                 "affin_bank",
+                                "agrobank",
                                 "alliance_bank",
                                 "ambank",
                                 "bank_islam",
@@ -357,6 +374,12 @@
                     "title": "param",
                     "type": "object"
                 },
+                "konbini": {
+                    "description": "If this is a `konbini` PaymentMethod, this hash contains details about the Konbini payment method.",
+                    "properties": {},
+                    "title": "param",
+                    "type": "object"
+                },
                 "metadata": {
                     "additionalProperties": {
                         "type": "string"
@@ -401,8 +424,8 @@
                                 "toyota_bank",
                                 "volkswagen_bank"
                             ],
-                            "maxLength": 5000,
-                            "type": "string"
+                            "type": "string",
+                            "x-stripeBypassValidation": true
                         }
                     },
                     "title": "param",
@@ -412,6 +435,12 @@
                     "description": "The PaymentMethod to share.",
                     "maxLength": 5000,
                     "type": "string"
+                },
+                "paynow": {
+                    "description": "If this is a `paynow` PaymentMethod, this hash contains details about the PayNow payment method.",
+                    "properties": {},
+                    "title": "param",
+                    "type": "object"
                 },
                 "sepa_debit": {
                     "description": "If this is a `sepa_debit` PaymentMethod, this hash contains details about the SEPA debit bank account.",
@@ -459,20 +488,53 @@
                         "bancontact",
                         "boleto",
                         "card",
+                        "customer_balance",
                         "eps",
                         "fpx",
                         "giropay",
                         "grabpay",
                         "ideal",
                         "klarna",
+                        "konbini",
                         "oxxo",
                         "p24",
+                        "paynow",
                         "sepa_debit",
                         "sofort",
+                        "us_bank_account",
                         "wechat_pay"
                     ],
                     "type": "string",
                     "x-stripeBypassValidation": true
+                },
+                "us_bank_account": {
+                    "description": "If this is an `us_bank_account` PaymentMethod, this hash contains details about the US bank account payment method.",
+                    "properties": {
+                        "account_holder_type": {
+                            "enum": [
+                                "company",
+                                "individual"
+                            ],
+                            "type": "string"
+                        },
+                        "account_number": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        },
+                        "account_type": {
+                            "enum": [
+                                "checking",
+                                "savings"
+                            ],
+                            "type": "string"
+                        },
+                        "routing_number": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        }
+                    },
+                    "title": "payment_method_param",
+                    "type": "object"
                 },
                 "wechat_pay": {
                     "description": "If this is an `wechat_pay` PaymentMethod, this hash contains details about the wechat_pay payment method.",

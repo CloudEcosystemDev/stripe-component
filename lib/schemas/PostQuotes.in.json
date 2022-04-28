@@ -308,6 +308,11 @@
                     "title": "subscription_data_create_params",
                     "type": "object"
                 },
+                "test_clock": {
+                    "description": "ID of the test clock to attach to the quote.",
+                    "maxLength": 5000,
+                    "type": "string"
+                },
                 "transfer_data": {
                     "anyOf": [
                         {

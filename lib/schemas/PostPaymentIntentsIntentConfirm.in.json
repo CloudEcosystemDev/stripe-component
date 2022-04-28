@@ -264,7 +264,17 @@
                                     ]
                                 },
                                 "email": {
-                                    "type": "string"
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
                                 },
                                 "name": {
                                     "maxLength": 5000,
@@ -288,6 +298,11 @@
                             "required": [
                                 "tax_id"
                             ],
+                            "title": "param",
+                            "type": "object"
+                        },
+                        "customer_balance": {
+                            "properties": {},
                             "title": "param",
                             "type": "object"
                         },
@@ -335,6 +350,7 @@
                                 "bank": {
                                     "enum": [
                                         "affin_bank",
+                                        "agrobank",
                                         "alliance_bank",
                                         "ambank",
                                         "bank_islam",
@@ -432,6 +448,11 @@
                             "title": "param",
                             "type": "object"
                         },
+                        "konbini": {
+                            "properties": {},
+                            "title": "param",
+                            "type": "object"
+                        },
                         "metadata": {
                             "additionalProperties": {
                                 "type": "string"
@@ -473,10 +494,15 @@
                                         "toyota_bank",
                                         "volkswagen_bank"
                                     ],
-                                    "maxLength": 5000,
-                                    "type": "string"
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
                                 }
                             },
+                            "title": "param",
+                            "type": "object"
+                        },
+                        "paynow": {
+                            "properties": {},
                             "title": "param",
                             "type": "object"
                         },
@@ -522,20 +548,52 @@
                                 "bacs_debit",
                                 "bancontact",
                                 "boleto",
+                                "customer_balance",
                                 "eps",
                                 "fpx",
                                 "giropay",
                                 "grabpay",
                                 "ideal",
                                 "klarna",
+                                "konbini",
                                 "oxxo",
                                 "p24",
+                                "paynow",
                                 "sepa_debit",
                                 "sofort",
+                                "us_bank_account",
                                 "wechat_pay"
                             ],
                             "type": "string",
                             "x-stripeBypassValidation": true
+                        },
+                        "us_bank_account": {
+                            "properties": {
+                                "account_holder_type": {
+                                    "enum": [
+                                        "company",
+                                        "individual"
+                                    ],
+                                    "type": "string"
+                                },
+                                "account_number": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                },
+                                "account_type": {
+                                    "enum": [
+                                        "checking",
+                                        "savings"
+                                    ],
+                                    "type": "string"
+                                },
+                                "routing_number": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "title": "payment_method_param",
+                            "type": "object"
                         },
                         "wechat_pay": {
                             "properties": {},
@@ -594,6 +652,15 @@
                                             "title": "payment_intent_payment_method_options_mandate_options_param",
                                             "type": "object"
                                         },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session",
+                                                "on_session"
+                                            ],
+                                            "type": "string"
+                                        },
                                         "verification_method": {
                                             "enum": [
                                                 "automatic",
@@ -619,8 +686,21 @@
                             "anyOf": [
                                 {
                                     "properties": {
+                                        "capture_method": {
+                                            "enum": [
+                                                "",
+                                                "manual"
+                                            ],
+                                            "type": "string"
+                                        },
                                         "reference": {
                                             "maxLength": 128,
+                                            "type": "string"
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
                                             "type": "string"
                                         }
                                     },
@@ -638,7 +718,66 @@
                         "alipay": {
                             "anyOf": [
                                 {
-                                    "properties": {},
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "au_becs_debit": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session",
+                                                "on_session"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "payment_intent_payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "bacs_debit": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session",
+                                                "on_session"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
                                     "title": "payment_method_options_param",
                                     "type": "object"
                                 },
@@ -662,6 +801,14 @@
                                                 "nl"
                                             ],
                                             "type": "string"
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "title": "payment_method_options_param",
@@ -681,6 +828,15 @@
                                     "properties": {
                                         "expires_after_days": {
                                             "type": "integer"
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session",
+                                                "on_session"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "title": "payment_method_options_param",
@@ -698,6 +854,13 @@
                             "anyOf": [
                                 {
                                     "properties": {
+                                        "capture_method": {
+                                            "enum": [
+                                                "",
+                                                "manual"
+                                            ],
+                                            "type": "string"
+                                        },
                                         "cvc_token": {
                                             "maxLength": 5000,
                                             "type": "string"
@@ -747,6 +910,67 @@
                                             "title": "installments_param",
                                             "type": "object"
                                         },
+                                        "mandate_options": {
+                                            "properties": {
+                                                "amount": {
+                                                    "type": "integer"
+                                                },
+                                                "amount_type": {
+                                                    "enum": [
+                                                        "fixed",
+                                                        "maximum"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "maxLength": 200,
+                                                    "type": "string"
+                                                },
+                                                "end_date": {
+                                                    "format": "unix-time",
+                                                    "type": "integer"
+                                                },
+                                                "interval": {
+                                                    "enum": [
+                                                        "day",
+                                                        "month",
+                                                        "sporadic",
+                                                        "week",
+                                                        "year"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "interval_count": {
+                                                    "type": "integer"
+                                                },
+                                                "reference": {
+                                                    "maxLength": 80,
+                                                    "type": "string"
+                                                },
+                                                "start_date": {
+                                                    "format": "unix-time",
+                                                    "type": "integer"
+                                                },
+                                                "supported_types": {
+                                                    "items": {
+                                                        "enum": [
+                                                            "india"
+                                                        ],
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "amount",
+                                                "amount_type",
+                                                "interval",
+                                                "reference",
+                                                "start_date"
+                                            ],
+                                            "title": "mandate_options_param",
+                                            "type": "object"
+                                        },
                                         "network": {
                                             "enum": [
                                                 "amex",
@@ -772,6 +996,15 @@
                                             "maxLength": 5000,
                                             "type": "string",
                                             "x-stripeBypassValidation": true
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session",
+                                                "on_session"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "title": "payment_intent_param",
@@ -788,7 +1021,156 @@
                         "card_present": {
                             "anyOf": [
                                 {
-                                    "properties": {},
+                                    "properties": {
+                                        "request_extended_authorization": {
+                                            "type": "boolean"
+                                        },
+                                        "request_incremental_authorization_support": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "customer_balance": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "bank_transfer": {
+                                            "properties": {
+                                                "requested_address_types": {
+                                                    "items": {
+                                                        "enum": [
+                                                            "zengin"
+                                                        ],
+                                                        "type": "string",
+                                                        "x-stripeBypassValidation": true
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "type": {
+                                                    "enum": [
+                                                        "jp_bank_transfer"
+                                                    ],
+                                                    "type": "string",
+                                                    "x-stripeBypassValidation": true
+                                                }
+                                            },
+                                            "required": [
+                                                "type"
+                                            ],
+                                            "title": "bank_transfer_param",
+                                            "type": "object"
+                                        },
+                                        "funding_type": {
+                                            "enum": [
+                                                "bank_transfer"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "payment_intent_payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "eps": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "payment_intent_payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "fpx": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "giropay": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "grabpay": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
                                     "title": "payment_method_options_param",
                                     "type": "object"
                                 },
@@ -801,6 +1183,30 @@
                             ]
                         },
                         "ideal": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "interac_present": {
                             "anyOf": [
                                 {
                                     "properties": {},
@@ -819,23 +1225,37 @@
                             "anyOf": [
                                 {
                                     "properties": {
+                                        "capture_method": {
+                                            "enum": [
+                                                "",
+                                                "manual"
+                                            ],
+                                            "type": "string"
+                                        },
                                         "preferred_locale": {
                                             "enum": [
                                                 "da-DK",
                                                 "de-AT",
                                                 "de-DE",
                                                 "en-AT",
+                                                "en-BE",
                                                 "en-DE",
                                                 "en-DK",
+                                                "en-ES",
                                                 "en-FI",
+                                                "en-FR",
                                                 "en-GB",
+                                                "en-IE",
+                                                "en-IT",
                                                 "en-NL",
                                                 "en-NO",
                                                 "en-SE",
                                                 "en-US",
                                                 "es-ES",
+                                                "es-US",
                                                 "fi-FI",
                                                 "fr-BE",
+                                                "fr-FR",
                                                 "it-IT",
                                                 "nb-NO",
                                                 "nl-BE",
@@ -845,6 +1265,69 @@
                                             ],
                                             "type": "string",
                                             "x-stripeBypassValidation": true
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "konbini": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "confirmation_number": {
+                                            "maxLength": 11,
+                                            "type": "string"
+                                        },
+                                        "expires_after_days": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "integer"
+                                                },
+                                                {
+                                                    "enum": [
+                                                        ""
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "expires_at": {
+                                            "anyOf": [
+                                                {
+                                                    "format": "unix-time",
+                                                    "type": "integer"
+                                                },
+                                                {
+                                                    "enum": [
+                                                        ""
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "product_description": {
+                                            "maxLength": 22,
+                                            "type": "string"
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "title": "payment_method_options_param",
@@ -864,6 +1347,12 @@
                                     "properties": {
                                         "expires_after_days": {
                                             "type": "integer"
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "title": "payment_method_options_param",
@@ -881,8 +1370,36 @@
                             "anyOf": [
                                 {
                                     "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        },
                                         "tos_shown_and_accepted": {
                                             "type": "boolean"
+                                        }
+                                    },
+                                    "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "paynow": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "title": "payment_method_options_param",
@@ -904,6 +1421,15 @@
                                             "properties": {},
                                             "title": "payment_method_options_mandate_options_param",
                                             "type": "object"
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session",
+                                                "on_session"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "title": "payment_intent_payment_method_options_param",
@@ -933,9 +1459,51 @@
                                                 "pl"
                                             ],
                                             "type": "string"
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "title": "payment_method_options_param",
+                                    "type": "object"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "us_bank_account": {
+                            "anyOf": [
+                                {
+                                    "properties": {
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "",
+                                                "none",
+                                                "off_session",
+                                                "on_session"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "verification_method": {
+                                            "enum": [
+                                                "automatic",
+                                                "instant",
+                                                "microdeposits"
+                                            ],
+                                            "type": "string",
+                                            "x-stripeBypassValidation": true
+                                        }
+                                    },
+                                    "title": "payment_intent_payment_method_options_param",
                                     "type": "object"
                                 },
                                 {
@@ -962,6 +1530,12 @@
                                             ],
                                             "type": "string",
                                             "x-stripeBypassValidation": true
+                                        },
+                                        "setup_future_usage": {
+                                            "enum": [
+                                                "none"
+                                            ],
+                                            "type": "string"
                                         }
                                     },
                                     "required": [

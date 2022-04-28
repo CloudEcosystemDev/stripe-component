@@ -42,7 +42,8 @@
                                 "under_supported_age"
                             ],
                             "nullable": true,
-                            "type": "string"
+                            "type": "string",
+                            "x-stripeBypassValidation": true
                         },
                         "reason": {
                             "description": "A message that explains the reason for verification or user-session failure.",

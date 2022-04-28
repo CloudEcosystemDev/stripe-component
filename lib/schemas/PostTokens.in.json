@@ -138,6 +138,26 @@
                                 "owners_provided": {
                                     "type": "boolean"
                                 },
+                                "ownership_declaration": {
+                                    "properties": {
+                                        "date": {
+                                            "format": "unix-time",
+                                            "type": "integer"
+                                        },
+                                        "ip": {
+                                            "type": "string"
+                                        },
+                                        "user_agent": {
+                                            "maxLength": 5000,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "company_ownership_declaration",
+                                    "type": "object"
+                                },
+                                "ownership_declaration_shown_and_signed": {
+                                    "type": "boolean"
+                                },
                                 "phone": {
                                     "maxLength": 5000,
                                     "type": "string"
@@ -206,7 +226,7 @@
                                     "type": "object"
                                 }
                             },
-                            "title": "company_specs",
+                            "title": "connect_js_account_token_company_specs",
                             "type": "object"
                         },
                         "individual": {
@@ -355,11 +375,21 @@
                                     "type": "string"
                                 },
                                 "full_name_aliases": {
-                                    "items": {
-                                        "maxLength": 300,
-                                        "type": "string"
-                                    },
-                                    "type": "array"
+                                    "anyOf": [
+                                        {
+                                            "items": {
+                                                "maxLength": 300,
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
                                 },
                                 "gender": {
                                     "type": "string"
@@ -795,11 +825,21 @@
                             "type": "string"
                         },
                         "full_name_aliases": {
-                            "items": {
-                                "maxLength": 5000,
-                                "type": "string"
-                            },
-                            "type": "array"
+                            "anyOf": [
+                                {
+                                    "items": {
+                                        "maxLength": 5000,
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
                         },
                         "gender": {
                             "type": "string"

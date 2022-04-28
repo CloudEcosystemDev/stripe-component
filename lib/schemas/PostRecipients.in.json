@@ -5,13 +5,13 @@
             "additionalProperties": false,
             "properties": {
                 "bank_account": {
-                    "description": "A bank account to attach to the recipient. You can provide either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/stripe-js), or a dictionary containing a user's bank account details, with the options described below.",
+                    "description": "A bank account to attach to the recipient. You can provide either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/js), or a dictionary containing a user's bank account details, with the options described below.",
                     "maxLength": 5000,
                     "type": "string",
                     "x-stripeBypassValidation": true
                 },
                 "card": {
-                    "description": "A U.S. Visa or MasterCard debit card (_not_ prepaid) to attach to the recipient. If the debit card is not valid, recipient creation will fail. You can provide either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/stripe-js), or a dictionary containing a user's debit card details, with the options described below. Although not all information is required, the extra info helps prevent fraud.",
+                    "description": "A U.S. Visa or MasterCard debit card (_not_ prepaid) to attach to the recipient. If the debit card is not valid, recipient creation will fail. You can provide either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/js), or a dictionary containing a user's debit card details, with the options described below. Although not all information is required, the extra info helps prevent fraud.",
                     "maxLength": 5000,
                     "type": "string",
                     "x-stripeBypassValidation": true

@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "reader": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "card_present": {
+                    "description": "Simulated card present data",
+                    "properties": {
+                        "number": {
+                            "maxLength": 5000,
+                            "type": "string"
+                        }
+                    },
+                    "title": "card_present",
+                    "type": "object"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Simulated payment type",
+                    "enum": [
+                        "card_present"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

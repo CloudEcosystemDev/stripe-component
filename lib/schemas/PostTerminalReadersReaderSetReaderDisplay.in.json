@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "properties": {
+        "reader": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "cart": {
+                    "description": "Cart",
+                    "properties": {
+                        "currency": {
+                            "type": "string"
+                        },
+                        "line_items": {
+                            "items": {
+                                "properties": {
+                                    "amount": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "maxLength": 5000,
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "amount",
+                                    "description",
+                                    "quantity"
+                                ],
+                                "title": "line_item",
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "tax": {
+                            "type": "integer"
+                        },
+                        "total": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "currency",
+                        "line_items",
+                        "total"
+                    ],
+                    "title": "cart",
+                    "type": "object"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Type",
+                    "enum": [
+                        "cart"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}

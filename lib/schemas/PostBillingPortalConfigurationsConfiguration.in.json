@@ -21,10 +21,30 @@
                             "type": "string"
                         },
                         "privacy_policy_url": {
-                            "type": "string"
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
                         },
                         "terms_of_service_url": {
-                            "type": "string"
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
                         }
                     },
                     "title": "business_profile_update_param",
@@ -257,6 +277,23 @@
                     },
                     "title": "features_updating_param",
                     "type": "object"
+                },
+                "metadata": {
+                    "anyOf": [
+                        {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`."
                 }
             },
             "type": "object"

@@ -183,6 +183,26 @@
                     "description": "A token, like the ones returned by [Stripe.js](https://stripe.com/docs/js).",
                     "x-stripeBypassValidation": true
                 },
+                "cash_balance": {
+                    "description": "Balance information and default balance settings for this customer.",
+                    "properties": {
+                        "settings": {
+                            "properties": {
+                                "reconciliation_mode": {
+                                    "enum": [
+                                        "automatic",
+                                        "manual"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "title": "balance_settings_param",
+                            "type": "object"
+                        }
+                    },
+                    "title": "cash_balance_param",
+                    "type": "object"
+                },
                 "coupon": {
                     "maxLength": 5000,
                     "type": "string"

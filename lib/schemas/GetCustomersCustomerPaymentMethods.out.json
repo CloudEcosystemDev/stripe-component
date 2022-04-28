@@ -19,7 +19,6 @@
         "url": {
             "description": "The URL where this list can be accessed.",
             "maxLength": 5000,
-            "pattern": "^/v1/customers/:customer/payment_methods",
             "type": "string"
         }
     },
