@@ -292,6 +292,74 @@
                                             "type": "string"
                                         }
                                     ]
+                                },
+                                "customer_balance": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "bank_transfer": {
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "title": "bank_transfer_param",
+                                                    "type": "object"
+                                                },
+                                                "funding_type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "invoice_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "konbini": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {},
+                                            "title": "invoice_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "us_bank_account": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "verification_method": {
+                                                    "enum": [
+                                                        "automatic",
+                                                        "instant",
+                                                        "microdeposits"
+                                                    ],
+                                                    "type": "string",
+                                                    "x-stripeBypassValidation": true
+                                                }
+                                            },
+                                            "title": "invoice_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
                                 }
                             },
                             "title": "payment_method_options",
@@ -310,11 +378,16 @@
                                             "bancontact",
                                             "boleto",
                                             "card",
+                                            "customer_balance",
                                             "fpx",
                                             "giropay",
+                                            "grabpay",
                                             "ideal",
+                                            "konbini",
+                                            "paynow",
                                             "sepa_debit",
                                             "sofort",
+                                            "us_bank_account",
                                             "wechat_pay"
                                         ],
                                         "type": "string",

@@ -54,6 +54,11 @@
             "maxLength": 5000,
             "type": "string"
         },
+        "test_clock": {
+            "required": false,
+            "maxLength": 5000,
+            "type": "string"
+        },
         "requestBody": {
             "additionalProperties": false,
             "properties": {},

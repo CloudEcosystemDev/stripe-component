@@ -1,0 +1,423 @@
+{
+    "type": "object",
+    "properties": {
+        "payment_link": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "active": {
+                    "description": "Whether the payment link's `url` is active. If `false`, customers visiting the URL will be shown a page saying that the link has been deactivated.",
+                    "type": "boolean"
+                },
+                "after_completion": {
+                    "description": "Behavior after the purchase is complete.",
+                    "properties": {
+                        "hosted_confirmation": {
+                            "properties": {
+                                "custom_message": {
+                                    "maxLength": 500,
+                                    "type": "string"
+                                }
+                            },
+                            "title": "after_completion_confirmation_page_params",
+                            "type": "object"
+                        },
+                        "redirect": {
+                            "properties": {
+                                "url": {
+                                    "maxLength": 2048,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "url"
+                            ],
+                            "title": "after_completion_redirect_params",
+                            "type": "object"
+                        },
+                        "type": {
+                            "enum": [
+                                "hosted_confirmation",
+                                "redirect"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "title": "after_completion_params",
+                    "type": "object"
+                },
+                "allow_promotion_codes": {
+                    "description": "Enables user redeemable promotion codes.",
+                    "type": "boolean"
+                },
+                "automatic_tax": {
+                    "description": "Configuration for automatic tax collection.",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "enabled"
+                    ],
+                    "title": "automatic_tax_params",
+                    "type": "object"
+                },
+                "billing_address_collection": {
+                    "description": "Configuration for collecting the customer's billing address.",
+                    "enum": [
+                        "auto",
+                        "required"
+                    ],
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "line_items": {
+                    "description": "The line items representing what is being sold. Each line item represents an item being sold. Up to 20 line items are supported.",
+                    "items": {
+                        "properties": {
+                            "adjustable_quantity": {
+                                "properties": {
+                                    "enabled": {
+                                        "type": "boolean"
+                                    },
+                                    "maximum": {
+                                        "type": "integer"
+                                    },
+                                    "minimum": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "enabled"
+                                ],
+                                "title": "adjustable_quantity_params",
+                                "type": "object"
+                            },
+                            "id": {
+                                "maxLength": 5000,
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ],
+                        "title": "line_items_update_params",
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`. Metadata associated with this Payment Link will automatically be copied to [checkout sessions](https://stripe.com/docs/api/checkout/sessions) created by this payment link.",
+                    "type": "object"
+                },
+                "payment_method_types": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "enum": [
+                                    "card"
+                                ],
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The list of payment method types that customers can use. Only `card` is supported. Pass an empty string to enable automatic payment methods that use your [payment method settings](https://dashboard.stripe.com/settings/payment_methods)."
+                },
+                "shipping_address_collection": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "allowed_countries": {
+                                    "items": {
+                                        "enum": [
+                                            "AC",
+                                            "AD",
+                                            "AE",
+                                            "AF",
+                                            "AG",
+                                            "AI",
+                                            "AL",
+                                            "AM",
+                                            "AO",
+                                            "AQ",
+                                            "AR",
+                                            "AT",
+                                            "AU",
+                                            "AW",
+                                            "AX",
+                                            "AZ",
+                                            "BA",
+                                            "BB",
+                                            "BD",
+                                            "BE",
+                                            "BF",
+                                            "BG",
+                                            "BH",
+                                            "BI",
+                                            "BJ",
+                                            "BL",
+                                            "BM",
+                                            "BN",
+                                            "BO",
+                                            "BQ",
+                                            "BR",
+                                            "BS",
+                                            "BT",
+                                            "BV",
+                                            "BW",
+                                            "BY",
+                                            "BZ",
+                                            "CA",
+                                            "CD",
+                                            "CF",
+                                            "CG",
+                                            "CH",
+                                            "CI",
+                                            "CK",
+                                            "CL",
+                                            "CM",
+                                            "CN",
+                                            "CO",
+                                            "CR",
+                                            "CV",
+                                            "CW",
+                                            "CY",
+                                            "CZ",
+                                            "DE",
+                                            "DJ",
+                                            "DK",
+                                            "DM",
+                                            "DO",
+                                            "DZ",
+                                            "EC",
+                                            "EE",
+                                            "EG",
+                                            "EH",
+                                            "ER",
+                                            "ES",
+                                            "ET",
+                                            "FI",
+                                            "FJ",
+                                            "FK",
+                                            "FO",
+                                            "FR",
+                                            "GA",
+                                            "GB",
+                                            "GD",
+                                            "GE",
+                                            "GF",
+                                            "GG",
+                                            "GH",
+                                            "GI",
+                                            "GL",
+                                            "GM",
+                                            "GN",
+                                            "GP",
+                                            "GQ",
+                                            "GR",
+                                            "GS",
+                                            "GT",
+                                            "GU",
+                                            "GW",
+                                            "GY",
+                                            "HK",
+                                            "HN",
+                                            "HR",
+                                            "HT",
+                                            "HU",
+                                            "ID",
+                                            "IE",
+                                            "IL",
+                                            "IM",
+                                            "IN",
+                                            "IO",
+                                            "IQ",
+                                            "IS",
+                                            "IT",
+                                            "JE",
+                                            "JM",
+                                            "JO",
+                                            "JP",
+                                            "KE",
+                                            "KG",
+                                            "KH",
+                                            "KI",
+                                            "KM",
+                                            "KN",
+                                            "KR",
+                                            "KW",
+                                            "KY",
+                                            "KZ",
+                                            "LA",
+                                            "LB",
+                                            "LC",
+                                            "LI",
+                                            "LK",
+                                            "LR",
+                                            "LS",
+                                            "LT",
+                                            "LU",
+                                            "LV",
+                                            "LY",
+                                            "MA",
+                                            "MC",
+                                            "MD",
+                                            "ME",
+                                            "MF",
+                                            "MG",
+                                            "MK",
+                                            "ML",
+                                            "MM",
+                                            "MN",
+                                            "MO",
+                                            "MQ",
+                                            "MR",
+                                            "MS",
+                                            "MT",
+                                            "MU",
+                                            "MV",
+                                            "MW",
+                                            "MX",
+                                            "MY",
+                                            "MZ",
+                                            "NA",
+                                            "NC",
+                                            "NE",
+                                            "NG",
+                                            "NI",
+                                            "NL",
+                                            "NO",
+                                            "NP",
+                                            "NR",
+                                            "NU",
+                                            "NZ",
+                                            "OM",
+                                            "PA",
+                                            "PE",
+                                            "PF",
+                                            "PG",
+                                            "PH",
+                                            "PK",
+                                            "PL",
+                                            "PM",
+                                            "PN",
+                                            "PR",
+                                            "PS",
+                                            "PT",
+                                            "PY",
+                                            "QA",
+                                            "RE",
+                                            "RO",
+                                            "RS",
+                                            "RU",
+                                            "RW",
+                                            "SA",
+                                            "SB",
+                                            "SC",
+                                            "SE",
+                                            "SG",
+                                            "SH",
+                                            "SI",
+                                            "SJ",
+                                            "SK",
+                                            "SL",
+                                            "SM",
+                                            "SN",
+                                            "SO",
+                                            "SR",
+                                            "SS",
+                                            "ST",
+                                            "SV",
+                                            "SX",
+                                            "SZ",
+                                            "TA",
+                                            "TC",
+                                            "TD",
+                                            "TF",
+                                            "TG",
+                                            "TH",
+                                            "TJ",
+                                            "TK",
+                                            "TL",
+                                            "TM",
+                                            "TN",
+                                            "TO",
+                                            "TR",
+                                            "TT",
+                                            "TV",
+                                            "TW",
+                                            "TZ",
+                                            "UA",
+                                            "UG",
+                                            "US",
+                                            "UY",
+                                            "UZ",
+                                            "VA",
+                                            "VC",
+                                            "VE",
+                                            "VG",
+                                            "VN",
+                                            "VU",
+                                            "WF",
+                                            "WS",
+                                            "XK",
+                                            "YE",
+                                            "YT",
+                                            "ZA",
+                                            "ZM",
+                                            "ZW",
+                                            "ZZ"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "allowed_countries"
+                            ],
+                            "title": "shipping_address_collection_params",
+                            "type": "object"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Configuration for collecting the customer's shipping address."
+                }
+            },
+            "type": "object"
+        }
+    }
+}

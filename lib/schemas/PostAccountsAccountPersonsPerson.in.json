@@ -220,12 +220,22 @@
                     "type": "string"
                 },
                 "full_name_aliases": {
-                    "description": "A list of alternate names or aliases that the person is known by.",
-                    "items": {
-                        "maxLength": 5000,
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "anyOf": [
+                        {
+                            "items": {
+                                "maxLength": 5000,
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "A list of alternate names or aliases that the person is known by."
                 },
                 "gender": {
                     "description": "The person's gender (International regulations require either \"male\" or \"female\").",

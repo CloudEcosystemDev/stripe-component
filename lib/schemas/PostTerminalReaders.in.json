@@ -18,7 +18,7 @@
                     "type": "string"
                 },
                 "location": {
-                    "description": "The location to assign the reader to. If no location is specified, the reader will be assigned to the account's default location.",
+                    "description": "The location to assign the reader to.",
                     "maxLength": 5000,
                     "type": "string"
                 },

@@ -3,7 +3,7 @@
     "properties": {
         "data": {
             "items": {
-                "description": "[Tax codes](https://stripe.com/docs/tax/tax-codes) classify goods and services for tax purposes.",
+                "description": "[Tax codes](https://stripe.com/docs/tax/tax-categories) classify goods and services for tax purposes.",
                 "properties": {
                     "description": {
                         "description": "A detailed description of which types of products the tax code represents.",

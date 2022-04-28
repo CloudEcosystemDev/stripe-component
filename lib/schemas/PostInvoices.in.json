@@ -272,6 +272,74 @@
                                             "type": "string"
                                         }
                                     ]
+                                },
+                                "customer_balance": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "bank_transfer": {
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "title": "bank_transfer_param",
+                                                    "type": "object"
+                                                },
+                                                "funding_type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "invoice_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "konbini": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {},
+                                            "title": "invoice_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "us_bank_account": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "verification_method": {
+                                                    "enum": [
+                                                        "automatic",
+                                                        "instant",
+                                                        "microdeposits"
+                                                    ],
+                                                    "type": "string",
+                                                    "x-stripeBypassValidation": true
+                                                }
+                                            },
+                                            "title": "invoice_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
                                 }
                             },
                             "title": "payment_method_options",
@@ -290,11 +358,16 @@
                                             "bancontact",
                                             "boleto",
                                             "card",
+                                            "customer_balance",
                                             "fpx",
                                             "giropay",
+                                            "grabpay",
                                             "ideal",
+                                            "konbini",
+                                            "paynow",
                                             "sepa_debit",
                                             "sofort",
+                                            "us_bank_account",
                                             "wechat_pay"
                                         ],
                                         "type": "string",
@@ -313,6 +386,15 @@
                     },
                     "title": "payment_settings",
                     "type": "object"
+                },
+                "pending_invoice_items_behavior": {
+                    "description": "How to handle pending invoice items on invoice creation. One of `include`, `exclude`, or `include_and_require`. `include` will include any pending invoice items, and will create an empty draft invoice if no pending invoice items exist. `include_and_require` will include any pending invoice items, if no pending invoice items exist then the request will fail. `exclude` will always create an empty invoice draft regardless if there are pending invoice items or not. Defaults to `include_and_require` if the parameter is omitted.",
+                    "enum": [
+                        "exclude",
+                        "include",
+                        "include_and_require"
+                    ],
+                    "type": "string"
                 },
                 "statement_descriptor": {
                     "description": "Extra information about a charge for the customer's credit card statement. It must contain at least one letter. If not specified and this invoice is part of a subscription, the default `statement_descriptor` will be set to the first subscription item's product's `statement_descriptor`.",
@@ -341,9 +423,6 @@
                     "type": "object"
                 }
             },
-            "required": [
-                "customer"
-            ],
             "type": "object"
         }
     }

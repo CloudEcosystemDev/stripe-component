@@ -503,14 +503,11 @@
                     "type": "object"
                 },
                 "transaction": {
-                    "description": "The ID of the issuing transaction to create a dispute for.",
+                    "description": "The ID of the issuing transaction to create a dispute for. For transaction on Treasury FinancialAccounts, use `treasury.received_debit`.",
                     "maxLength": 5000,
                     "type": "string"
                 }
             },
-            "required": [
-                "transaction"
-            ],
             "type": "object"
         }
     }

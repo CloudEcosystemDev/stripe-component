@@ -49,6 +49,26 @@
                     "description": "An integer amount in %s that represents the customer's current balance, which affect the customer's future invoices. A negative amount represents a credit that decreases the amount due on an invoice; a positive amount increases the amount due on an invoice.",
                     "type": "integer"
                 },
+                "cash_balance": {
+                    "description": "Balance information and default balance settings for this customer.",
+                    "properties": {
+                        "settings": {
+                            "properties": {
+                                "reconciliation_mode": {
+                                    "enum": [
+                                        "automatic",
+                                        "manual"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "title": "balance_settings_param",
+                            "type": "object"
+                        }
+                    },
+                    "title": "cash_balance_param",
+                    "type": "object"
+                },
                 "coupon": {
                     "maxLength": 5000,
                     "type": "string"
@@ -273,6 +293,7 @@
                                     "ae_trn",
                                     "au_abn",
                                     "au_arn",
+                                    "bg_uic",
                                     "br_cnpj",
                                     "br_cpf",
                                     "ca_bn",
@@ -286,10 +307,13 @@
                                     "es_cif",
                                     "eu_vat",
                                     "gb_vat",
+                                    "ge_vat",
                                     "hk_br",
+                                    "hu_tin",
                                     "id_npwp",
                                     "il_vat",
                                     "in_gst",
+                                    "is_vat",
                                     "jp_cn",
                                     "jp_rn",
                                     "kr_brn",
@@ -305,8 +329,10 @@
                                     "sa_vat",
                                     "sg_gst",
                                     "sg_uen",
+                                    "si_tin",
                                     "th_vat",
                                     "tw_vat",
+                                    "ua_vat",
                                     "us_ein",
                                     "za_vat"
                                 ],
@@ -326,6 +352,11 @@
                         "type": "object"
                     },
                     "type": "array"
+                },
+                "test_clock": {
+                    "description": "ID of the test clock to attach to the customer.",
+                    "maxLength": 5000,
+                    "type": "string"
                 }
             },
             "type": "object"

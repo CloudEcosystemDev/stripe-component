@@ -209,6 +209,15 @@
                             "title": "capability_param",
                             "type": "object"
                         },
+                        "bank_transfer_payments": {
+                            "properties": {
+                                "requested": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "title": "capability_param",
+                            "type": "object"
+                        },
                         "boleto_payments": {
                             "properties": {
                                 "requested": {
@@ -308,6 +317,15 @@
                             "title": "capability_param",
                             "type": "object"
                         },
+                        "konbini_payments": {
+                            "properties": {
+                                "requested": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "title": "capability_param",
+                            "type": "object"
+                        },
                         "legacy_payments": {
                             "properties": {
                                 "requested": {
@@ -327,6 +345,15 @@
                             "type": "object"
                         },
                         "p24_payments": {
+                            "properties": {
+                                "requested": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "title": "capability_param",
+                            "type": "object"
+                        },
+                        "paynow_payments": {
                             "properties": {
                                 "requested": {
                                     "type": "boolean"
@@ -372,6 +399,15 @@
                             "type": "object"
                         },
                         "transfers": {
+                            "properties": {
+                                "requested": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "title": "capability_param",
+                            "type": "object"
+                        },
+                        "us_bank_account_ach_payments": {
                             "properties": {
                                 "requested": {
                                     "type": "boolean"
@@ -505,6 +541,23 @@
                         },
                         "owners_provided": {
                             "type": "boolean"
+                        },
+                        "ownership_declaration": {
+                            "properties": {
+                                "date": {
+                                    "format": "unix-time",
+                                    "type": "integer"
+                                },
+                                "ip": {
+                                    "type": "string"
+                                },
+                                "user_agent": {
+                                    "maxLength": 5000,
+                                    "type": "string"
+                                }
+                            },
+                            "title": "company_ownership_declaration",
+                            "type": "object"
                         },
                         "phone": {
                             "maxLength": 5000,
@@ -661,6 +714,19 @@
                             },
                             "title": "documents_param",
                             "type": "object"
+                        },
+                        "proof_of_registration": {
+                            "properties": {
+                                "files": {
+                                    "items": {
+                                        "maxLength": 500,
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "title": "documents_param",
+                            "type": "object"
                         }
                     },
                     "title": "documents_specs",
@@ -679,7 +745,7 @@
                     "type": "array"
                 },
                 "external_account": {
-                    "description": "A card or bank account to attach to the account for receiving [payouts](https://stripe.com/docs/connect/bank-debit-card-payouts) (you won’t be able to use it for top-ups). You can provide either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/stripe-js), or a dictionary, as documented in the `external_account` parameter for [bank account](https://stripe.com/docs/api#account_create_bank_account) creation. <br><br>By default, providing an external account sets it as the new default external account for its currency, and deletes the old default if one exists. To add additional external accounts without replacing the existing default for the currency, use the bank account or card creation API.",
+                    "description": "A card or bank account to attach to the account for receiving [payouts](https://stripe.com/docs/connect/bank-debit-card-payouts) (you won’t be able to use it for top-ups). You can provide either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/js), or a dictionary, as documented in the `external_account` parameter for [bank account](https://stripe.com/docs/api#account_create_bank_account) creation. <br><br>By default, providing an external account sets it as the new default external account for its currency, and deletes the old default if one exists. To add additional external accounts without replacing the existing default for the currency, use the bank account or card creation API.",
                     "maxLength": 5000,
                     "type": "string",
                     "x-stripeBypassValidation": true
@@ -831,11 +897,21 @@
                             "type": "string"
                         },
                         "full_name_aliases": {
-                            "items": {
-                                "maxLength": 300,
-                                "type": "string"
-                            },
-                            "type": "array"
+                            "anyOf": [
+                                {
+                                    "items": {
+                                        "maxLength": 300,
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                {
+                                    "enum": [
+                                        ""
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
                         },
                         "gender": {
                             "type": "string"

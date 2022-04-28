@@ -10,7 +10,7 @@
             "additionalProperties": false,
             "properties": {
                 "auto_advance": {
-                    "description": "Controls whether Stripe will perform [automatic collection](https://stripe.com/docs/billing/invoices/overview#auto-advance) of the invoice. When `false`, the invoice's state will not automatically advance without an explicit action.",
+                    "description": "Controls whether Stripe will perform [automatic collection](https://stripe.com/docs/invoicing/automatic-charging) of the invoice. When `false`, the invoice's state will not automatically advance without an explicit action.",
                     "type": "boolean"
                 },
                 "expand": {

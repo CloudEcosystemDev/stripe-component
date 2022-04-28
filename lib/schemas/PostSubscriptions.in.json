@@ -407,12 +407,100 @@
                                     "anyOf": [
                                         {
                                             "properties": {
+                                                "mandate_options": {
+                                                    "properties": {
+                                                        "amount": {
+                                                            "type": "integer"
+                                                        },
+                                                        "amount_type": {
+                                                            "enum": [
+                                                                "fixed",
+                                                                "maximum"
+                                                            ],
+                                                            "type": "string"
+                                                        },
+                                                        "description": {
+                                                            "maxLength": 200,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "title": "mandate_options_param",
+                                                    "type": "object"
+                                                },
                                                 "request_three_d_secure": {
                                                     "enum": [
                                                         "any",
                                                         "automatic"
                                                     ],
                                                     "type": "string"
+                                                }
+                                            },
+                                            "title": "subscription_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "customer_balance": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "bank_transfer": {
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "title": "bank_transfer_param",
+                                                    "type": "object"
+                                                },
+                                                "funding_type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "invoice_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "konbini": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {},
+                                            "title": "invoice_payment_method_options_param",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "us_bank_account": {
+                                    "anyOf": [
+                                        {
+                                            "properties": {
+                                                "verification_method": {
+                                                    "enum": [
+                                                        "automatic",
+                                                        "instant",
+                                                        "microdeposits"
+                                                    ],
+                                                    "type": "string",
+                                                    "x-stripeBypassValidation": true
                                                 }
                                             },
                                             "title": "invoice_payment_method_options_param",
@@ -443,11 +531,16 @@
                                             "bancontact",
                                             "boleto",
                                             "card",
+                                            "customer_balance",
                                             "fpx",
                                             "giropay",
+                                            "grabpay",
                                             "ideal",
+                                            "konbini",
+                                            "paynow",
                                             "sepa_debit",
                                             "sofort",
+                                            "us_bank_account",
                                             "wechat_pay"
                                         ],
                                         "type": "string",
@@ -543,14 +636,14 @@
                             "type": "integer"
                         }
                     ],
-                    "description": "Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. This will always overwrite any trials that might apply via a subscribed plan. If set, trial_end will override the default trial period of the plan the customer is being subscribed to. The special value `now` can be provided to end the customer's trial immediately. Can be at most two years from `billing_cycle_anchor`."
+                    "description": "Unix timestamp representing the end of the trial period the customer will get before being charged for the first time. This will always overwrite any trials that might apply via a subscribed plan. If set, trial_end will override the default trial period of the plan the customer is being subscribed to. The special value `now` can be provided to end the customer's trial immediately. Can be at most two years from `billing_cycle_anchor`. See [Using trial periods on subscriptions](https://stripe.com/docs/billing/subscriptions/trials) to learn more."
                 },
                 "trial_from_plan": {
-                    "description": "Indicates if a plan's `trial_period_days` should be applied to the subscription. Setting `trial_end` per subscription is preferred, and this defaults to `false`. Setting this flag to `true` together with `trial_end` is not allowed.",
+                    "description": "Indicates if a plan's `trial_period_days` should be applied to the subscription. Setting `trial_end` per subscription is preferred, and this defaults to `false`. Setting this flag to `true` together with `trial_end` is not allowed. See [Using trial periods on subscriptions](https://stripe.com/docs/billing/subscriptions/trials) to learn more.",
                     "type": "boolean"
                 },
                 "trial_period_days": {
-                    "description": "Integer representing the number of trial period days before the customer is charged for the first time. This will always overwrite any trials that might apply via a subscribed plan.",
+                    "description": "Integer representing the number of trial period days before the customer is charged for the first time. This will always overwrite any trials that might apply via a subscribed plan. See [Using trial periods on subscriptions](https://stripe.com/docs/billing/subscriptions/trials) to learn more.",
                     "type": "integer"
                 }
             },

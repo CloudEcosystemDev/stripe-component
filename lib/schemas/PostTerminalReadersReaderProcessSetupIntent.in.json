@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "reader": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "customer_consent_collected": {
+                    "description": "Customer Consent Collected",
+                    "type": "boolean"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "setup_intent": {
+                    "description": "SetupIntent ID",
+                    "maxLength": 5000,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "customer_consent_collected",
+                "setup_intent"
+            ],
+            "type": "object"
+        }
+    }
+}

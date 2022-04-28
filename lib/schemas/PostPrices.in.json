@@ -29,8 +29,8 @@
                     "type": "array"
                 },
                 "lookup_key": {
-                    "description": "A lookup key used to retrieve prices dynamically from a static string.",
-                    "maxLength": 5000,
+                    "description": "A lookup key used to retrieve prices dynamically from a static string. This may be up to 200 characters.",
+                    "maxLength": 200,
                     "type": "string"
                 },
                 "metadata": {

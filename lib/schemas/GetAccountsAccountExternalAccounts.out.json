@@ -8,7 +8,8 @@
                     {},
                     {}
                 ],
-                "title": "Polymorphic"
+                "title": "Polymorphic",
+                "x-stripeBypassValidation": true
             },
             "type": "array"
         },

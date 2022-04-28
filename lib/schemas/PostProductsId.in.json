@@ -61,7 +61,7 @@
                     "description": "Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`."
                 },
                 "name": {
-                    "description": "The product's name, meant to be displayable to the customer. Whenever this product is sold via a subscription, name will show up on associated invoice line item descriptions.",
+                    "description": "The product's name, meant to be displayable to the customer.",
                     "maxLength": 5000,
                     "type": "string"
                 },
@@ -121,7 +121,7 @@
                             "type": "string"
                         }
                     ],
-                    "description": "A [tax code](https://stripe.com/docs/tax/tax-codes) ID."
+                    "description": "A [tax code](https://stripe.com/docs/tax/tax-categories) ID."
                 },
                 "unit_label": {
                     "description": "A label that represents units of this product in Stripe and on customers’ receipts and invoices. When set, this will be included in associated invoice line item descriptions. May only be set if `type=service`.",
@@ -129,8 +129,18 @@
                     "type": "string"
                 },
                 "url": {
-                    "description": "A URL of a publicly-accessible webpage for this product.",
-                    "type": "string"
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "enum": [
+                                ""
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "description": "A URL of a publicly-accessible webpage for this product."
                 }
             },
             "type": "object"

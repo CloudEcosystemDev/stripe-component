@@ -75,8 +75,16 @@
                     "type": "object"
                 },
                 "customer": {
-                    "description": "ID of an existing Customer, if one exists. In `payment` mode, the customer’s most recent card\npayment method will be used to prefill the email, name, card details, and billing address\non the Checkout page. In `subscription` mode, the customer’s [default payment method](https://stripe.com/docs/api/customers/update#update_customer-invoice_settings-default_payment_method)\nwill be used if it’s a card, and otherwise the most recent card will be used. A valid billing address is required for Checkout to prefill the customer's card details.\n\nIf the customer changes their email on the Checkout page, the Customer object will be updated with the new email.\n\nIf blank for Checkout Sessions in `payment` or `subscription` mode, Checkout will create a new Customer object based on information provided during the payment flow.\n\nYou can set [`payment_intent_data.setup_future_usage`](https://stripe.com/docs/api/checkout/sessions/create#create_checkout_session-payment_intent_data-setup_future_usage) to have Checkout automatically attach the payment method to the Customer you pass in for future reuse.",
+                    "description": "ID of an existing Customer, if one exists. In `payment` mode, the customer’s most recent card\npayment method will be used to prefill the email, name, card details, and billing address\non the Checkout page. In `subscription` mode, the customer’s [default payment method](https://stripe.com/docs/api/customers/update#update_customer-invoice_settings-default_payment_method)\nwill be used if it’s a card, and otherwise the most recent card will be used. A valid billing address, billing name and billing email are required on the payment method for Checkout to prefill the customer's card details.\n\nIf the Customer already has a valid [email](https://stripe.com/docs/api/customers/object#customer_object-email) set, the email will be prefilled and not editable in Checkout.\nIf the Customer does not have a valid `email`, Checkout will set the email entered during the session on the Customer.\n\nIf blank for Checkout Sessions in `payment` or `subscription` mode, Checkout will create a new Customer object based on information provided during the payment flow.\n\nYou can set [`payment_intent_data.setup_future_usage`](https://stripe.com/docs/api/checkout/sessions/create#create_checkout_session-payment_intent_data-setup_future_usage) to have Checkout automatically attach the payment method to the Customer you pass in for future reuse.",
                     "maxLength": 5000,
+                    "type": "string"
+                },
+                "customer_creation": {
+                    "description": "Configure whether a Checkout Session creates a [Customer](https://stripe.com/docs/api/customers) during Session confirmation.\n\nWhen a Customer is not created, you can still retrieve email, address, and other customer data entered in Checkout\nwith [customer_details](https://stripe.com/docs/api/checkout/sessions/object#checkout_session_object-customer_details).\n\nSessions that don't create Customers instead create [Guest Customers](https://support.stripe.com/questions/guest-customer-faq)\nin the Dashboard. Promotion codes limited to first time customers will return invalid for these Sessions.\n\nCan only be set in `payment` and `setup` mode.",
+                    "enum": [
+                        "always",
+                        "if_required"
+                    ],
                     "type": "string"
                 },
                 "customer_email": {
@@ -167,33 +175,12 @@
                                 "title": "adjustable_quantity_params",
                                 "type": "object"
                             },
-                            "amount": {
-                                "type": "integer"
-                            },
-                            "currency": {
-                                "type": "string"
-                            },
-                            "description": {
-                                "maxLength": 5000,
-                                "type": "string"
-                            },
                             "dynamic_tax_rates": {
                                 "items": {
                                     "maxLength": 5000,
                                     "type": "string"
                                 },
                                 "type": "array"
-                            },
-                            "images": {
-                                "items": {
-                                    "maxLength": 5000,
-                                    "type": "string"
-                                },
-                                "type": "array"
-                            },
-                            "name": {
-                                "maxLength": 5000,
-                                "type": "string"
                             },
                             "price": {
                                 "maxLength": 5000,
@@ -391,7 +378,6 @@
                             "type": "string"
                         },
                         "receipt_email": {
-                            "maxLength": 5000,
                             "type": "string"
                         },
                         "setup_future_usage": {
@@ -572,10 +558,43 @@
                             "title": "payment_method_options_param",
                             "type": "object"
                         },
+                        "konbini": {
+                            "properties": {
+                                "expires_after_days": {
+                                    "anyOf": [
+                                        {
+                                            "type": "integer"
+                                        },
+                                        {
+                                            "enum": [
+                                                ""
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            },
+                            "title": "payment_method_options_param",
+                            "type": "object"
+                        },
                         "oxxo": {
                             "properties": {
                                 "expires_after_days": {
                                     "type": "integer"
+                                }
+                            },
+                            "title": "payment_method_options_param",
+                            "type": "object"
+                        },
+                        "us_bank_account": {
+                            "properties": {
+                                "verification_method": {
+                                    "enum": [
+                                        "automatic",
+                                        "instant"
+                                    ],
+                                    "type": "string",
+                                    "x-stripeBypassValidation": true
                                 }
                             },
                             "title": "payment_method_options_param",
@@ -614,6 +633,7 @@
                             "acss_debit",
                             "afterpay_clearpay",
                             "alipay",
+                            "au_becs_debit",
                             "bacs_debit",
                             "bancontact",
                             "boleto",
@@ -623,10 +643,14 @@
                             "giropay",
                             "grabpay",
                             "ideal",
+                            "klarna",
+                            "konbini",
                             "oxxo",
                             "p24",
+                            "paynow",
                             "sepa_debit",
                             "sofort",
+                            "us_bank_account",
                             "wechat_pay"
                         ],
                         "type": "string",
@@ -922,10 +946,121 @@
                     "title": "shipping_address_collection_params",
                     "type": "object"
                 },
-                "shipping_rates": {
-                    "description": "The shipping rate to apply to this Session. Currently, only up to one may be specified.",
+                "shipping_options": {
+                    "description": "The shipping rate options to apply to this Session.",
                     "items": {
-                        "type": "string"
+                        "properties": {
+                            "shipping_rate": {
+                                "maxLength": 5000,
+                                "type": "string"
+                            },
+                            "shipping_rate_data": {
+                                "properties": {
+                                    "delivery_estimate": {
+                                        "properties": {
+                                            "maximum": {
+                                                "properties": {
+                                                    "unit": {
+                                                        "enum": [
+                                                            "business_day",
+                                                            "day",
+                                                            "hour",
+                                                            "month",
+                                                            "week"
+                                                        ],
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "unit",
+                                                    "value"
+                                                ],
+                                                "title": "delivery_estimate_bound",
+                                                "type": "object"
+                                            },
+                                            "minimum": {
+                                                "properties": {
+                                                    "unit": {
+                                                        "enum": [
+                                                            "business_day",
+                                                            "day",
+                                                            "hour",
+                                                            "month",
+                                                            "week"
+                                                        ],
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "unit",
+                                                    "value"
+                                                ],
+                                                "title": "delivery_estimate_bound",
+                                                "type": "object"
+                                            }
+                                        },
+                                        "title": "delivery_estimate",
+                                        "type": "object"
+                                    },
+                                    "display_name": {
+                                        "maxLength": 100,
+                                        "type": "string"
+                                    },
+                                    "fixed_amount": {
+                                        "properties": {
+                                            "amount": {
+                                                "type": "integer"
+                                            },
+                                            "currency": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "amount",
+                                            "currency"
+                                        ],
+                                        "title": "fixed_amount",
+                                        "type": "object"
+                                    },
+                                    "metadata": {
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        },
+                                        "type": "object"
+                                    },
+                                    "tax_behavior": {
+                                        "enum": [
+                                            "exclusive",
+                                            "inclusive",
+                                            "unspecified"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "tax_code": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "enum": [
+                                            "fixed_amount"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "display_name"
+                                ],
+                                "title": "method_params",
+                                "type": "object"
+                            }
+                        },
+                        "title": "shipping_option_params",
+                        "type": "object"
                     },
                     "type": "array"
                 },
@@ -1011,7 +1146,7 @@
                     "type": "object"
                 },
                 "success_url": {
-                    "description": "The URL to which Stripe should send customers when payment or setup\nis complete.\nIf you’d like access to the Checkout Session for the successful\npayment, read more about it in the guide on [fulfilling orders](https://stripe.com/docs/payments/checkout/fulfill-orders).",
+                    "description": "The URL to which Stripe should send customers when payment or setup\nis complete.\nIf you’d like to use information from the successful Checkout Session on your page,\nread the guide on [customizing your success page](https://stripe.com/docs/payments/checkout/custom-success-page).",
                     "maxLength": 5000,
                     "type": "string"
                 },

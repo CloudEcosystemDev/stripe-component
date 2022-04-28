@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "test_clock": {
+            "required": true,
+            "maxLength": 5000,
+            "type": "string"
+        },
+        "requestBody": {
+            "additionalProperties": false,
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "maxLength": 5000,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "frozen_time": {
+                    "description": "The time to advance the test clock. Must be after the test clock's current frozen time. Cannot be more than two intervals in the future from the shortest subscription in this test clock. If there are no subscriptions in this test clock, it cannot be more than two years in the future.",
+                    "format": "unix-time",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "frozen_time"
+            ],
+            "type": "object"
+        }
+    }
+}

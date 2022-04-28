@@ -1,5 +1,5 @@
 {
-    "description": "A Location represents a grouping of readers.\n\nRelated guide: [Fleet Management](https://stripe.com/docs/terminal/creating-locations).",
+    "description": "A Location represents a grouping of readers.\n\nRelated guide: [Fleet Management](https://stripe.com/docs/terminal/fleet/locations).",
     "properties": {
         "address": {
             "description": "",
@@ -44,6 +44,11 @@
             "title": "Address",
             "type": "object",
             "x-expandableFields": []
+        },
+        "configuration_overrides": {
+            "description": "The ID of a configuration that will be used to customize all readers in this location.",
+            "maxLength": 5000,
+            "type": "string"
         },
         "display_name": {
             "description": "The display name of the location.",

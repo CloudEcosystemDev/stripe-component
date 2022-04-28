@@ -68,6 +68,7 @@
                     "enum": [
                         "gst",
                         "hst",
+                        "jct",
                         "pst",
                         "qst",
                         "rst",
